@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Explainer: What Is Chip Binning?</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                            
+                             
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/stock.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Electronics</a></div>
+                        <h3>Explainer: What Is Chip Binning?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 11, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+
+                            <p>You've just bought a new CPU or graphics card, and fired it up in your PC. It seems to run pretty cool, so you try a bit of overclocking. The GHz climbs higher and higher, and it looks like you've got yourself something special. It's surely not supposed to be like this? <br>
+                                <br>
+
+                                So you rush to the internet to share your excitement of hitting the silicon jackpot, and within a few posts, somebody proclaims that you've got yourself a binned chip. <br>
+                                <br>
+                                
+                                Now, if you're picturing an engineer rummaging about in a trash can and proudly pulling out a golden ticket, then you really need to read this explainer! Welcome to the magical world of processor fabrication and chip binning.</p>
+                             <h4>Wafers to die for</h4>
+                             <p>All chips are made out of discs of ultra-pure silicon, layered with metals, insulators, and semi-conducting materials, whether it's a standard CPU, specialized graphics processor, or DRAM to become system memory. The whole process is hugely complex and the manufacturing plants required to build the latest chips in huge volumes, cost billions of dollars.</p>
+                             
+                             <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/B1.png">
+                                    
+                                    Inside a modern chip fabrication plant. Source: TSMC
+                                </figure>
+                            </div> 
+                            <p>These discs are known as wafers and the likes of Intel, GlobalFoundries, and TSMC churn out millions of them every year. The highest quality tools are needed to ensure that the final product matches the ultra-accurate plans from the engineers who designed the chips. <br>
+                                <br>
+
+                                To keep everything as near to perfection as it can be, factories' production areas are slightly pressurized to keep airborne bacteria and dust particles out of the rooms. Workers wear protective gear to ensure as little of their skin cells and hair can enter the machinery.</p>
+                            
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/B2.png">
+                                        
+                                        The cleanest factory in the world? Source: Intel
+                                    </figure>
+                                </div>
+                               
+                             <p>A finished wafer is a thing of beauty, and incredibly valuable, too. Each one costs thousands of dollars to manufacture, and the whole fabrication process -- from silicon ingot to product -- takes months from start to end. Each chip (also known as a die) that can be taken from the disc and sold is vital to recuperating the money spent to make them.</p>
+
+                               
+                                    <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/B3.png">
+                                        
+                                        A 11.8 inch (300 mm) wafer of Intel 9th-gen Core processors
+                                    </figure>
+                                </div>
+                               
+                               <p>To get them out, the wafer is sliced up using a diamond saw, but a reasonable percentage of it is totally scrap, as chips along the edge just aren't complete. Anywhere from 5 to 25% of the wafer (the amount depends a lot on the size of the chip) will get thrown away. <br>
+                                <br>
+
+                                The remainder then gets mounted on a circuit board package and possibly covered with a heat spreader, to ultimately become the CPU we're all familiar with.</p> 
+                               
+                              <h4>Core (in)equality</h4>
+                              <p>Let's take a look at Intel's latest processor in their Core family of models -- the most powerful of which is the Core i9-10900K, which has 10 cores and an integrated GPU. <br>
+                                <br>
+
+                                The photo below shows how we usually know and see such PC components, but if we could prise off the heat spreader and use a battery of tools to delve into the guts of the chip, it would look very different.</p>  
+                               
+                                
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/B4.png">
+                                        
+                                       
+                                    </figure>
+                                </div>
+                               
+                                <p>The actual CPU is a cityscape of logic blocks, SRAM storage, interfaces, and communication buses -- in one chip alone, there are billions of individual electronic components, all working in synchronized harmony. <br>
+                                    <br>
+
+                                    This labelled image highlights some of the key areas -- on the far left is the I/O system, containing the DDR4-SDRAM memory, PCI Express, and display controllers. Also packed in there is the system that manages the communication ring for all of the cores. Just above the I/O section is in the interface for the system memory and on the other side of the die, we can see the integrated graphics chip, the GPU. No matter what Intel Core processor you get, these 3 parts will all be present.</p>
+                                   
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/B5.png">
+                                            
+                                           
+                                        </figure>
+                                    </div>
+                                    <p>Stuffed between all of these are the CPU cores. Each one is a carbon copy of the other, full of units to crunch numbers, move data around, and predict future instructions. Lying either side of a core are two strips of Level 3 cache (the lower levels are deep inside the core), with each offering 1 MB of high speed storage. <br>
+                                        <br>
+
+                                        You might think that Intel makes a new wafer for every CPU they sell, but a single 'i9-10900' disc will produce chips that can potentially end up in any one of the following models:</p>
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/B6.png">
+                                                
+                                               
+                                            </figure>
+                                        </div>
+                                       <p>The 'Base Clock', measured in GHz, is the lowest guaranteed frequency the chip will run at, no matter what load it is under. The 'All Core Turbo' is the maximum frequency that all of the cores can run at together, but not necessarily stay at for very long. It's a similar thing for 'Turbo Boost' except this is just 2 cores. <br>
+                                        <br>
+
+                                        PL1 TDP stands for Power Level 1 - Thermal Design Power. It's how much heat the CPU will create while running at its Base Clock under any load. It can create a lot more than this, but it will limit what speeds the chip will run at and when plugged into a motherboard, the designers of them may limit how much power the chip can take in, to prevent this. <br>
+                                        <br>
+                                        Models with codes ending with an F have a disabled GPU; K indicates it has an unlocked clock system (so you can easily overclock it), and T denotes low power. These are just the desktop CPUs -- some will end up as Xeons, processors aimed at the professional market, in the form of workstations or small servers.  <br>
+                                        <br>
+                                        So that's 19 models from just one design -- how and why does a single chip end up becoming so many different types?</p> 
+                                       
+                                     <h4>It's an imperfect world</h4>   
+                                     <p>As incredible as chip fabrication plants are, neither they nor the technology and materials used are 100% perfect. There will always been some nano-scale motes of detritus, either within the plant or deep inside the raw silicon and metals used. No matter how hard they try, manufacturers can't make them totally clean and pure. <br>
+                                        <br>
+
+                                        And when you're trying to build up components that are so small, that only high powered electron microscopes let you see them, nothing quite behaves exactly as it should do. Down in the nanometer world, quantum behaviour becomes far more noticeable and randomness, noise, and other glitches do their best to upset the delicate game of chip-Jenga. All of these issues conspire against processor makers, and the end results are classed as defects.<br>
+                                        <br>
+                                        Not all defects are serious -- they may just cause a specific section of the chip to run hotter than it should, but if it's really bad, then an entire section might be completely junk. The first thing manufacturers do is scan the wafers to look the defects in the first place.</p>
+
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/BB.png">
+                                                
+                                                Image comparison vs light scattering methods for finding defects. Source: Hitachi High-Tech.
+                                            </figure>
+                                        </div>
+                                        <p>Machines dedicated to hunting out these problems are used after a wafer has been fabricated, but before it's sliced up into the individual chips. The dies or entire wafers that show up as having problems are flagged, so they can be set aside for further examination. <br>
+                                            <br>
+
+                                            But even these steps aren't going to catch every minor blemish and glitch, so after the silicon pieces are cut from the wafer and mounted onto their packages, every one of them goes off for even more testing.</p>
+                                           
+                                         <h4>Not all bins store rubbish</h4>
+                                         <p>When Intel and others sit down to check the quality of their processors, they set the chips up to run with a set voltage and at a certain clock speed; while the die goes through a range of benchmarks, designed to stress all of the various sections, the amount of electrical power consumed and heat produced are carefully measured. <br>
+                                            <br>
+
+                                            What they will find is that some chips run exactly as required, whereas others are better or worse. <br>
+                                            <br>
+                                            
+                                            Some chips may need a higher voltage to be fully stable, other chips' insides may produce too much heat, and likely some simply won't reach the required standards full stop.</p>   
+                                           
+                                            <div class="featured">
+                                                <figure>
+                                                    <img src="img/blog-img/B7.png">
+                                                    
+                                                    Assembling processors before final testing and inspect. Source: Intel.
+                                                </figure>
+                                            </div>
+                                            <p>Similar explorations are done to the processors identified with having defects, but before this is carried out, extra checks are performed to see what sections of the chip still work and what bits are scrap. <br>
+                                                <br>
+
+                                                The end result of this is that the useful output of a wafer, called its yield, generates a range of dies that they can be categorized on the basis of their functioning parts, stable clock frequencies, required voltage, and heat output. The name for this sorting procedure? Chip binning. <br>
+                                                <br>
+                                                
+                                                No dies are actually thrown into large plastic bins -- the phrase comes from statistics, where a distribution of numbers can be organized into groups called bins. For example, population surveys about age distribution might use the bins 0 to 5 years old, 6 to 10, 11 to 16, and so on. <br>
+                                                <br>
+                                                
+                                                The same is done for wafers, and in the case of our i9-10900K example, some of the bins would be for number of working cores, clock frequency range in which the CPU is stable, and heat output at a certain clock.</p>
+                                               
+                                                <div class="featured">
+                                                    <figure>
+                                                        <img src="img/blog-img/B8.png">
+                                                        
+                                                 
+                                                    </figure>
+                                                </div>
+
+                                                <p>Let's imagine that a Core i9-10900 chip is thoroughly tested and found to have a couple of serious defects, as indicated above. Two of the cores and the GPU are damaged to a level where they just can't function properly. <br>
+                                                    <br>
+
+                                                    Intel would then disable the kaput sections and flag it up as being a chip for the Core i7-10700 range, specifically an F model. But then it needs to be tested for clock speeds, power, and stability. If the chip hit the required targets it would stay as an i7, but if it couldn't quite reach those targets, another 2 cores could be disabled and the die used for a Core i5 model instead.</p>
+                                                 
+                                                    <blockquote class="mb-30">
+                                                        <h6>All things considered, chip binning massively improves the yield of a wafer because it means that more dies can be utilized and sold.</h6>
+                                                        
+                                                    </blockquote>   
+                                                    <p>In the case of the 10th-gen range of Core processors, Intel does have a separate wafer design for the Core i5, i3, and Pentium/Celeron ranges. These start as 6 core chips and then get binned right down into 2 core offerings. <br>
+                                                        <br>
+
+                                                        Product demand can often outstrip production capability, hence why the 10 core wafers are used to help fill in orders. Sometimes, perfectly functional dies have sections switched off, just to ensure there is sufficient output from the factories. That does mean it's a game of silicon lottery as to what die you're actually getting, when buying a particular model. <br>
+                                                        <br>
+                                                        All things considered, chip binning massively improves the yield of a wafer because it means that more dies can be utilized and sold. Without it, Intel's actual rubbish bins would be overflowing with scrap silicon.</p> 
+                                                     <h4>Aren't binned CPUs special?</h4>
+                                                     <p>Like so many terms in computing, chip binning has become synonymous with something other than its original meaning. Online stores sometimes sell hand-picked, special CPUs (those that overlock to an insane level or run cooler than the surface of Pluto) as 'binned CPUs'. The reality is all chips are binned, simply because they have to be. <br>
+                                                        <br>
+
+                                                        Of course, there's nothing to stop a retailer from binning the chips they buy: binned-binned CPUs, anyone?<br>
+                                                        <br>
+                                                        AMD and Intel processors have to be purchased in bulk (trays that contains dozens, if not hundreds, of chips), and you could sit down with a test computer and check out each one -- overclock or undervolt them, record their temperatures, and so on. The best of the batch could then be sold on as being special, and the retailer could rightly class them as 'binned CPUs.' Naturally, all of this extra testing costs time and effort, so the retail price of the product is increased to reflect this. <br>
+                                                        <br>
+                                                        Are these so-called binned chips extra special in some way? Yes, and no. Every single chip used in your PC, phone, car, and so on have all been through some kind of selection process. It's just another stage in the manufacturing of all microprocessors and DRAM chips. That means your beloved CPU or GPU that runs surprisingly cool or overclocks like mad is just another die, from one of the hundreds of thousands of wafers, churned out by factories around the world</p>   
+                                                       
+                                                        
+
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 11, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#"><img src="img/core-img/logo.png" alt=""></a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

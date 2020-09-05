@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>
+        Machine Learning- A Gentle Introduction To Computational Learning</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/Machine_learning.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Programming</a></div>
+                        <h3>Machine Learning- A Gentle Introduction To Computational Learning</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 23, 2020 at 12:05 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>Computational learning theory, or statistical learning theory, refers to mathematical frameworks for quantifying learning tasks and algorithms. <br>
+                                <br>
+
+                                These are sub-fields of machine learning that a machine learning practitioner does not need to know in great depth in order to achieve good results on a wide range of problems. Nevertheless, it is a sub-field where having a high-level understanding of some of the more prominent methods may provide insight into the broader task of learning from data.</p>
+                               
+                                <p>In this post, you will discover a gentle introduction to computational learning theory for machine learning. <br>
+									<br>
+
+									After reading this post, you will know:</p>
+								<h6>Computational learning theory uses formal methods to study learning tasks and learning algorithms. <br>
+									<br>
+									PAC learning provides a way to quantify the computational difficulty of a machine learning task. <br>
+									<br>
+									VC Dimension provides a way to quantify the computational capacity of a machine learning algorithm.</h6>
+								
+								<h4>Computational Learning Theory</h4>	
+								<p>Computational learning theory, or CoLT for short, is a field of study concerned with the use of formal mathematical methods applied to learning systems. <br>
+									<br>
+
+									It seeks to use the tools of theoretical computer science to quantify learning problems. This includes characterizing the difficulty of learning specific tasks. <br>
+									<br>
+									
+									Computational learning theory may be thought of as an extension or sibling of statistical learning theory, or SLT for short, that uses formal methods to quantify learning algorithms.</p>
+								
+								<h6>Computational Learning Theory (CoLT):</h6><p>Formal study of learning tasks.</p>
+								<h6>Statistical Learning Theory (SLT): </h6><p>Formal study of learning algorithms.</p>
+								<p>This division of learning tasks vs. learning algorithms is arbitrary, and in practice, there is a lot of overlap between the two fields.</p>	
+								<p>"One can extend statistical learning theory by taking computational complexity of the learner into account. This field is called computational learning theory or COLT."</p>
+								<br>
+								<p>They might be considered synonyms in modern usage.</p>
+								<br>
+								<p>"… a theoretical framework known as computational learning theory, also some- times called statistical learning theory."</p>
+								<br>
+								<p>The focus in computational learning theory is typically on supervised learning tasks. Formal analysis of real problems and real algorithms is very challenging. As such, it is common to reduce the complexity of the analysis by focusing on binary classification tasks and even simple binary rule-based systems. As such, the practical application of the theorems may be limited or challenging to interpret for real problems and algorithms.</p>
+								<br>
+								<p>"The main unanswered question in learning is this: How can we be sure that our learning algorithm has produced a hypothesis that will predict the correct value for previously unseen inputs?"</p>
+								<br>
+								<p>Questions explored in computational learning theory might include:</p>
+								<h6>1. How do we know a model has a good approximation for the target function? <br>
+									2. What hypothesis space should be used? <br>
+									3. How do we know if we have a local or globally good solution? <br>
+									4. How do we avoid overfitting? <br>
+									5. How many data examples are needed?</h6>
+									<p>As a machine learning practitioner, it can be useful to know about computational learning theory and some of the main areas of investigation. The field provides a useful grounding for what we are trying to achieve when fitting models on data, and it may provide insight into the methods.</p>
+								
+								<p>There are many subfields of study, although perhaps two of the most widely discussed areas of study from computational learning theory are:</p>
+								<h6>a. PAC Learning. <br>
+									b. VC Dimension.</h6>	
+									<p>Tersely, we can say that PAC Learning is the theory of machine learning problems and VC dimension is the theory of machine learning algorithms. <br>
+										<br>
+
+										You may encounter the topics as a practitioner and it is useful to have a thumbnail idea of what they are about. Let’s take a closer look at each.</p>
+								<h4>PAC Learning (Theory of Learning Problems)</h4>
+								<p>PAC learning seeks to quantify the difficulty of a learning task and might be considered the premier sub-field of computational learning theory. <br>
+									<br>
+
+									Consider that in supervised learning, we are trying to approximate an unknown underlying mapping function from inputs to outputs. We don’t know what this mapping function looks like, but we suspect it exists, and we have examples of data produced by the function. <br>
+									<br>
+									
+									PAC learning is concerned with how much computational effort is required to find a hypothesis (fit model) that is a close match for the unknown target function.</p>		
+								
+								<p>The idea is that a bad hypothesis will be found out based on the predictions it makes on new data, e.g. based on its generalization error. <br>
+									<br>
+
+									A hypothesis that gets most or a large number of predictions correct, e.g. has a small generalization error, is probably a good approximation for the target function.</p>	
+								
+								
+								<h6>"The underlying principle is that any hypothesis that is seriously wrong will almost certainly be “found out” with high probability after a small number of examples, because it will make an incorrect prediction. Thus, any hypothesis that is consistent with a sufficiently large set of training examples is unlikely to be seriously wrong: that is, TELY it must be probably approximately correct."</h6>	
+								<p>This probabilistic language gives the theorem its name: “probability approximately correct.” That is, a hypothesis seeks to “approximate” a target function and is “probably” good if it has a low generalization error. <br>
+									<br>
+
+									A PAC learning algorithm refers to an algorithm that returns a hypothesis that is PAC. <br>
+									<br>
+									
+									Using formal methods, a minimum generalization error can be specified for a supervised learning task. The theorem can then be used to estimate the expected number of samples from the problem domain that would be required to determine whether a hypothesis was PAC or not. That is, it provides a way to estimate the number of samples required to find a PAC hypothesis.</p>
+								
+								<h6>"The goal of the PAC framework is to understand how large a data set needs to be in order to give good generalization. It also gives bounds for the computational cost of learning …"</h6>
+								<p>Additionally, a hypothesis space (machine learning algorithm) is efficient under the PAC framework if an algorithm can find a PAC hypothesis (fit model) in polynomial time.</p>
+								<h6>A hypothesis space is said to be efficiently PAC-learnable if there is a polynomial time algorithm that can identify a function that is PAC.</h6>
+								<h4>VC Dimension (Theory of Learning Algorithms)</h4>
+								<p>Vapnik–Chervonenkis theory, or VC theory for short, refers to a theoretical machine learning framework developed by Vladimir Vapnik and Alexey Chervonenkis. <br>
+									<br>
+
+									VC theory learning seeks to quantify the capability of a learning algorithm and might be considered the premier sub-field of statistical learning theory. <br>
+									<br>
+									
+									VC theory is comprised of many elements, most notably the VC dimension. <br>
+									<br>
+									
+									The VC dimension quantifies the complexity of a hypothesis space, e.g. the models that could be fit given a representation and learning algorithm. <br>
+									<br>
+									
+									One way to consider the complexity of a hypothesis space (space of models that could be fit) is based on the number of distinct hypotheses it contains and perhaps how the space might be navigated. The VC dimension is a clever approach that instead measures the number of examples from the target problem that can be discriminated by hypotheses in the space.</p>	
+								<h6>"The VC dimension measures the complexity of the hypothesis space […] by the number of distinct instances from X that can be completely discriminated using H."</h6>
+								<p>The VC dimension estimates the capability or capacity of a classification machine learning algorithm for a specific dataset (number and dimensionality of examples). <br>
+									<br>
+
+									Formally, the VC dimension is the largest number of examples from the training dataset that the space of hypothesis from the algorithm can “shatter.”</p>	
+								<h6>"The Vapnik-Chervonenkis dimension, VC(H), of hypothesis space H defined over instance space X is the size of the largest finite subset of X shattered by H."</h6>
+								<p>Shatter or a shattered set, in the case of a dataset, means points in the feature space can be selected or separated from each other using hypotheses in the space such that the labels of examples in the separate groups are correct (whatever they happen to be). <br>
+									<br>
+
+									Whether a group of points can be shattered by an algorithm depends on the hypothesis space and the number of points. <br>
+									<br>
+									
+									For example, a line (hypothesis space) can be used to shatter three points, but not four points. <br>
+									<br>
+									
+									Any placement of three points on a 2d plane with class labels 0 or 1 can be “correctly” split by label with a line, e.g. shattered. But, there exists placements of four points on plane with binary class labels that cannot be correctly split by label with a line, e.g. cannot be shattered. Instead, another “algorithm” must be used, such as ovals. <br>
+									<br>
+									
+									The figure below makes this clear.</p>	
+									<div class="featured">
+										<figure>
+											<img src="img/blog-img/mL1.png">
+											<figcaption>Example of a Line Hypothesis Shattering 3 Points and Ovals Shattering 4 Points
+												Taken from Page 81, The Nature of Statistical Learning Theory.</figcaption>
+										</figure>
+									</div>
+									<p>Therefore, the VC dimension of a machine learning algorithm is the largest number of data points in a dataset that a specific configuration of the algorithm (hyperparameters) or specific fit model can shatter. <br>
+										<br>
+
+										A classifier that predicts the same value in all cases will have a VC dimension of 0, no points. A large VC dimension indicates that an algorithm is very flexible, although the flexibility may come at the cost of additional risk of overfitting. <br>
+										<br>
+										
+										The VC dimension is used as part of the PAC learning framework.</p>
+									<h6>"A key quantity in PAC learning is the Vapnik-Chervonenkis dimension, or VC dimension, which provides a measure of the complexity of a space of functions, and which allows the PAC framework to be extended to spaces containing an infinite number of functions."</h6>
+									<h4>Summary</h4>
+									<p>In this post, you discovered a gentle introduction to computational learning theory for machine learning. <br>
+										<br>
+
+										Specifically, you learned: <br>
+										<br>
+										
+										1. Computational learning theory uses formal methods to study learning tasks and learning algorithms. <br>
+										2. PAC learning provides a way to quantify the computational difficulty of a machine learning task. <br>
+										3. VC Dimension provides a way to quantify the computational capacity of a machine learning algorithm.</p>	
+								
+
+
+
+   
+                                
+
+                                
+                                
+                            
+
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 23, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

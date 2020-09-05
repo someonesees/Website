@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Building Smart Cities with Less Sound Pollution</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                               
+                              
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/smarto.jfif);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Hardware</a></div>
+                        <h3>Building Smart Cities with Less Sound Pollution</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 09, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                     <p>You can close your eyes, but you cannot close your ears.</p>
+                     <h4>Things used in this project</h4>
+                     <h5>Hardware components</h5>
+                     <br>
+                     <p><a href="">DFRobot Gravity: Analog Sound Sensor For Arduino
+                    </a> </p>
+                    <p><a href="">	
+                        Arduino UNO & Genuino UNO</a></p>
+                        <p><a href="">	
+                            Raspberry Pi 3 Model B</a></p>
+                      <h5>Software apps and online services</h5>
+                      <br>
+                      <p><a href="">Raspberry Pi Raspbian</a></p>
+                      <p><a href="">	
+                        Arduino IDE</a></p>      
+
+                      <h4>Story</h4>
+                      <p>Noise pollution also known as environmental noiseor sound pollution, is the propagation of noise with harmful impact on the activity of human or animal life.Poor urban planningmay give rise to noise pollution, side-by-side industrial and residential buildings can result in noise pollution in the residential areas. Some of the main sources of noise in residential areas include loud music, transportationnoise, lawn care maintenance, nearby construction, or young people yelling (sports games).The average noise level of 97.60 dB obtained exceeded the WHO value of 50 dB allowed for residential areas.Noise health effects. Noise health effects are the physical and psychological healthconsequences of regular exposure to consistent elevated sound levels. Elevated workplaceor environmental noisecan cause hearing impairment, tinnitus, hypertension, ischemic heart disease, annoyance, and sleep disturbance.Changes in the immune system and birth defectshave been also attributed to noise exposure. So as a small remedy for this solution, I have made a device which is capable of taking data of the sound level in the each sectors of the city. This data are compared with the accepted sound levels in various sectors. Consider the Hospitals and Park have the different accepted sound levels. This will be already fixed by the concerned authority, So when there is increase in the sound level when compared with the fixed sound levels. These sectors will be flagged by the concerned team. How is this is going to work is, the device which is consist of the sound sensor will frequently send data from the sectors to the IOTA Tangle. This data are accessed by the authority through any device(should have python platform)</p>
+                      <h5>Hardware</h5>
+                      <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/ardi1.png">
+                           
+                                
+                           
+                        </figure>
+                    </div>   
+
+                    <p><li><strong>Arduino uno and Sound sensors-</strong>The analog value coming from the sound sensor is taken by the arduino and is converted in to the decibel values(dB).This is serially uploaded to the Raspberry pi.</li></p>
+                    <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/sound.png">
+                           
+                                Sound sensor with arduino.
+                           
+                        </figure>
+                    </div> 
+
+                    <p><li><strong>Raspberry pi- </strong>The serial data coming from the arduino uno is received by the Raspberry and this data is uploaded to the IOTA's Tangle. The data is uploaded in every minutes to the tangle.
+                    </li></p>
+                    <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/ardi2.png">
+                           
+                                Respberry with arduino.
+                           
+                        </figure>
+                    </div> 
+                    <p><strong>Note:</strong>Here you can use the ADC MCP3008(Analogto Digital converter) for collecting analog data from sound sensor with the raspberry pi by avoiding arduino uno</p>
+
+                    <h5>Software</h5>
+                    <p><li><strong>Python-</strong> The complete project is running on the basis of the Python</li></p>
+                    <p><li><strong>PyOTA Library-</strong>This is the official Python library for the IOTA Core. If you have already pip in your computer. Enter the following command in the terminal to install the pyOTA.</li></p>
+                    <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/pip1.png">
+                           
+                           
+                        </figure>
+                    </div> 
+                    <p><li><strong>PrettyTable- </strong>This is python library used for sorting data and print in the form of tables. Enter the following command in the terminal to install the prettytable.</li></p>
+                    <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/pip2.png">
+                           
+                           
+                        </figure>
+                    </div>
+                    <p><li><strong>IOTA Address-</strong>You can generate the address using IOTA wallet.</li></p>
+
+                      <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/qr.png">
+                           
+                           
+                        </figure>
+                    </div>
+                    <p>For people who are new to IOTA, the address system might seem very confusing at first. To lift the confusion, the following link will cover all specialties about IOTA addresses you need to <a href="https://www.helloiota.com/">know</a>.</p>
+                    <p><li><strong>Code-</strong>We have three pieces of code. First one is the arduino code.(read.ino)</li></p>
+
+                    <p><strong>int soundSensor=A0; <br>
+                        int dB;<br>
+                        void setup() {<br>
+                        pinMode(soundSensor,INPUT);<br>
+                        Serial.begin(9600);<br>
+                        }<br>
+                        void loop() {<br>
+                         int Data=analogRead(soundSensor); <br>
+                         Serial.println(Data); <br>
+                         dB = (Data+83.2073) / 11.003;//decibal value <br>
+                         Serial.println(dB); <br>
+                         Serial.write(dB);//Send data to the raspberry pi 3 <br>
+                         delay(100); <br>
+                         }      <br>                   </strong></p>
+                     
+                     
+                      <p>Second one is the code for the data coming from arduino to pi which is uploading to the tangle.(Upload.py)</p> 
+
+                      <p><strong>from datetime import datetime<br>
+                        import schedule<br>
+                        import time<br>
+                        # Import GPIO library<br>
+                        import RPi.GPIO as GPIO<br>
+                        import serial<br>
+                        #Setup sensor as input<br>
+                        # Import the PyOTA library<br>
+                        import iota<br>
+                        # Import json<br>
+                        import json<br>
+                        # Define IOTA address where all transactions (cleaning records) are stored, replace with your own address.<br>
+                        # IOTA addresses can be created with the IOTA Wallet<br>
+                        CleaningLogAddr = b"XXXXXXXXXHKBWTCGKXTJGWHXEYJONN9MZZQUQLSZCLHFAWUWKHZCIJCV9"<br>
+                        # Create IOTA object, specify full node to be used when sending transactions.<br>
+                        # Notice that not all nodes in the field.deviota.com cluster has enabled attaching transactions to the tangle<br>
+                        # In this case you will get an error, you can try again later or change to a different full node.<br>
+                        api = iota.Iota("https://nodes.thetangle.org:443")<br>
+                        # Define static variable<br>
+                        city = "Smart District"<br>
+                        sector=0<br>
+                        def datapost():<br>
+                           FB = api.send_transfer(depth=3, transfers=[pta], min_weight_magnitude=14)['bundle'] <br>
+                           print("success") <br>
+                        schedule.every(1).minutes.do(datapost)<br>
+                        # Main loop,<br>
+                        try:<br>
+                           while True:<br>
+                               ser = serial.Serial("/dev/ttyUSB0", 9600)#communication with pi,should also check the port<br>
+                               status=ser.read()<br>
+                               st=str(status)<br>
+                               # Create json data to be uploaded to the tangle<br>
+                               data1 = {'city': city, 'sector':sector,'Status': st} <br>
+                               # Define new IOTA transaction <br>
+                               pta = iota.ProposedTransaction(address = iota.Address(CleaningLogAddr), <br>
+                                                             message = iota.TryteString.from_unicode(json.dumps(data1)), <br>
+                                                             tag     = iota.Tag(b'SMARTDISTRICT'), <br>
+                                                             value   = 0)<br>
+                               schedule.run_pending() <br>
+                               time.sleep(1) <br>
+                        except KeyboardInterrupt:<br>
+                           GPIO.cleanup()</strong></p>  
+
+
+                           <p>Third code is for retreiving data from the tangle to the authority.(Display.py)</p>
+
+                           <p><strong># Imports from the PyOTA library<br>
+                            from iota import Iota<br>
+                            from iota import Address<br>
+                            from iota import Transaction <br>
+                            from iota import TryteString<br>
+                            # Import json library<br>
+                            import json <br>
+                            # Import datetime libary <br>
+                            import datetime <br>
+                            # Import from PrettyTable <br>
+                            from prettytable import PrettyTable <br>
+                            # Define IOTA address where all transactions are stored, replace with your own address.<br>
+                            address = [Address(b'XXXXXXXXXXXXXXCGKXTJGWHXEYJONN9MZZQUQLSZCWXKQDTJCV9')] <br>
+                            # Define full node to be used when retrieving cleaning records<br>
+                            iotaNode = "https://nodes.thetangle.org:443"<br>
+                            # Create an IOTA object<br>
+                            api = Iota(iotaNode)<br>
+                            # Create PrettyTable object<br>
+                            x = PrettyTable()<br>
+                            # Specify column headers for the table<br>
+                            x.field_names = [ "city", "sector","Status"]<br>
+                            # Find all transacions for selected IOTA address<br>
+                            result = api.find_transactions(addresses=address)<br>
+                            # Create a list of transaction hashes<br>
+                            myhashes = result['hashes']<br>
+                            # Print wait message<br>
+                            print("Please wait while retrieving sound records from the tangle...")<br>
+                            # Loop trough all transaction hashes<br>
+                            for txn_hash in myhashes:<br>
+                              # Convert to bytes<br>
+                              txn_hash_as_bytes = bytes(txn_hash)<br>
+                              # Get the raw transaction data (trytes) of transaction<br>
+                              gt_result = api.get_trytes([txn_hash_as_bytes])<br>
+                              # Convert to string<br>
+                              trytes = str(gt_result['trytes'][0]) <br>
+                              # Get transaction object <br>
+                              txn = Transaction.from_tryte_string(trytes) <br>
+                              # Get transaction timestamp <br>
+                              timestamp = txn.timestamp<br>
+                              # Convert timestamp to datetime<br>
+                              clean_time = datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')<br>
+                              # Get transaction message as string <br>
+                              txn_data = str(txn.signature_message_fragment.decode()) <br>
+                              # Convert to json <br>
+                              json_data = json.loads(txn_data) <br>
+                              # Check if json data has the expected json tag's <br>
+                              if all(key in json.dumps(json_data) for key in ["city","sector","Status"]): <br>
+                                  # Add table row with json values <br>
+                                  x.add_row([json_data['city'], json_data['sector'], json_data['Status'], clean_time]) <br>
+                            # Sort table by cleaned datetime <br>
+                            x.sortby = "status" <br>
+                            # Print table to terminal <br>
+                            print(x)</strong></p>
+
+
+                            <p>This code will print the tables on the terminal of the pi. From there we can find the sectors which is violating their prescribed sound levels and can be flagged. In this way we can reduce the sound pollution in each sectors and will lead it to a smart city.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 09, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#"><img src="img/core-img/logo.png" alt=""></a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Explainer: What Are Tensor Cores?</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/Haswell_Chip.0.0.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Electronics</a></div>
+                        <h3>Explainer: What Are Tensor Cores?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 09, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>For the past three years Nvidia has been making graphics chips that feature extra cores, beyond the normal ones used for shaders. Known as tensor cores, these mysterious units can be found in thousands of desktop PCs, laptops, workstations, and data centers around the world.</p>
+                            <p>Today we'll explain what a tensor is and how tensor cores are used in the world of graphics and deep learning.</p>
+                            <h4>Time for a Quick Math Lesson</h4>
+                            <p>To understand exactly what tensor cores do and what they can be used for, we first need to cover exactly what tensors are. Microprocessors, regardless what form they come in, all perform math operations (add, multiply, etc) on numbers. <br>
+                                <br>
+
+                                Sometimes these numbers need to be grouped together, because they have some meaning to each other. For example, when a chip is processing data for rendering graphics, it may be dealing with single integer values (such as +2 or +115) for a scaling factor, or a group of floating point numbers (+0.1, -0.5, +0.6) for the coordinations of a point in 3D space. In the case of the latter, the position of the location requires all three pieces of data.</p>
+                                <blockquote class="mb-30">
+                                    <h6>A tensor is a mathematical object that describes the relationship between other mathematical objects that are all linked together.</h6>
+                                    
+                                </blockquote>   
+                                <p>A tensor is a mathematical object that describes the relationship between other mathematical objects that are all linked together. They are commonly shown as an array of numbers, where the dimension of the array can be viewed as shown below.</p>
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/T1.png">
+                                        
+                                    </figure>
+                                </div>
+                                <p>The simplest type of tensor you can get would have zero dimensions, and consist of a single value -- another name for this is a scalar quantity. As we start to increase the number of dimensions, we can come across other common math structures:</p>
+                                <li>1 dimension = vector</li>
+                                 <li> 2 dimensions = matrix</li>
+                                <p>Strictly speaking, a scalar is a 0 x 0 tensor, a vector is 1 x 0, and a matrix is 1 x 1, but for the sake of simplicity and how it relates to tensor cores in a graphics processor, we'll just deal with tensors in the form of matrices. <br>
+                                    <br>
+
+                                    One of the most important math operations done with matrices is a multiplication (or product). Let's take a look at how two matrices, both with 4 rows and columns of values, get multiplied together:</p> 
+                                   
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/T2.png">
+                                            
+                                        </figure>
+                                    </div>
+                                 <p>The final answer to the multiplication always the same number of rows as the first matrix, and the same number of columns as the second one. So how do you multiply these two arrays? Like this:</p>
+                                 <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/T3.png">
+                                        
+                                    </figure>
+                                </div>
+                               <p>As you can see, a 'simple' matrix product calculation consists of a whole stack of little multiplications and additions. Since every CPU on the market today can do both of these operations, it means that any desktop, laptop, or tablet can handle basic tensors.</p>
+                               <p>However, the above example contains 64 multiplications and 48 additions; each small product results in a value that has to be stored somewhere, before it can be accumulated with the other 3 little products, before that final value for the tensor can be stored somewhere. So although matrix multiplications are mathematically straightforward, they're computationally intensive -- lots of registers need to be used, and the cache needs to cope with lots of reads and writes.</p>
+                               <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/T4.png">
+                                    Intel's Sandy Bridge CPU architecture, the first to offer AVX extensions
+                                    
+                                </figure>
+                            </div>
+                            <p>CPUs from AMD and Intel have offered various extensions over the years (MMX, SSE, now AVX -- all of them are SIMD, single instruction multiple data) that allows the processor to handle lots of floating point numbers at the same time; exactly what matrix multiplications need. <br>
+                                <br>
+
+                                But there is a specific type of processor that is especially designed to handle SIMD operations: graphics processing units (GPUs).</p>
+                               
+                             <h4>Smarter Than Your Average Calculator?</h4>
+                             <p>In the world of graphics, a huge amount of data needs to be moved about and processed in the form of vectors, all at the same time. The parallel processing capability of GPUs makes them ideal for handling tensors and all of them today support something called a GEMM (General Matrix Multiplication). <br>
+                                <br>
+
+                                This is a 'fused' operation, where two matrices are multiplied together, and the answer to which is then accumulated with another matrix. There are some important restrictions on what format the matrices must take and they revolve around the number of rows and columns each matrix has.</p> 
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/T5.png">
+                                        The rows and column requirements for a GEMM: matrix A(m x k), matrix B(k x n), matrix C(m x n)
+                                        
+                                    </figure>
+                                </div>
+                                <p>The algorithms used to carry out matrix operations tend to work best when matrices are square (for example, using 10 x 10 arrays would work better than 50 x 2) and fairly small in size. But they still work better when processed on hardware that is solely dedicated to these operations.  <br>
+                                    <br>
+
+                                    In December 2017, Nvidia released a graphics card sporting a GPU with a new architecture called Volta. It was aimed at professional markets, so no GeForce models ever used this chip. What made it special was that it was the first graphics processor to have cores just for tensor calculations.</p>
+                                 
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/T6.png">
+                                            Nvidia Titan V graphics card, featuring the GV100 Volta chip. Yes, it could run Crysis
+                                            
+                                        </figure>
+                                    </div>
+                                   
+                                   <p>With zero imagination behind the naming, Nvidia's tensor cores were designed to carry 64 GEMMs per clock cycle on 4 x 4 matrices, containing FP16 values (floating point numbers 16 bits in size) or FP16 multiplication with FP32 addition. Such tensors are very small in size, so when handling actual data sets, the cores would crunch through little blocks of larger matrices, building up the final answer.</p>
+                                   <p>Less than a year later, Nvidia launched the Turing architecture. This time the consumer-grade GeForce models sported tensor cores, too. The system had been updated to support other data formats, such as INT8 (8-bit integer values), but other than that, they still worked just as they did in Volta.</p>
+                                   <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/T7.png">
+                                        Nvidia's tensor core version of Where's Waldo?
+                                        
+                                    </figure>
+                                </div>
+                               
+                               <p>Earlier this year, the Ampere architecture made its debut in the A100 data center graphics processor, and this time Nvidia improved the performance (256 GEMMs per cycle, up from 64), added further data formats, and the ability to handle sparse tensors (matrices with lots of zeros in them) very quickly. <br>
+                                <br>
+
+                                For programmers, accessing tensor cores in any of the Volta, Turing, or Ampere chips is easy: the code simply needs to use a flag to tell the API and drivers that you want to use tensor cores, the data type needs to be one supported by the cores, and the dimensions of the matrices need to be a multiple of 8. After that, that hardware will handle everything else. <br>
+                                <br>
+                                
+                                This is all nice, but just how much better are tensor cores at handling GEMMs than the normal cores in a GPU? <br>
+                                <br>
+                                
+                                When Volta first appeared, Anandtech carried some math tests using three Nvidia cards: the new Volta, a top-end Pascal-based one, and an older Maxwell card.</p> 
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/T8.png">
+                                        
+                                        
+                                    </figure>
+                                </div>
+
+                                <p>The term precision refers to the number of bits used for the floating points numbers in the matrices, with double being 64, single is 32, and so on. The horizontal axis refers to the peak number of FP operations carried out per second or FLOPs for short (remember that one GEMM is 3 FLOP). <br>
+                                    <br>
+
+                                    Just look what the result was when the tensor cores were used, instead of the standard so-called CUDA cores! They're clearly fantastic at doing this kind of work, so just what can you do with tensor cores?</p>
+
+                                 <h4>Math to Make Everything Better</h4>
+                                 <p>Tensor math is extremely useful in physics and engineering, and is used to solve all kinds of complex problems in fluid mechanics, electromagnetism, and astrophysics, but the computers used to crunch these numbers tend to do the matrix operations on large clusters of CPUs. <br>
+                                    <br>
+
+                                    Another field that loves using tensors is machine learning, especially the subset deep learning. This is all about handling huge collections of data, in enormous arrays called neural networks. The connections between the various data values are given a specific weight -- a number that expresses how important that connection is.</p>   
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/T9.png">
+                                            
+                                            
+                                        </figure>
+                                    </div>
+                                   
+                                    <p>So when you need to work out how all of the hundreds, if not thousands, of connections interact, you need to multiply each piece of data in the network by all the different connection weights. In other words, multiply two matrices together: classic tensor math!</p>
+
+                                          <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/T10.png">
+                                            
+                                            Google TPU 3.0 chips hidden under water cooling
+                                        </figure>
+                                    </div>
+                                    <p>This is why all the big deep learning supercomputers are packed with GPUs and nearly always Nvidia's. However, some companies have gone as far as making their own tensor core processors. Google, for example, announced their first TPU (tensor processing unit) in 2016 but these chips are so specialized, they can't do anything other than matrix operations.</p>
+                                    <h4>Tensor Cores in Consumer GPUs (GeForce RTX)</h4>
+                                    <p>But what if you've got an Nvidia GeForce RTX graphics card and you're not an astrophysicist solving problems with Riemannian manifolds, or experimenting with the depths of convolutional neural networks...? What use are tensor cores for you? <br>
+                                        <br>
+
+                                        For the most part, they're not used for normal rendering, encoding or decoding videos, which might seem like you've wasted your money on a useless feature. However, Nvidia put tensor cores into their consumer products in 2018 (Turing GeForce RTX) while introducing DLSS -- Deep Learning Super Sampling.</p>
+                                       
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/T11.png">
+                                                
+                                               
+                                            </figure>
+                                        </div>
+                                       <p>The basic premise is simple: render a frame at low-ish resolution and when finished, increase the resolution of the end result so that it matches the native screen dimensions of the monitor (e.g. render at 1080p, then resize it to 1400p). That way you get the performance benefit of processing fewer pixels, but still get a nice looking image on the screen. <br>
+                                        <br>
+
+                                        Consoles have been doing something like this for years, and plenty of today's PC games offer the ability, too. In Ubisoft's Assassin's Creed: Odyssey, you can change the rendering resolution right down to just 50% of the monitor's. Unfortunately, the result doesn't look so hot. This is what the game looks like a 4K, with maximum graphics settings applied (click to see the full resolution version):</p> 
+                                       
+                                        
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/12.png">
+                                                
+                                               
+                                            </figure>
+                                        </div>
+                                        <p>Running at high resolutions means textures look a lot better, as they retain fine detail. Unfortunately, all those pixels take a lot of processing to churn them out. Now look what happens when the game is set to render at 1080p (25% the amount of pixels than before), but then use shaders at the end to expand it back out to 4K.</p>
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/T12.png">
+                                                
+                                               
+                                            </figure>
+                                        </div>
+                                       
+                                       <p>The difference might not be immediately obvious, thanks to jpeg compression and the rescaling of the images on our website, but the character's armor and the distance rock formation are somewhat blurred. Let's zoom into a section for a closer inspection:</p>
+                                       <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/T13.png">
+                                            
+                                           
+                                        </figure>
+                                    </div>
+                                    <p>The left section has been rendered natively at 4K; on the right, it's 1080p upscaled to 4K. The difference is far more pronounced once motion is involved, as the softening of all the details rapidly becomes a blurry mush. Some of this could be clawed back by using a sharpening effect in the graphics card's drivers, but it would be better to not have to do this at all. <br>
+                                        <br>
+
+                                        This is where DLSS plays its hand -- in Nvidia's first iteration of the technology, selected games were analyzed, running them at low resolutions, high resolutions, with and without anti-aliasing. All of these modes generated a wealth of images that were fed into their own supercomputers, which used a neural network to determine how best to turn a 1080p image into a perfect higher resolution one.</p>
+                                       
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/T14.png">
+                                                
+                                               
+                                            </figure>
+                                        </div> 
+                                        <p>It has to be said that DLSS 1.0 wasn't great, with detail often lost or weird shimmering in some places. Nor did it actually use the tensor cores on your graphics card (that was done on Nvidia's network) and every game supporting DLSS required its own examination by Nvidia to generate the upscaling algorithm.</p>
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/T15.png">
+                                                
+                                               
+                                            </figure>
+                                        </div> 
+                                       
+                                        <p>When version 2.0 came out in early 2020, some big improvements had been made. The most notable of which was that Nvidia's supercomputers were only used to create a general upscaling algorithm -- in the new iteration of DLSS, data from the rendered frame would be used to process the pixels (via your GPU's tensor cores) using the neural model.</p>
+
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/T16.png">
+                                                
+                                               
+                                            </figure>
+                                        </div> 
+                                       
+                                       <p>We remain impressed by what DLSS 2.0 can achieve, but for now very few games support it -- just 12 in total, at the time of writing. More developers are looking to implement it in their future releases, though, and for good reasons. <br>
+                                        <br>
+
+                                        There are big performance gains to be found, doing any kind of upscaling, so you can bet your last dollar that DLSS will continue to evolve.</p> 
+
+
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/T17.png">
+                                                
+                                               
+                                            </figure>
+                                        </div> 
+
+
+                                        <p>Although the visual output of DLSS isn't always perfect, by freeing up rendering performance, developers have the scope to include more visual effects or offer the same graphics across a wider range of platforms. <br>
+                                            <br>
+
+                                            Case in point, DLSS is often seen promoted alongside ray tracing in "RTX enabled" games. GeForce RTX GPUs pack additional compute units called RT cores: dedicated logic units for accelerating ray-triangle intersection and bounding volume hierarchy (BVH) traversal calculations. These two processes are time consuming routines for working out where a light interacts with the rest of objects within a scene. <br>
+                                            <br>
+                                            
+                                            As we've found out, ray tracing is super intensive, so in order to deliver playable performance game developers must limit the number of rays and bounces performed in a scene. This process can result in grainy images, too, so a denoising algorithm has to be applied, adding to the processing complexity. Tensor cores are expected to aid performance here using AI-based denoising, although that has yet to materialize with most current applications still using CUDA cores for the task. On the upside, with DLSS 2.0 becoming a viable upscaling technique, tensor cores can effectively be used to boost frame rates after ray tracing has been applied to a scene. <br>
+                                            <br>
+                                            
+                                            There are other plans for the tensor cores in GeForce RTX cards, too, such as better character animation or cloth simulation. But like DLSS 1.0 before them, it will be a while before hundreds of games are routinely using the specialized matrix calculators in GPUs.</p>
+
+                                        <h4>Early Days But the Promise Is There</h4>
+                                        <p>So there we go -- tensor cores, nifty little bits of hardware, but only found in a small number of consumer-level graphics cards. Will this change in the future? Since Nvidia has already substantially improved the performance of a single tensor core in their latest Ampere architecture, there's good a chance that we'll see more mid-range and budget models sporting them, too. <br>
+                                            <br>
+
+                                            While AMD and Intel don't have them in their GPUs, we may see something similar being implemented by them in the future. AMD does offer a system to sharpen or enhance the detail in completed frames, for a tiny performance cost, so they may well just stick to that -- especially since it doesn't need to be integrated by developers; it's just a toggle in the drivers. <br>
+                                            <br>
+                                            
+                                            There's also the argument that die space in graphics chips could be better spent on just adding more shader cores, something Nvidia did when they built the budget versions of their Turing chips. The likes of the GeForce GTX 1650 dropped the tensor cores altogether, and replaced them with extra FP16 shaders. <br>
+                                            <br>
+                                            
+                                            But for now, if you want to experience super fast GEMM throughput and all the benefits this can bring, you've got two choices: get yourself a bunch of huge multicore CPUs or just one GPU with tensor cores.</p>    
+
+
+                               
+                               
+                                    
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 09, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

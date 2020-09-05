@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Android Architecture: Rethinking MVP In Android</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                               
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/android.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">App Development</a></div>
+                        <h3>Android Architecture: Rethinking MVP In Android</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 13, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>Today we will talk about Android Architecture and will rethink the use of MVP in Android. When we talk about software architecture, we always have in mind the following objectives:</p>
+                            <p><li>Improve testability, expressiveness and reusability.</li></p>
+                            <p><li>Reduce mocking / stubbing, linkage and development costs.</li></p>
+                           
+                           <p>Establishing these objectives, we prioritize the different solutions that follow 4 rules of the simple design, which are mentioned by descending priority:</p>
+                           <p><li>Write code that passes the tests</li></p>
+                           <p><li>Code reveals intentions</li></p>
+                           <p><li>Eliminates duplicity</li></p> 
+                           <p><li>An architecture with the minimum number of elements</li></p>
+
+                        <p>With these two pillars in mind, we can begin to consider what architecture would benefit us when developing mobile applications.</p>
+                        
+                        <h4>Rethinking MVP in Android </h4>
+
+                        <h5>(M)VB – Model-View-Backend</h5>
+                        <p>Before starting to evaluate the most used architectures in the industry and discuss our approach, we would like to emphasize that one of the most important thing to take into account when developing is pragmatism. <br>
+                            This, applied to the world of architecture means that we must be aware at all times of what kind of product we are developing and what are the needs, in the way that if, for example, we have an application that queries data from a server and that shows it on screen, without having a database, complex transformations on this data, concatenated calls, reusable components, etc … the simplest thing would be to use an architecture that uses the least number of layers and components, that read from the server and paint on the screen ; a Model-View-Backend architecture.</p>
+                           
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/and1.png">
+                                   
+                             
+                                   
+                                </figure>
+                            </div>  
+                            
+                          <h5>MVP – Model-View-Presenter</h5>
+                          <p>When we talk about mobile architecture, the starting point is usually the MVP pattern. A few years ago and before the arrival of the MVVM, MVP in Android was the industry standard for building the application layer of our application.</p>
+
+                             <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/and2.png">
+                                   
+                             
+                                   
+                                </figure>
+                            </div>  
+
+                           <p>MVP in Android was born as a result of the need to solve the problem that constituted having Activities that were God Objects, where all the logic of the application reside, the network calls, the storage in BD / shared preferences, etc… <br>
+                            We do not want to delve much into the details of this architecture, as it is quite popular and known to all, so we will only discuss the MVP in Android advantages and disadvantages:</p>
+                            
+                            <h6>MVP in Android Advantages:</h6>
+                            <p><li>Decoupled view of the other components</li></p>
+                            <p><li>Presentation logic unit-wise</li></p>
+                            <p><li>Reusable views and presenters</li></p>
+                           
+                            <h6>MVP in Android Disadvantages:</h6>
+                            <p><li>Bidirectional coupling. The presenter knows the view and the view knows the presenter. In addition, the presenter has dependencies with the services.</li></p>
+                            <p><li>When this coupling exists, to test the presenter we have to mock the services and the view.</li></p>
+                            <p><li>A presenter has dependencies with N services, which complicates the testing of it since each service that we add implies more mocking in the tests.</li></p>
+                            <p><li>There is a tendency to store intermediate states in the presenter (for example, the state of a form), which leads to difficulties when testing this presenter since we have to configure these states to cover all possible cases.</li></p>
+
+                           
+                           <h4>MVPBinder</h4> 
+                           <p>As we have seen in the classic MVP, the biggest disadvantage of the classic MVP is the increase of the difficulty to test a presenter as it grows; that is why we decided to evolve it until we can decouple it from services. </p>
+
+                           <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/and3.png">
+                              
+                            </figure>
+                        </div>
+
+                        <p>For this we created a class “Binder”, which is a subclass of the presenter that allows us to link service events with a response in the view, and thus avoid having dependencies with the services in the presenter, so that to test it we do not have to mock the same ones. An example of a Binder class would look like this:</p>
+
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/and4.png">
+                              
+                            </figure>
+                        </div>
+
+                        <p>The bindSearch method is defined in the presenter and is defined as:</p>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/and5.png">
+                              
+                            </figure>
+                        </div>
+
+                        <p>Likewise, the onGetRepositoryListNext and onGetRepositoryListError methods are also defined in the presenter and are these:</p>
+
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/and6.png">
+                              
+                            </figure>
+                        </div>
+
+                        <p>Adopting this architecture, these are the advantages and disadvantages that we find:</p>
+
+                        <h6>Advantages</h6>
+                        <p><li>Decoupling between the presenter and the services. What facilitates the reusability of the presenter.</li></p>
+                        <p><li>It is not necessary to mock / stubbear the service. What facilitates the testing of the presenter.</li></p>
+
+                      
+                        <h6>Disadvantages</h6>
+                        <p><li>We continue to maintain a dependency between the view and the presenter, so we have to mock the view to test the presenter (although we only do verifications and do not define behavior for it)</li></p>
+                        <p><li>If we have more than one service, our Binder will have those N services as a dependency and may grow indefinitely.</li></p>
+                        <p><li>There is still a presenter in which we can store intermediate states, which complicates the testing of it.</li></p>
+
+                        <h4>MVB – Model-View-Binder</h4>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/and7.png">
+                              
+                            </figure>
+                        </div>
+                        <p>After the adoption of the presenter with the binder we realized that the same investment of dependencies that we made between the presenter and the services, could be done between the presenter and the view (s). In this way we would have a completely decoupled view of the presenter, as well as a presenter decoupled from both the view and the services. The sole responsibility of this presenter (from here on we will call him Binder) will be to link the events that issue the view with calls to the service, and the events that the service issues with the methods of the view. A Binder of these characteristics would be like this:</p>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/and8.png">
+                              
+                            </figure>
+                        </div>
+                        <p>In this way, we could have N binders where each one links a view-service pair, so that we could have for example a Binder that links the events of the view that we want to track in an analytical service with a service that does the same, and have another Binder to obtain data from that same view. In this way the Binder to track events (along with the interfaces of the view and the service) would be reusable in all the views that we want and we will eliminate code duplication. <br>
+                            <br>
+
+                            The events that a view / service emits as well as the information it receives would be defined in an interface such that:</p>
+                         
+                            
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/and9.png">
+                                  
+                                </figure>
+                            </div>
+
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/and10.png">
+                                  
+                                </figure>
+                            </div>
+                          
+                         <p>This architecture makes it much easier for us to test our presentation layer, since it completely eliminates the dependencies with views and services (the only dependency is on the Binder, and testing it would be redundant, since it is little more than a configuration file) and for both eliminates the need to mock them. <br>
+                            <br>
+
+                            It doesn’t only eliminate the mocking, but the way to test both our services and our views is to verify that, for an event of entry X, a certain value is emitted through the output event Y. In this way we have a Unified form to test a large part of our application, no matter how complex the services or the views are. <br>
+                            <br>
+                            In addition, we eliminate the temptation to have intermediate states in intermediate layers (like a Presenter or a ViewModel), since we can only store them in the view (information that concerns only the view) or we will have to take it to the outer layers of our application (for example a cache in memory) and access them through a repository. <br>
+                            <br>
+                            Thanks to this architecture, we solve the problems that we saw in the previous ones, having only one disadvantage: the complexity of the services has increased with respect to the previous ones; disadvantage that we mitigate intensively testing our services.</p>   
+    
+                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 13, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

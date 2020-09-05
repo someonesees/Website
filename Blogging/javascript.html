@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Writing Tests For Bad JavaScript Code</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                               
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/java.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Programming</a></div>
+                        <h3>Writing Tests For Bad JavaScript Code.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 06, 2020 at 01:48 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>I like refactoring code and thinking about software design. It's something I speak about, blog about and enjoy doing as part of my job day to day. A core part of any refactoring is knowing that you haven't broken any functionality and the best way to have confidence in that is by having a set of tests you can run to ensure you've not broken anything. <br>
+                                <br>
+
+                                But what do you do when there are no tests? You should never dive into a refactoring without tests, but how do you ensure that you've got good tests? Today we're going to look at some code we've stumbled across and want to refactor, and how we first take the step of adding tests. <br>
+                                <br>
+                            </p>
+                            <h3>The code: generating filenames for books</h3>
+                            <p>Here's the code we've been asked to work with. We're working at a publishers and this code generates the filename for the front cover of a given book (or target). There's some features we need to add to this code, but for now we just need to understand it. Feel free to take a moment to give it a read.
+
+                            </p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/java1.png">
+                                </figure>
+                            </div>
+                            <p>There's a lot going on here! It looks like we generate the name based on the published date, the category, the type of book, some random digits, and then the title which we truncate if needed. It's clear that this code could do with some attention; it's not the easiest to read or follow. The first step is to try and clarify all the behaviour that we have so we can test it. But right now we don't have a single test! So let's attempt to write one.</p>
+
+                             <h3>Writing our first test</h3> 
+                             <p>I've spoken before about descriptive tests, but in this case we don't even know what we're testing! In this case I like to start really basic and just prove to myself that this code even works:
+                                 <br>
+                             </p>
+                             describe('Publisher', () => { <br>
+                                it('does a thing', () => {}) <br>
+                              }) <br>
+                              <br>
+                              <p>We know that generateFilename takes a target, so we can try to make a fake target as best we can. If we mess it up, we'll get errors from the tests telling us what we missed.</p>
+                              describe('Publisher', () => { <br>
+                                it('does a thing', () => { <br>
+                                  const fileName = Publisher.generateFilename({ <br>
+                                    publishOn: new Date(2021, 3, 1), <br>
+                                    categoryPrefix: 'tech', <br>
+                                    kind: 'software-design', <br>
+                                    id: 123, <br>
+                                    title: 'Software Design', <br>
+                                  }) <br>
+                                  <br>
+                              
+                                  expect(fileName).toEqual('???') <br>
+                                }) <br>
+                              }) <br>
+                              <br>
+                              <p>But what about the assertion? We have no idea what the output will be. In this case I like to write an obviously wrong output and watch the test fail. The failure will show us what we're actually expecting!</p>
+                              Expected: "???" <br>
+                              Received: "2021-4techsoftware-design12358113-softwared.jpg" <br>
+                               <br>
+                               <p>OK, so let's drop that name into our assertion and hopefully the test should pass. Well unfortunately:</p>
+                               <br>
+                               Expected: "2021-4techsoftware-design12358113-softwared.jpg" <br>
+                            Received: "2021-4techsoftware-design12369199-softwared.jpg" <br>
+                            <br>
+                            <p>Random numbers like this can derail a test, but thankfully there's a workaround. We can expect our output to match a regex where we hardcode everything bar the 5 digits that are random:</p>
+                            <br>
+                            expect(fileName).toMatch(/2021-4techsoftware-design123[0-9]{5}-softwared\.jpg/) <br>
+                            <br>
+                            <p>And now we are passing! Phew. Whilst this felt like a bit of a slog we're now in a great position. We have at least one test, and now we're ready to figure out the other set of tests that we'll need.</p>
+
+
+                            <h3>Finding branches in the code</h3>
+                            <p>When you're trying to write test cases that flush out all the possible edge cases you should look for conditionals in the code. These are effectively all the branches that you're trying to test. Each if becomes two test cases: one that tests the positive side and one for the negative side.
+                                <br>
+
+                                The first conditional we hit adds the ageRange to the file name if the book is personal:</p>
+                                fileName += target.isPersonal ? target.ageRange : ''<br>
+                                <br>
+                                <p>Our first test case didn't include this, so let's make sure we test this and include the age range in the assertion:</p>
+                                it('includes the age range if the book is personal', () => { <br>
+                                    const fileName = Publisher.generateFilename({ <br>
+                                      publishOn: new Date(2021, 3, 1), <br>
+                                      ageRange: 10, <br>
+                                      isPersonal: true, <br>
+                                      categoryPrefix: 'kids', <br>
+                                      kind: 'childrens-book', <br>
+                                      id: 123, <br>
+                                      title: 'Five go on an Adventure', <br>
+                                    }) <br>
+                                    expect(fileName).toMatch( <br>
+                                      /2021-4kidschildrens-book123[0-9]{5}10-fivegoona\.jpg/ <br>
+                                    ) <br>
+                                  }) <br>
+                                  <br>
+                                  <p>The next conditional is the truncation:</p>
+                                  let truncatedTitle = target.title.replace(/[^\[a-z\]]/gi, '').toLowerCase() <br>
+                                  let truncateTo = truncatedTitle.length > 9 ? 9 : truncatedTitle.length <br>
+                                  fileName += `-${truncatedTitle.slice(0, truncateTo)}` <br>
+                                  <br>
+                                  <p>Our first test case used the title 'Software Design' which is greater than 9 characters long, so this behaviour is being tested already. So let's add another test case that uses a really short title and confirms it does not get truncated.</p>
+                                  it('does not truncate titles less than 9 characters long', () => {  <br>
+                                    const fileName = Publisher.generateFilename({ <br>
+                                      publishOn: new Date(2021, 3, 1), <br>
+                                      categoryPrefix: 'bio', <br>
+                                      kind: 'biography', <br>
+                                      id: 123, <br>
+                                      title: 'Jack', <br>
+                                    }) <br>
+                                    expect(fileName).toMatch(/2021-4biobiography123[0-9]{5}-jack\.jpg/) <br>
+                                  }) <br>
+                                  <br>
+                                  <p>There's other behaviour here yet to be tested - that regex in particular looks interesting - but right now we are only after branches.</p> 
+                                  <br>
+                                  <p>Those are all the conditionals that we've come across so let's have a look at where we're up to with our tests:</p>
+                                  describe('Publisher', () => { <br>
+                                    it('does a thing', () => {}) <br>
+                                    <br>
+                                  
+                                    it('includes the age range if the book is personal', () => {}) <br>
+                                    <br>
+                                  
+                                    it('does not truncate titles less than 9 characters long', () => {}); <br>
+                                    <br>
+                                    <p>We can now rename the 'it does a thing' test; that test actually tests that truncation works with titles greater than 9 characters long. Notice how we didn't know that at the time but we do now. Let's update it's description accordingly:</p>
+                                    it('truncates titles greater than 9 characters long', () => { <br>
+                                        <br>
+                                        <p>Now we have three passing tests and our conditionals dealt with, let's look at other edge cases or particularly interesting bits of behaviour that we'd like to test.</p>
+
+                          <h3>Looking for other edge cases and changes in behaviour</h3>
+                          <p>Now we're scanning the code looking for things that we'd like to test. And we hit a good candidate on line 1; including the year and month in the output. What we now have to consider is is this worth writing a specific test for, or are the current suite of tests sufficient? This is where some personal preference comes in; I'd argue that every test will test this date logic, as it's not conditional on anything else, so we can leave this be.</p>
+                          fileName += target.kind.replace('_', '') <br>
+                          <br>
+                          <p>This is the first line that makes me want to write a test. If the kind has an underscore in, it will be removed. We also hit a curious issue here: what if there are multiple underscores? This code will only replace the first instance, not all of them. This would be the sort of thing I'd note down for later; to check if this is desired or a bug in the implementation. When you're writing tests for code you don't understand, don't fix anything at first. Get good test coverage and note down any potential bugs you find along the way. <br>
+                            <br>
+
+                            Here I make sure I write a test where kind has an underscore and assert that it's been removed in the output. I then also write a test that confirms if there are multiple underscores only the first is removed, because I'd like to document that behaviour even if we then ultimately decide that it's a bug (at which point we can update the test).</p>
+                            it('removes the first underscore from the kind', () => { <br>
+                                const fileName = Publisher.generateFilename({ <br>
+                                  publishOn: new Date(2021, 3, 1), <br>
+                                  categoryPrefix: 'bio', <br>
+                                  kind: 'self_biography', <br>
+                                  id: 123, <br>
+                                  title: 'Title', <br>
+                                }) <br>
+                                expect(fileName).toMatch(/2021-4bioselfbiography123[0-9]{5}-title\.jpg/) <br>
+                              }) <br>
+                              <br>
+                              
+                              it('does not remove any subsequent underscores from the kind', () => { <br>
+                                const fileName = Publisher.generateFilename({ <br>
+                                  publishOn: new Date(2021, 3, 1), <br>
+                                  categoryPrefix: 'bio', <br>
+                                  kind: 'self_bio_graphy', <br>
+                                  id: 123, <br>
+                                  title: 'Title', <br>
+                                }) <br>
+                                expect(fileName).toMatch(/2021-4bioselfbio_graphy123[0-9]{5}-title\.jpg/) <br>
+                              }) <br>
+                              <br>
+                              <p>The next thing that strikes me is this line:</p>
+                              let truncatedTitle = target.title.replace(/[^\[a-z\]]/gi, '').toLowerCase() <br>
+                              <br>
+                              <p>Or specifically, this regex:</p>
+                              [^\[a-z\]]/gi <br>
+                              <br>
+                              <p>This regex (we think) is supposed to match anything that isn't a letter. In the code anything that matches is replaced by nothing, and we note that the /gi makes it global (every match will be replaced) and case insensitive. But what's curious here is that the inner braces are escaped:</p>
+                              \[a-z\] <br>
+                              <br>
+                              <p>So this regex also looks like it will leave any braces in the title. This seems unlikely so we note this as a potential bug, but given it is coded behaviour, let's write a test to prove that braces do remain. We'll also write another test that has a funky title full of special characters to ensure they get removed:</p>
+
+                              it('does not remove braces or letters from the book title', () => { <br>
+                                const fileName = Publisher.generateFilename({ <br>
+                                  publishOn: new Date(2021, 3, 1), <br>
+                                  categoryPrefix: 'bio', <br>
+                                  kind: 'biography', <br>
+                                  id: 123, <br>
+                                  title: 'My [Title]', <br>
+                                }) <br>
+                                expect(fileName).toMatch(/2021-4biobiography123[0-9]{5}-my\[title\]\.jpg/) <br>
+                              }) <br>
+                              <br>
+                              
+                              it('removes other special characters from the book title', () => { <br>
+                                const fileName = Publisher.generateFilename({ <br>
+                                  publishOn: new Date(2021, 3, 1), <br>
+                                  categoryPrefix: 'bio', <br>
+                                  kind: 'biography', <br>
+                                  id: 123, <br>
+                                  title: '(My) <title$>', <br>
+                                }) <br>
+                                expect(fileName).toMatch(/2021-4biobiography123[0-9]{5}-mytitle\.jpg/) <br>
+                              }) <br>
+                              <br>
+                              <p>And that's the last part of behaviour that leaps out at us as worth testing.</p>
+
+
+                        <h3>Conclusion</h3>
+                        <p>With that we now have 7 tests that describe and specify the functionality that generateFilename gives us:</p>
+                        t('truncates titles greater than 9 characters long', () => {}) <br>
+                        it('includes the age range if the book is personal', () => {}) <br>
+                        it('does not truncate titles less than 9 characters long', () => {}) <br>
+                        it('removes the first underscore from the kind', () => {}) <br>
+                        it('does not remove any subsequent underscores from the kind', () => {}) <br>
+                        it('does not remove braces or letters from the book title', () => {}) <br>
+                        it('removes other special characters from the book title', () => {}) <br>
+                        <br>
+                        <p>We also think we might have found some bugs along the way: <br> </p>
+                            <br>
+
+                    <p>Is it deliberate that only the first _ gets removed from the kind of the target?  </p> <br>
+                    <p>Similarly, are braces meant to be included as part of the title's output? Or is that a typo when defining the regex?  </p> <br>
+                        <br>
+                            <p>Although it's tempting to fix these "bugs" as you go, remember that the entire point of this work is to clarify the code's behaviour in order to make improvements. Resist the urge to make improvements as you go; once you have a thorough test suite it's much easier to make decisions on where to go and if you start making changes you've got a good set of tests to ensure you don't break any functionality.</p>
+                        
+
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 06, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/java22.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Programming</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Java 20 ques.html" class="headline">
+                                <h5>Java String Interview Questions</h5>
+                            </a>
+                            <p>Java is one of the most popular programming languages. Java is simple, secure, and robust. When you are ready to face an interview for Java.....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 06, 2020 at 05:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/ssd.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="solid state devices.html" class="headline">
+                                <h5>Solid State Device Technology</h5>
+                            </a>
+                            <p>Solid state refers to a type of technology that uses semiconductor devices to replace mechanical (moving) parts. The term solid state....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 10, 2020 at 9:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>
+                            We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

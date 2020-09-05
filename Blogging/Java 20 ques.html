@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Top 20 Java String Interview Questions And Answers</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/javaa.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Programming</a></div>
+                        <h3>Top 20 Java String Interview Questions And Answers.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 30, 2020 at 10:08 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>Java is one of the most popular programming languages. Java is simple, secure, and robust. When you are ready to face an interview for Java, in most interviews, the starting question will be about Java String. You should not make any mistakes at the start of your interview.</p>
+                            <p>In this article, I am covering the top 20 Java String Interview Questions. After reading this article, you will be ready to rock the String part of your Java Interview. <br>
+                                So let’s get started.</p>
+
+                            <h4>1. What is String in Java? Is it a datatype?
+                            </h4>   
+                            <p>The string is a final class in Java defined in java.lang package. You can assign a sequence of characters to a string variable. For example String name = "Gaurav"; No, String is not a datatype like int, char, or long. When you assign a sequence of character to String variable, you are creating a string object. Every String literal is an instance of the String class, and its value can not be changed.</p>
+                            <h4>2. What is the difference between String in C language and String in Java?</h4>
+                            <p>If your resume contains something related to the ‘C’ language, they can ask you this question. String in Java and C is completely different. In ‘C’ language String is a null-terminated character array. The string is more abstract in Java. The string class comes with java.lang package and has lots of predefined methods that a programmer can use to operate on a string or get information about a String. So String is more feature-rich in Java than C.</p>
+                            <h4>3. What is the String pool in Java?</h4>
+                            <p>The String pool is a special type of memory maintained by the JVM. String pool is used to store unique string objects. When you assign the same string literal to different string variables, JVM saves only one copy of the String object in the String pool, and String variables will start referring to that string object. The purpose of maintaining this special type of memory is memory optimization.</p>
+                            <h4>4. Why String is immutable?</h4>
+                            <p>In most of the Java Interviews, you will face this question. Why do you think Java language designers kept string immutable? You can give the following reasons. Java String pool is possible because the String is immutable. If you assign the same string literal to many string variables, JVM will save only one copy of the string object in the Java string pool, and these variables will start referring to that string object. If you were not asked about the String pool before this question, please give a little background about the string pool concept in Java. Please refer to the previous question. Also, another reason can be Security. We know that almost every Java program contains a string, and it is used to save important data like usernames and passwords. So it should not be changed in-between. Otherwise, there will be a security problem.</p>
+                            <h4>5. How many objects will be created from the following code?</h4>
+								
+
+                                  String firstString = "Prashant"; <br>
+                                  String secondString = "Prashant"; <br>
+                                  String thirdString =  new String("Prashant");<br>
+								<p>By seeing the above code, only two string objects will be created. The first two variables will refer to the same string object with the value "Gaurav". JVM uses the string pool concept to store only one copy of duplicate string objects to string constant pool.
+
+									But when we use a new keyword to create a new string, a new string object will be created and stored in the Java heap memory.
+									
+									So for the third variable thirdString, a new string object will be created and stored in a Java heap space.
+									
+									So there will be a total of two objects, one from the Java string pool and one from the Java heap memory.</p>	
+								<h4>6. What is the intern() method?</h4>
+								<p>intern() method is used to add the unique copy of the string object to the Java string pool manually.
+
+									We know, when we create a string using a new keyword, it will be stored in the heap memory.
+									
+									We can store the unique copy of that string object in the Java string pool using the intern() method.
+									
+									When you do such a thing, JVM will check if the string object with the same value is present in the string pool or not.
+									
+									If a string object with the same value is present, JVM will simply provide the reference of that object to the respective string variable.
+									
+									If a string object with the same value is not present in the string pool, JVM creates a string object with the same value in the String pool and returns its reference to the string variable.</p>
+								<h4>7. What is the difference between the String and StringBuffer?</h4>
+								<p>The String is a final class in Java. The String is immutable. That means we can not change the value of the String object afterword.
+
+									Since the string is widely used in applications, we have to perform several operations on the String object. Which generates a new String object each time, and all previous objects will be garbage object putting the pressure on the Garbage collector.
+									
+									Hence, the Java team introduced the StringBuffer class. It is a mutable String object, which means you can change its value.
+									
+									The string is immutable, but the StringBuffer is mutable.</p>
+								<h4>8. What is the difference between the StringBuffer and StringBuilder?</h4>
+								<p>We know String is immutable in Java. But using StringBuffer and StringBuilder, you can create editable string objects.
+
+									When Java Team realizes the need for the editable string object, they have introduced the StringBuffer class. But all the methods of the StringBuffer class are synchronized. That means at a time, only one thread can access a method of the StringBuffer.
+									
+									As a result, it was taking more time.
+									
+									Latter, Java Team realizes that making all methods of the StringBuffer class synchronized was not a good idea, and they introduced a StringBuilder class. None of the methods of the StringBuilder class are synchronized.
+									
+									Since all the methods of the StringBuffer class are synchronized, StringBuffer is thread-safe, slower, and less efficient as compared to StringBuilder.
+									
+									Since none of the methods of the StringBuilder class is synchronized, StringBuilder is not thread-safe, faster, and efficient as compared to StringBuffer.
+									
+									Also, you can check my detailed article on difference between theStringBuffer and StringBuilder.</p>
+								<h4>9. Can we compare String using the == operator? What is the risk?</h4>
+								<p>Yes, of course, we can compare String using the == operator. But when we are comparing string using the == operator, we are comparing their object reference, whether these string variables are pointing towards the same string object or not.
+
+									Most of the time, developers want to compare the content of the strings, but mistakenly they compare strings with == operator, instead of equals() method, which leads to an error.
+									
+									Below, I have given a program, which shows the string comparison using the == operator and equals() method.</p>	
+									
+
+                                       /* <br>
+                                       * A java program showing the string comparison <br>
+                                        * using equals to operator ( == ). <br>
+                                        */ <br>
+                                       public class StringCompareUsingEqualsOperator { <br>
+ 
+                                      public static void main(String[] args) { <br>
+ 
+                                       String firstString = "Prashant"; <br>
+                                       String secondString = "Prashant"; <br>
+ 
+                                          String thirdString =  new String("Prashant"); <br>
+ 
+                                         System.out.print("Case 1 : "); <br>
+                                            System.out.println(firstString == secondString); // true <br>
+ 
+                                        System.out.print("Case 2 : "); <br>
+                                              System.out.println(firstString == thirdString); // false <br>
+ 
+                                              // Comparing strings using equals() method <br>
+                                             System.out.print("Case 3 : "); <br>
+                                            System.out.println(firstString.equals(thirdString)); // true <br>
+                                                } <br>
+ 
+												  } <br>  
+								<p>The output of the above program will be:</p>	
+							
+
+                                    Case 1 : true <br>
+                                    Case 2 : false <br>
+									Case 3 : true	<br>
+									<p>In ‘case 1,’ we are comparing firstString and secondString using the equals to operator (==), since both the variables are pointing towards the same string object, it will print true.
+
+										In ‘case 2,’ we are comparing firstString and thirdString using the equals to operator i.e. == since both the variables are not pointing towards the same string object, it will print false.
+										
+										You can see, for thirdString, we are using the new keyword, which creates a new object in Java heap memory.
+										
+										In ‘case 3,’ we are comparing firstString and thirdString using equals() method. Even if both are the different string object, it has the same content hence it is printing true.</p>
+								<h4>10. What are the ways to compare string?</h4>	
+								<p>We can compare strings using the equals() method, == operator and compareTo() method.
+
+									When we compare strings using the equals() method, we are comparing the content of the strings, whether these strings have the same content or not.
+									
+									When we compare strings using the == operator, we are comparing the reference of the string, whether these variables are pointing to the same string object or not.
+									
+									Also, we can compare string lexicographically (comparing strings by alphabetical order). We can use the compareTo() method to compare the strings lexicographically.
+									
+									compareTo() method returns a negative integer, 0, or a positive integer.</p>	
+									firstString.compareTo(secondString)
+									<br>
+									<p>If firstString is less than the secondString, it will return a negative integer. i.e firstString < secondString → returns a negative integer
+
+										If firstString is equal to the secondString it will return zero. i.e firstString == secondString → returns zero
+										
+										If firstString is greater than the secondString, it will return a positive integer. i.e firstString > secondString → returns a positive integer</p>
+ 
+
+                            <blockquote class="mb-30">
+                                <h6>Remember, <br>
+                                    "You only have one chance to make a first impression." – Stephanie Perkins,
+                                    
+                                    </h6>
+                                
+                            </blockquote>
+                            <h4>11. What is the use of the substring() method?</h4>
+								<p>The substring() method in Java returns a ‘substring’ of the specified string.
+
+									The creation of the substring depends on the parameter passed to the substring() method.
+									
+									There are two variants of the Substring method. <br>
+									
+									1.substring(int beginIndex) <br>
+									2.substring(int beginIndex, int endIndex) <br>
+									In the first method, we are just giving beinIndex parameter, while in the second variant we are giving both beginIndex and endIndex.
+									
+									For the first variant, substring will be created from the beginIndex (inclusive) to the last character of the string.
+									
+									For the second variant, substring will be created from the beginIndex (inclusive) to the endIndex (exclusive). <br>
+									See the following Program to understand substring() method.
+
+									In the first Program, I have the first variant of the substring() method.</p>	
+				
+									String name = "Prashant Tiwari"; <br>
+									String result = name.substring(4); <br>
+									 
+									System.out.println(result); // it will print "nt Tiwari" <br>
+									<br>
+									<p>In the second Program, I have the first variant of the substring() method.</p>	
+                                    String name = "Prashant tiwari"; <br>
+                                   String result = name.substring(4, 9); <br> 
+ 
+									System.out.println(result); // it will print "av ku" <br>
+							<h4>12. How to check if the String is empty?</h4>	
+							<p>Java String class has a special method to check if the string is empty or not. <br>
+
+								isEmpty() method internally checks if the length of the string is zero. If it is zero, that means the string is empty, and the isEmpty() method will return true. <br>
+
+								
+								If the length of the string is not zero, then the isEmpty() method will return false.</p>	
+							<h4>13. What is the format() method in Java String? What is the difference between the format() method and the printf() method?</h4>	
+							<p>format() method and printf() method both format the string. The only difference is that the format() method returns the formatted string, and the printf() method prints the formatted string.
+
+								So when you want the formatted string to use in the program. you can use the format method. And when you want to just print the formatted string, you can use the printf() method.</p>
+							
+							<h4>14. Can you say String is ‘thread-safe’ in Java?</h4>
+							<p>Yes, we can say that the string is thread-safe. <br>
+
+								As we know, String is immutable in Java. That means once we created a string, we can not modify it afterword. Hence there is no issue of multiple threads accessing a string object.</p>
+							<h4>15. Why most of the time string is used as HashMap key?</h4>
+							<p>The string is immutable. So one thing is fixed that it will not be changed once created. <br>
+
+								Hence the calculated hashcode can be cached and used in the program. This will save our effort for calculating the hashcode again and again. So, a string can be used efficiently than other HashMap key objects.</p>	
+							<h4>16. Can you convert String to Int and vice versa?</h4>	
+							<p>Yes, you can convert string to int and vice versa. <br>
+
+								You can convert string to an integer using the valueOf() method and the parseInt() method of the Integer class. <br>
+								
+								Also, you can convert an integer to string using the valueOf() method of the String class. <br>
+								
+								Below, I have given a program which shows the string to integer and integer to string conversion.</p>
+
+                                 /* <br>
+                                 * A Java program to convert String to Integer and vice versa. <br>
+                                * 
+                                  * We are using the valueOf() method and parseInt() method of <br>
+                                  * the wrapper classes. <br>
+                                  * 
+                                   */ <br>
+                                  public class Conversion{ <br> 
+                                   public static void main(String [] args){ <br>
+ 
+                                    String str = "1254"; <br>
+ 
+                                     int number = 7895; <br>
+ 
+                                    // convert string to int using Integer.parseInt() method <br>
+                                      int parseIntResult1 = Integer.parseInt(str); <br>
+ 
+                                    // convert string to int using Integer.valueOf() method <br>
+                                      int valueOfResult1 = Integer.valueOf(str); <br>
+ 
+                                     System.out.println("Converting String to Integer:"); <br>
+                                     System.out.println("Using the Integer.parseInt() method : "+parseIntResult1);  <br>
+                                     System.out.println("Using the Integer.valueOf() method : "+valueOfResult1);    <br>
+ 
+                                        System.out.println("\n"); <br>
+                                       // convert integer to string using String.valueOf() method <br>
+                                        String valueOfResult2 = String.valueOf(number); <br>
+  
+                                          System.out.println("Converting Integer to String :"); <br>
+                                         System.out.println("Using the String.valueOf() method : "+valueOfResult2); <br>
+ 
+                                              } <br>
+												} <br>
+								<p>The output of the above program will be,</p>
+
+                                     Converting String to Integer: <br>
+                                      Using the Integer.parseInt() method : 1254 <br>
+                                      Using the Integer.valueOf() method : 1254 <br>
+ 
+ 
+                                      Converting Integer to String : <br>
+									 Using the String.valueOf() method : 7895 <br>
+							<h4>17. What is the split() method?</h4>	
+							<p>The split method is used to split the string based on the provided regex expression.
+								<br>
+
+								The Signature of the split method is</p> 	 
+								public String[] split(String regex) <br>
+								 <br>
+								<p>This method will return an array of the split substrings.</p>
+								/* <br>
+                                * A Java program showing the uses of split method. <br>
+                                 *  <br>
+                                 */ <br>
+                                 public class SplitExample { <br>
+ 
+                                   public static void main(String[] args) { <br>
+                                   String name = "My, name, is ,Prashant!"; <br>
+ 
+                                  String [] substringArray = name.split(","); <br>
+ 
+                                  for(String substring : substringArray) { <br>
+                                       System.out.print(substring); <br>
+                                      } <br>
+                                        } <br>
+ 
+										} <br>
+							<p>The output of the above program will be</p>	
+							My name is Prashant! <br>		
+						<h4>18. What is the difference between "Prashant Tiwari".equals(str) and str.equals("Gaurav Kukade")?</h4>
+						<p>Both look the same, and it will check if the content of the string variable str is equal to the string "Prashant Tiwari" or not. <br>
+
+							But their behavior will change suddenly when a string variable str = null. The first code snippet will return false, but the second code snippet will through a NullPointerExpection. <br>
+							
+							Below I have given a program which uses both ways to compare string using equals() method.</p>	
+							* A Java program which checks <br>
+                             * both ways of string comparison using equals() method. <br>
+                               */ <br>
+ 
+                             public class StringExample { <br>
+ 
+                               public static void main(String[] args) { <br>
+ 
+                                String str = "Prashant Tiwari"; <br>
+ 
+                                 System.out.println("Prashant Tiwari".equals(str)); // true <br>
+ 
+                                       System.out.println(str.equals("Prashant Tiwari")); // true <br>
+                                     } <br>
+ 
+									 } <br>
+									 <br>
+							<p>The output of the above program will be</p>
+							
+
+                                     true <br>
+									 true <br>	 
+							<p>It is print true both times because the content of both strings is equal to each other. <br>
+
+								Now, we will check a program where the str=null</p>	
+								 
+								
+
+                                         /* <br>
+                                         * A Java program which checks <br>
+                                         * both ways of string comparison using equals() method. <br>
+                                          * 
+                                         * This program throws a NullPointerException at second print statement. <br>
+                                              */ <br>
+  
+                                         public class StringNullExample { <br>
+ 
+                                        public static void main(String[] args) { <br>
+ 
+                                         String str = null; <br>
+ 
+                                           System.out.println("Gaurav Kukade".equals(str)); // false <br>
+ 
+                                            System.out.println(str.equals("Gaurav Kukade")); // NullPointerException <br>
+                                            } <br>
+ 
+											 } <br>
+											 <br>
+							<p>The output of the above program will be</p>		
+							
+                                  false <br>
+                                Exception in thread "main" java.lang.NullPointerException <br>
+								  at StringNullExample.main(StringNullExample.java:14) <br>
+								  <br>
+							<p>We can see the above output, for first code snippet it is print false but for the second code snippet, it is throwing NullPointerException. It is one of the most important tricks to avoid the null pointer exception in java string. So this question is important.</p>	  
+						<h4>19. Can we use a string in switch case in java?</h4>	
+						<p>Yes, from Java 7 we can use String in switch case. <br>
+
+							Below, I have given a program that shows the use of the string in switch case.</p>	
+							
+                                 /* <br>
+                                  * A Java program showing the use of <br>
+                                  * String in switch case. <br>
+                                       */ <br>
+                                   public class StringInSwitchExample   <br>
+                                    {  <br>
+                                   public static void main(String[] args)  <br>
+                                     {  <br>
+                                  String str = "two";  <br>
+                                   switch(str)  <br>
+                                      {  <br>
+                                  case "one":  <br>
+                                   System.out.println("January");  <br>
+                                      break; <br>
+                                      case "two":  <br>
+                                       System.out.println("February");  <br>
+                                         break; <br>
+                                    case "three": <br>
+                                    System.out.println("March"); <br>
+                                   break; <br>
+                                     default: <br>
+                                    System.out.println("Invalid month number"); <br>
+                                       } <br>
+                                       }  <br>
+										}	<br>  
+										<br>
+								<p>The output of the above program will be</p>
+									February <br>
+						<h4>20. How string concatenation using the + operator works in Java?</h4>
+						<p>+ operator is the only overloaded operator. You can use it for both adding two numbers as well as for string concatenation purposes. <br>
+
+							If you are using the Java version 1.5 or above, string concatenation internally uses the append() method of the StringBuilder. And for versions lower than 1.5, it uses the append() method of the StringBuffer class.</p>			
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 30, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/c.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Programming</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="C++.html" class="headline">
+                                <h5>C++. The Most Powerful Language</h5>
+                            </a>
+                            <p>As a statically typed language, C++ is generally more performant than dynamically typed languages because  the code is type-checked ...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 21, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/m2.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Web Development</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="" class="headline">
+                                <h5>Front End Web Developer.</h5>
+                            </a>
+                            <p>The web is changing rapidly and constantly. If you are a Front-end developer, you probably know that you should keep up to date (hope so!)...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 16, 2020 at 9:48 am</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

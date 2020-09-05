@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Analyzing functionalities in Rust</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                              
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/jos.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Software Architecture</a></div>
+                        <h3>Analyzing functionalities in Rust</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 17, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                        <p>Being a developer it is easy to jump on the hype train and try to learn or even use in pet projects the latest libraries, frameworks and why not programming languages. <br>
+                            In a sector where everything evolves at a very high speed, sometimes it is difficult to keep the focus and not go crazy with the constant changes. <br>
+                            In my case, I like to read and practice different programming languages and the more the better, because they bring different visions of how to solve problems and even give you more tools for your day to day. And today’s article is about Discovering Rust. </p>
+                           
+                        <h4>Why Rust?</h4>
+                        <p>a colleague gave me an idea to migrate an internal client that we have in pure bash to some other language and as candidates were Go and Rust, as between us we did not agree, we decided that each would choose a language and make its port. <br>
+                            The result was that that client never migrated, but along the way, both of us were able to discover the advantages and disadvantages of languages like GO and Rust. <br>
+                            From that moment on, I was hooked on Rust and desperate since then, any personal project or proof of concept or idea that I can think of, I try to go first with Rust.</p>   
+                           
+                          <h4>What is Rust?</h4> 
+                          <p>Rust is based on three pillars:</p>
+                          <p><strong>1. Performance</strong>, fast and efficient with memory, no runtime or Garbaje collector.</p> 
+                          <p><strong>2. Reliable</strong>, ownership model guarantee memory-safety and thread-safety.</p>
+                          <p><strong>3. Productivo</strong>, great documentation, a compiler that in most cases tells you how to do it and gives you references to the documentation so you understand the problem and a tool that serves as a package manager, code formatter, improvement and suggestions.</p>
+                          <p>Rust began by defining itself as a systems language, but over time that definition has been disappearing, there are more and more libraries for web,  GUI, games and of course for systems! <br>
+                            <br>
+
+                            The first thing that you think when you read “system language” is… I will have to deal with pointers, I will have to work releasing and assigning memory, I will have to work at a very low level without abstractions and of course… if it is not your day to day because it is scary to return to the origins of C C++, but the great majority of these fears are very well resolved and by the compiler! with which it facilitates the way a lot to us. <br>
+                            <br>
+                            
+                            In this article we will see some basic concepts of rust and some of its features that under my point of view make it a very attractive language</p>
+                          
+                           <h4>Rust Concepts</h4>
+                           <li>Rust has a wide range of primitive types</li>
+                           <li>Rust bets on immutability, therefore, all declared variables are immutable unless they are specified with the keyword mut at the time of declaration.</li>
+                           <li>The same happens with visibility, everything is private and in the case that you want to make it public you will do it with the keyword pub.</li>
+                           <li>In the case of functions we can specify the keyword return to indicate that it is the value to be returned from the function or if the last sentence does not include the ; it will become the return of the function.</li>
+                           <li>Rust has a very complete type inference and we rarely need to specify the type of variable we are creating.</li>
+                           <li>Other features that give Rust a plus are the Generic types, Pattern matching, Macro system and many concepts of functional programming such as first-class functions, closures, Iterators</li>
+                           <br>
+                           <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR1.png">
+                                
+                            </figure>
+                        </div> 
+                        <h4>Ownership, borrowing & lifetimes</h4>
+                        <p>These three concepts are the greatest complexity that we will find in Rust, since they are concepts that in languages with QA it is the QA itself that treats them making it transparent for the developer. <br>
+                            <br>
+
+                            As it does not have an associated runtime or a Garbage Collector that frees the memory of the objects it does not use, all this is handled by the compiler with the help of the ownership, <br>
+                            Although the concept is suitable for more than one article, let’s see the basics of the concept with some examples. <br>
+                            <br>
+                            
+                            Each value has an assigned variable (owner) and there can only be one owner at a time, when that owner is out of scope the value will be released. <br>
+                            <br>
+                            
+                            So we have the following example:</p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/RR2.png">
+                                    
+                                </figure>
+                            </div>
+                           <p>The compiler is telling us that the owner of the variable name has been passed to the greet function, so after running greet it is no longer in that scope. To solve it is as simple as indicating that what we want is to lend the owner, so that when the function ends, get the owner again, and that is indicated with &</p>
+                           <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR3.png">
+                                
+                            </figure>
+                        </div>
+                        <p>The lifetime is a check of the management of ownership and borrowing of the values, most of the times the compiler knows how to interpret it, but sometimes it is necessary to detail it. Without going into too much detail since the same as the ownership and borrowing, gives for a series of articles.</p>
+                        <h4>Structs</h4>
+                        <p>Structs exist to define our own types, they are created with the keyword struct and have no associated behavior. <br>
+                            <br>
+
+                            To give behavior to a struct it will be done with the keyword impl.</p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/RR4.png">
+                                    
+                                </figure>
+                            </div>
+                           <p>In the Point implementation the add method receives as parameter self, this is because that method is of instance, if we don’t want to do it of instance it is as simple as removing the self</p>
+                           <h4>Traits</h4>
+                           <p>The Rust Traits are a collection of methods defined to be implemented by Structs, they are similar to the interfaces of other languages.</p>
+                           <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR5.png">
+                                
+                            </figure>
+                        </div>
+                        <h4>Enums</h4>
+                        <p>We can create enums, without value, with value or even have each enum have values of different types.</p>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR6.png">
+                                
+                            </figure>
+                        </div>
+                        <p>This is where pattern matching and destructuring play a very important role in managing enums</p>
+                        <h4>Alias</h4>
+                        <p>In Rust we can create our aliases for existing types</p>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR7.png">
+                                
+                            </figure>
+                        </div>
+                       
+                        <h5>Adding functionality to classes once they are defined</h5>
+                        <p>In some programming languages it is possible to add methods (extension methods) to classes once they have been defined, in Rust this would not be less! First we will create the path with the method that we want to use, then we will implement the path previously created to the type that we want to extend.</p>
+
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR8.png">
+                                
+                            </figure>
+                        </div>
+                       
+                        <h5>Operator Overload</h5>
+                        <p>Imagine being able to apply arithmetic operations to your own types, following the example before the struct point, being able to add Points with the simple + operator. In Rust this is possible by overloading the operators, which is the same again, implement traits for the types. Here are all the possible operators to overload</p>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR9.png">
+                                
+                            </figure>
+                        </div>
+                       <h5>Question mark operator</h5>
+                       <p>It is very common to see the handling of errors in Rust through the type Result<T,E> being T the value of OK and E the one of the error, and the handling of this type is done through pattern matching. Let’s imagine that we want to read the content of a file, for it we will use the function read_to_string of the module fs, the result of this function is a Result<String, std:io::error::Error>.</p>
+                       <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/RR10.png">
+                            
+                        </figure>
+                    </div>
+                    <p>By means of pattern matching we have dealt with both possible cases of the result. For this example we only wanted to print it by console, but imagine that you want to treat that content, the code becomes a little more complex, for these cases in Rust there is the ? operator with which we directly obtain the value of the Result if it has gone well and if not directly the error will be returned as return of the function. But in order to use the ? operator the method signature has to return a type Result<T,E></T></p>
+                    <div class="featured">
+                        <figure>
+                            <img src="img/blog-img/RR11.png">
+                            
+                        </figure>
+                    </div>
+                    <p>If the reading of the file fails, it will automatically return the Error trace, otherwise the code will continue to be executed until it returns the Result ok of the content</p>
+                    <h4>Type Conversion</h4>
+                    <p>Another very interesting feature is the type conversion that can be applied in Rust only by implementing the Trait std::convert::From <br>
+                        <br>
+
+                        The clearest use case is a function where you handle different types of errors but the return of your function you want it to be in the case of error a mistake of yours, of your domain, through pattern matching we could go hunting all the results and creating the Results of our type, but it would make our code difficult to maintain and not very readable. <br>
+                        <br>
+                        
+                        Using the ? operator and type conversion would look like this:</p>
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/RR12.png">
+                                
+                            </figure>
+                        </div>
+                       
+                        <h4>Cargo & utilities</h4>
+                        <p>And if we talk about Rust, we can’t leave out your package manager position, which comes with the Rust installation itself. <br>
+                            <br>
+
+                            With cargo we can create a project from scratch, manage the dependencies, generate the release, launch the tests, generate the documentation, publish the package to the registry…</p>
+                        
+                   
+                    
+                        
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 17, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Top Stories</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p> We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

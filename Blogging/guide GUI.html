@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>A Guide To GUI Testing</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/igui.jfif);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Design</a></div>
+                        <h3>A Guide To GUI Testing</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 26, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>There is a topic that keeps on coming up regarding user interfaces, more specifically regarding Graphical user interface; how to do UI testing? Actually, many people don’t even do it, but they should definitely be doing some GUI testing. So I decided to write an article that could serve of a sort of guide where you will get a deeper understanding of GUI and UI testing</p>
+                            <h4>What is User Interface or UI?</h4>
+                            <p>In computer science we often talk about the user interface. As its name says it, it refers to the interface that a program “shows” to the user, the means by which the user will interact with a computer system. This could include the screen, the keyboard the mouse and the appearance of the desktop itself.</p>
+                            <h4>Graphical user interface vs. command line interface</h4>
+                            <p>It’s important to know that there are two types of interfaces; the Command Line Interface (CLI) & the Graphical User Interface (GUI). A CLI is when you type in a text command into the terminal and that the computer responds to that command, while a GUI is when you interact with the computer by using a mouse or a keyboard, it’s an interaction where you manipulate visual elements instead of using text. </p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/guide1.png">
+                                    GUI
+                                   
+                                </figure>
+                            </div> 
+
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/guide2.png">
+                                  
+                                   CLI
+                                </figure>
+                            </div> 
+
+                            <p>The fact is that today, almost all of us need to, or choose to interact with computers (may it be for personal or professional use). This implies that almost all of us interact with a graphical user interface. But looking back at the 70’s, that was a complete different story! <br>
+                                <br>
+
+                                The typical user will start by checking our the design of the app, how it feels and looks and how easy it will be for him to navigate through it. If the interface is not appealing and that the user feels like he won’t really be comfortable, this won’t encourage him to continue using the software, platform, app. GUI is extremely important and UI testing is even more important, because having worked on the graphical user interface but not testing it can be equal to a lost of time. <br>
+                                <br>
+                                UI testing should therefore definetely be implemented in the beginning of the development to reduce risks at the end of the cycle.</p>
+                               
+                             <h4>What is UI testing? </h4>
+                             <p>Graphical User Interface testing is mainly about ensuring that the UI functions in the right, that an app follows its written specifications and that defects are identified. Other than that, we check that the design elements are good. This involves checking the screens with the controls like menu bars, toolbars, colours, fonts, sizes, icons, content, buttons, etc. How do they respond to user input? <br>
+                                <br>
+
+                                To do UI testing, we usually use various test cases (set of conditions that will help the tester determine if a system is working as its supposed to) and there are 2 ways of conducting it; manually (with a human software tester) or automatically (with the use of a software program).</p>   
+                                <h4>Manual testing</h4>
+                                <p>One of the approaches to UI testing is manual testing, which implies having a human tester that will perform a set of operations and basically check manually that the app is behaving in the right way and the graphical screens are in conformance with the requirements. Although this approach has a few advantages, it has some problems such as the fact that it can be time-consuming, it requires a lot of efforts and the quality really depends on the capabilities of the tester.</p>
+
+                                <h4>Capture & replay testing</h4>
+                                <p>We can also do the GUI testing by using some automation tools that were developed specifically for that. The idea is to run the app and capture/record the interaction that has to happen between the user and the app itself (mouse movements, etc.). We then repeat that for all the actions that users should have with the app and during the replay, those user actions that were saved will be reproduced and compared with what is expected.</p>
+                                <h4>Model based testing</h4>
+                                <p>An approach that we found to be much more efficient is the model based testing. This is mainly about building a model (a graphical description of the behaviour of the system) in order to get a deeper understanding and to generate more efficient test cases. After determining the inputs and calculating the expected outputs, you run the tests. You end up by comparing the results with what was expected. This approach is great because it helps a lot when it comes to determining states of the GUI that are not wanted and the level of automation is much higher.</p>
+
+                                <h4>Some test cases to consider in UI testing</h4>
+                                <p>When you are testing the graphical user interface, there are many test cases to take into consideration, and those are not the only ones of course but it’s a good checklist!</p>
+                                <p><strong>Font type & size</strong> – make sure that the font is the same on all screens, or at least the same family! Keep it professional. Same for the font sizes (headers, body text, etc.)</p>
+                                <p><strong>Colours </strong> – don’t be inconsistent. Stay with the same colours and follow a style guide. You can’t be using 4 different variations of orange (unless it’s really part of the design). Look at hyperlinks, background, buttons, body text, etc. </p>
+                                <p><strong>Icon styles</strong>  – you shouldn’t go for 5 different styles of icons, if you choose “flat” icons, stay with flat icons.</p>
+                                <p><strong>Visual inconsistencies</strong>  – consistency is key, always. The look & feel should be the same throughout the app. and other than the look & feel, abbreviations also have to be consistent.</p>
+                                <p><strong>Dialog box consistency</strong> – again with consistency. If you user “exit” in some dialog boxes you should use “leave” on others.</p>
+                                <p><strong>Required fields</strong> – it is always better to specify it that a field is required by adding to it an asterisk and by providing the user with a sort of warning if the data is not given.</p>
+                                <p><strong>Data type errors</strong>  – always ensure that the right type of data is given (dates, ages, weight, etc.).</p>
+                                <p><strong>Same document, multiple opens</strong>  – when a document is opened/downloaded more than once, instead of overwriting another one, you can re-name it by adding a number to the file name.</p>
+                                <p><strong>Field widths </strong> – obviously, if there is a certain amount of characters permitted and that the data entered shouldn’t exceeded a specific number, you should make it clear.</p>
+                                <p><strong>Onscreen instructions</strong> – screens (that are not clear) should contain some sort of onscreen instructions that will help/guide the user. Keep it brief and straight to the point!</p>
+                                <p><strong>Progress bars</strong>  – when waiting for results, progress bars are great so that users understand that they have to wait for something and that the process is still on.</p>
+                                <p><strong>Confirm savings</strong> – if you can do changes to the app without needing to save, it’s still always nice to make sure that the user doesn’t want to save before moving to another screen.</p>
+                                <p><strong>Confirm delete</strong>  – as we confirm savings, it’s always good to confirm that the user wants to delete an item. I am sure it has happened to many of you (as it did to me) to delete something on a page without really wanting to do so!</p>
+                                <p><strong>Drop down list type ahead</strong> – when you have 100s of options to choose of, it’s much nicer to have the option to type ahead than to have to go through the whole list.</p>
+                                <p><strong>Invalid options</strong>  – sometimes, for some specific options, you need to validate other characteristics before being able to use that option. Well this option should inly be shown available when all characteristics are fulfilled. An example would be not showing you can go to the next screen before fulfilling all the required information.</p>
+                                <p><strong>Menu items</strong>  – only show menu items that are available at the moment, instead of showing all the items even though they are not available.</p>
+                                <p><strong>Error messages</strong>  – error messages should be informative</p>
+                                <p><strong>Working shortcuts</strong>  – if you’ve got shortcuts on your application, make sure they all work, not matter which browsers are being used.</p>
+                                <h4>5 UI testing tools we like</h4>
+                                <p><strong>Watir</strong> – it’s an open source Ruby library that interacts with a browser the same way people do (clicking links, filling out forms and validating text), it has a simple class for non-tech users! It’s a multi browser support and has a rich API. </p>
+                                <p><strong>Sahi </strong> – it has a good capture and replay utility and is quite easy to learn. In fact it has an all in one solution (capture, replay, debug, trouble shoot, log management, etc.). It uses JavaScript as the scripting language. Another nice thing about Sahi is that is has a very good development community, an active forum and they have frequent releases. </p>
+                                <p><strong>Sikilu</strong> – it automates anything you see on the screen. It uses image recognition to identify and control GUI components and it is useful when there is no easy access to a GUI’s internal or source code. It uses Python as a scripting language and is used mainly on Windows, Mac OS X and Linux.</p>
+                                <p><strong>AutoIT </strong>  – is a freeware automation language for Microsoft Windows. It automates tasks in a way that is not possible with other languages. Unlike other tools, AutoIt provides real-time mouse movements to select an element. It’s very small and self-contained and will run on all versions of Windows. </p>
+                                <p><strong>TestComplete</strong>  – with TestComplete you get the chance to choose between JavaScript, Python, VBScript, JScript, DelphiScript, C++Script, and C#Script to create tests. It is quite easy to understand and makes it easy to automate tests on windows desktop, web apps and mobile devices. </p>
+                                <h4>Why should you do some UI testing automation? </h4>
+                                <p><li>You will are able to find <strong>regression errors</strong>.</li></p>
+                                <p><li>Test automation will give guarantee you<strong> consistency</strong>.</li></p>
+                                <p><li><strong>Reduce</strong> the margin of<strong> errors</strong>.</li></p>
+                                <p><li><strong>Increase efficiency</strong> through automation. Manual GUI testing can be very long and un-efficient and those resources/testers should be working on other things instead of running tests a robot can do. </li></p>
+                                <p><li>You use less resources, you do it faster. So yes, it’s as easy as that, you are<strong> saving time, resources and money</strong>. </li></p>
+                                <p><li><strong>Upgrading</strong>. Keep in mind that with every new test and every new bug discovered, the tool upgrades the information and you will always keep up to date.</li></p>
+                                <p><li>Get a better QA ticket quality.</li></p>
+
+          
+                               
+                                
+
+  
+
+
+
+
+                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 26, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

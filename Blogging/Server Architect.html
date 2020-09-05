@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>A Guide to Serverless Architecture</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/cloud.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Cloud</a></div>
+                        <h3>A Guide to Serverless Architecture</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 27, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                          <p>Many new terms emerge every day in the technological landscape, which present new opportunities for businesses. The birth of serverless architecture is also one of the notable technological innovations in recent times. It is important to note that serverless is a rapidly escalating trend in the cloud computing arena. <br>
+                            <br>
+
+                            According to a 2018 report, almost 46% of IT decision-makers are using and reviewing serverless computing. Another 35% of the IT decision-makers focus on evaluating the implications with serverless computing. In addition, almost 39% of IT decision-makers use a combination of PaaS, serverless technologies, and containers. Among the respondents, 42% report that they use a combination of serverless and containers and 43% report using a combination of serverless and PaaS. <br>
+                            <br>
+                            
+                            The following discussion would dive into answers for ‘what is serverless architecture’ in detail. The important highlights of the discussion include an in-depth reflection on the difference between server and serverless architecture and other aspects. The other aspects include patterns in serverless computing architecture, features of serverless computing, and different use cases. Furthermore, the discussion would also present a brief outline of the advantages and setbacks associated with serverless computing architecture. </p>
+                           
+                         <h4>Why serverless?</h4>
+                         <p>Let’s wind back our clocks a bit! Before the existence of the cloud, servers were the most crucial concern for developers in building software or applications. The costs and efforts for procuring servers and establishing them alongside the maintenance requisites were highly intensive for enterprises. With the entry of the cloud, enterprises did not have to worry anymore about the resources and higher operational costs. So, the necessity for serverless architecture becomes quite evident in such scenarios. The cloud is not anymore about backend services. Now, applications are just loosely coupled components on the cloud, and a major share of processing happens outside an application’s framework. </p>
+                         <h5>Defining serverless</h5>
+                         <p>Many misconceptions arise regarding the response to ‘what is serverless architecture.’ Various people assume that serverless means the lack of any server involvement. On the contrary, serverless computing actually means that developers don’t have to focus on server management anymore. As a result, developers don’t have to invest efforts in implementation, maintenance, debugging, and monitoring of the infrastructure. Subsequently, developers could focus extensively on the business goals intended by the applications. The popularity of serverless architecture is rightly visible in its adoption by various big names in the contemporary business environment. Netflix, AOL, and Reuters are some of the names that have boarded the serverless bandwagon. <br>
+                            <br>
+
+                            Now, we have a frail bit of clarity regarding the basic nature of serverless computing architecture. So, what exactly is serverless computing? Basically, serverless architecture is a cloud computing execution model that involves dynamic management of server allocation and provisioning by the cloud provider. Serverless applications run on stateless compute containers that are ephemeral and event-triggered. Serverless applications last only for one invocation, and the cloud provider fully manages them. <br>
+                            <br>
+                            The architecture of serverless applications draws our attention towards a notable term, i.e., “Functions as a Service (FaaS).” Serverless applications depend on a combination of client-side logic, third-party services, and cloud-hosted remote procedure calls. Some of the notable cloud services with serverless computing abilities include AWS Lambda, Azure Functions, Google Cloud Functions, IBM OpenWhisk, and Auth0 Webtask. </p>  
+                           
+                           <h5>Understanding FaaS</h5>
+                           <p>Did we miss out on something till now? In the previous paragraph, we came across the term “Function as a Service” (FaaS), didn’t we? Well, let’s just say that FaaS is an implementation of serverless architectures! FaaS allows the deployment of individual functions or a part of business logic. FaaS start within milliseconds alongside providing the benefit of processing individual requests within a 300-second timeout. An outline of the key features of FaaS could help us in enriching our knowledge about serverless architectures further. <br>
+                            <br>
+
+                            However, what is the principles on which FaaS works? The first principle of FaaS directly implies the complete management of servers. The second principle of FaaS focuses on invocation-based billing. The third and final principle of FaaS refers to event-driven nature and instantaneous scalability. The following properties of Function as a Service (FaaS) can explain further about the comprehensiveness of serverless computing. </p> 
+                           <li>The independent, server-side, logical functions help in arranging different units of logic for taking input arguments, operating on the output, and presenting the final output. </li>
+                           <li>The serverless architecture is unique because of the stateless nature. As a result, two invocations of the same function would execute on two different containers.</li>
+                           <li>FaaS design also involves functionalities for starting up quickly and shutting down immediately. </li>
+                           <li>The triggering of functions by events from other cloud services is a promising aspect for assuming FaaS as the glue for holding different services in a cloud environment together.</li>
+                           <li>In addition, FaaS also delivers the benefit of scalability by default. The initialization of multiple containers with stateless functions can help in allowing multiple functions to run for addressing incoming requests. </li>
+                            <br>
+                            <p>Furthermore, the popular FaaS solutions such as AWS Lambda, Google Cloud Functions and more provide the advantage of full management by the cloud provider.</p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/S1.png">
+                                    
+                             
+                                </figure>
+                            </div> 
+                            <h5>Differences between server and serverless</h5>
+                            <p>The functionalities of serverless architecture definitely present favorable propositions for enterprises. However, there are some cases in which serverless does not find any promising outcomes. Therefore, it is essential to understand the difference between server and serverless for finding out the suitable applications of serverless. <br>
+                                <br>
+
+                                Here is a comparison of server and serverless on the basis of various criteria. </p>
+                               
+                              <h6>1. Cost</h6>
+                              <p>The serverless architecture provides a much-needed advantage in the form of cost reduction. As a result, you don’t have to worry about the costs of provisioning and maintaining servers round the clock. Serverless computing billing follows the number of executions. Users get a specific number of seconds for use that differs on the basis of memory capacity required. Similarly, the pricing for every millisecond (MS) varies according to the amount of required memory capacity. Shorter running functions can align effectively with this model having a peak execution time of 300-second. </p>
+                              <h6>2. Networking</h6>
+                              <p>In terms of networking, serverless computing as a disadvantage. The access to serverless functions only as private APIs requires setting up an API Gateway. As a result, you have an additional roadblock in accessing serverless functions. Therefore, server architecture tends to emerge as a winner here!</p>
+                              <h6>3. Dealing with external dependencies</h6>
+                              <p>The majority of projects have external dependencies in the form of libraries with functionalities. The functionalities can include image processing, cryptography, and others. Therefore, the libraries become extremely heavy. Lack of system-level access clearly shows that all dependencies should be in the application packaging. So, serverless architecture is ideal for simple applications having limited dependencies. For the case of complex applications, traditional architecture serves as the best bet!</p>
+                              <h6>4. Available environments</h6>
+                              <p>Serverless is better than server architecture due to the flexibility of establishing different environments easily. Users don’t have to invest efforts in setting up machines for development, staging, and production. </p>
+                              <h6>5. Time</h6>
+                              <p>The 300-second timeout limit in serverless computing is a huge setback. As a result, highly complex and long-running functions are not ideal for serverless. On the other hand, this setback works in favor of certain examples of serverless applications. The applications under concern, in this case, have different execution times. Furthermore, specific services that demand information from external sources could also be ideal for leveraging the hard timeout limit.</p>
+                              <h6>6. Scalability</h6>
+                              <p>Another point of difference between serverless and server is the scaling capabilities of the former. Different examples of serverless applications, such as message-driven apps, clearly show that the scaling process is seamless and automatic. However, scalability benefits with serverless come at a price! Users can perceive a lack of control with a serverless scaling process. Therefore, we can clearly note that servers and serverless have their fair share of advantages and cons. The choice of either depends on the use case or the business objectives in concern. </p>
+                              <h4>Serverless Design Patterns</h4>
+                              <p>Among all the attention surrounding serverless architecture, it is also important to think of microservices. Microservices serve as one of the foundation elements of cloud computing. The division of large monolithic developments into smaller components known as microservices establishes the foundation of developing applications or software on the cloud. The observation of design trends in microservices can help in understanding serverless architecture patterns. <br>
+                                <br>
+
+                                The following architecture patterns could help in understanding the serverless paradigm in detail:</p>  
+
+                                <h6>1. Simple Web Service</h6>
+                                <p>The simple web service is one of the basic design patterns that are evident in serverless applications. The following image depicts the structure of the simple web service pattern.</p>
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/S2.png">
+                                        
+                                 
+                                    </figure>
+                                </div> 
+                                <h6>2. Scalable Webhook</h6>
+                                <p>The scalable webhook is the second type of common pattern you can find in various serverless use cases. The scalable webhook design is appropriate for Lambda function.</p>
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/S3.png">
+                                        
+                                 
+                                    </figure>
+                                </div> 
+                               <h6>3. Gatekeeper Pattern</h6>
+                               <p>The Gatekeeper pattern is an improvement over the simple web service pattern. The pattern uses ‘Lambda Authorizers’ of the API Gateway for connecting a Lambda function with the “Authorization” header. Then, the API Gateway uses the policy for determining its validity for the resource. In this pattern, the API Gateway also caches the IAM policy for a particular period of time. Therefore, this pattern is also known as the ‘Valet Key’ pattern.</p>
+                               <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/S4.png">
+                                    
+                             
+                                </figure>
+                            </div> 
+                            <h6>4. Internal API</h6>
+                            <p>Another prominent mention among serverless architecture patterns is the Internal API. The internal API is generally a web service that does not have an API Gateway frontend. This pattern is applicable only in scenarios where the access to microservice is possible only within the cloud provider’s infrastructure.</p>
+
+                                <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/S5.png">
+                                    
+                             
+                                </figure>
+                            </div> 
+                           
+                            <h4>Use cases of serverless computing</h4>
+                            <p>The most crucial aspect of this discussion on serverless architecture refers directly to the use cases. As of now, serverless computing has been a vital ingredient in the success of many applications. Serverless provides the flexibility to use serverless and traditional architectures in combination or interchangeably. In practical use cases, non-functional requirements such as cost required degree of control over operations, and application workload characteristics determine the choice of serverless. In terms of cost considerations, serverless computing is ideal for applications having burst workloads. A closer reflection on practical examples of serverless use cases could support our impression of the functionalities of serverless. </p>
+                            <li>The most crucial aspect of this discussion on serverless architecture refers directly to the use cases. As of now, serverless computing has been a vital ingredient in the success of many applications. Serverless provides the flexibility to use serverless and traditional architectures in combination or interchangeably. In practical use cases, non-functional requirements such as cost required degree of control over operations, and application workload characteristics determine the choice of serverless. In terms of cost considerations, serverless computing is ideal for applications having burst workloads. A closer reflection on practical examples of serverless use cases could support our impression of the functionalities of serverless. </li>
+                            <br>
+                            <li>Aegex utilizes serverless for the Xamarin application. Customers can use Xamarin applications for monitoring real-time sensor data from IoT devices.</li>
+                            <br>
+                            <li>Expedia is also another prominent name among use cases of serverless. With over 2.3 billion Lambda calls per month in December 2016 and 6.2 billion requests in 2017, Expedia continues to reap the benefits of serverless. The prominent areas of application for serverless in Expedia’s use case include infrastructure governance and autoscaling. In addition, Expedia also uses serverless for the integration of events for its CI/CD platforms. </li>
+                            <br>
+                            <li>A Cloud Guru uses functions of serverless for performing operations such as triggering group emails and payment processing. As of 2017, the total cost for the delivery of a video course to a user was $0.14. </li>
+                            <br>
+                            <p>Apart from these use cases, serverless architecture also finds prominent applications in event-driven applications with flow-like processing patterns. Serverless is also ideal for controlling data flow between two services and simplification of client-side code. Another potential area of application for serverless is clearly evident in the field of scientific computing. </p>
+
+                            <h4>Conclusion</h4>
+                            <p>Therefore, a thorough observation of different implications with serverless clearly shows promising opportunities ahead. The future of serverless architecture in the coming years would have to focus on the limitations for capitalizing on opportunities. Let us close this discussion by pointing out the challenges and research opportunities with respect to serverless computing. The programming model in serverless involves multiple functions, thereby creating issues for the identification of bottlenecks and debugging. Furthermore, the application of traditional tools for monitoring and debugging is not valid for serverless applications. So, the need for new tools and approaches becomes essentially evident here! <br>
+                                <br>
+
+                                The possible improvements in this regard may include an extension of the platform with various recovery semantics such as atomicity in the case of serialized function executions. Another prominent setback for serverless is the lack of standards and concerns pertaining to vendor lock-in. Since serverless and FaaS are comparatively new terms in the cloud landscape, there are no specific standards. With the gradual progress in the domain of serverless, new improvements are definitely in order!</p>
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 27, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p> We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

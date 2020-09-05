@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>How To Create A RetroPie On Raspberry Pi</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                              
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/raspberry.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Hardware</a></div>
+                        <h3>How To Create A RetroPie On Raspberry Pi.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 29, 2020 at 01:48 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.  While I enjoy playing new games these days, I do long for the retro gaming systems I had when I was a kid: the original Nintendo (NES), Nintendo 64, Sega, and so on.  Games like Mario 64, GoldenEye, Mario Kart 64, and Ocarina of Time were incredible.  They didn't have the graphics but the gameplay was outstanding.
+                                <br>
+                                Grabbing a Raspberry Pi sitting around that I hadn't done anything with, I got out of my comfort zone and attempted to create a retro gaming machine with RetroPie.  It was faster and easier than I thought it would be!  Let me show you how you can create your own retro gaming machine so that you can relive those glory days!
+                            </p>
+                            
+								<p>Note:  I'm not a Raspberry Pi or Linux expert -- I'm simply walking you through how I created my retro gaming machine.  To keep the tutorial as visual and simple as possible, I've chosen to use GUI apps for flashing and interacting with the SD card, and have not enclosed my Raspberry Pi in a case.  Both the RetroPie and Raspberry Pi sites have excellent install and operational documentation so please visit those if you get hung up (or ask a question in the comments below!).  Lastly, I won't provide or link to ROMs; possessing ROMs for games you don't own may be illegal.  A simple Google or torrent search, however, should find you every game you want.
+                                    <h3>Hardware</h3> 
+                                    <br>
+                                        <p>I prefer a wired approach for getting the RetroPie game system up and running; bluetooth and similar technologies introduce complexities and, unless you've done Raspberry Pi work before, those complexities can get in the way.</p>
+                                        
+                                        <h3>Easiest: Required Hardware Bundle</h3>
+                                        <p>If you don't want to order a bunch of separate pieces, and prefer one kit, I recommend the Vilros Raspberry Pi 3 Complete Starter Kit with Clear Case and 32GB SD Card. This kit includes everything you need!</p>
+    
+                                    <h3>Required Hardware by Pieces</h3>
+                                    <p><li> Raspberry Pi - I recommend a Raspberry Pi 3 or newer </li> <br>
+                                    <li>HDMI Cable - Used to connect the Pi to the TV, monitor, or display </li><br>
+                                    <li>SD Card - To flash the RetroPie operating system (and games) onto</li> <br>
+                                    <li>SD Card Reader - To interface with the SD card from your Windows, Linux, or Mac machine </li> <br>
+                                    <li>USB Controller - You can use any host of controllers that you can connect to the Pi using USB; I've chosen to use a Xbox &nbsp; &nbsp; One controller. I have, however, also ordered a USB Nintendo 64 Controller</p></li>
+                                    <h3>Require Power Options</h3>
+                                    <p>You will need one of the following options for power:</p>
+                                    <p><li>USB to Micro USB cable - Used to power the Pi from the TV </li> <br>
+                                    <li>Micro USB Power Supply - Micro USB power supply to use instead of the USB to Micro USB for display. Some TVs don't provide enough power to the Raspberry Pi via the USB; in that case, this accessory is the next best option.</li></p>
+                                        <p>I've chose to use the Micro USB to USB cord since my TV provides the Raspberry Pi enough power to run properly.</p>
+                                    <h3>Installing the RetroPie Image on the Raspberry Pi</h3>
+                                    <p>Follow the following steps: <br>
+                                    1. Plug your SD card and reader into your desktop machine <br>
+                                    2. Download and unzip the RetroPie image <br>
+                                    3. Download and install a Raspberry Pi app for flashing the RetroPie image onto your Raspberry Pi: Win32DiskImager (Windows), ApplePi Baker (Mac), or Etcher (Linux). <br>
+                                    4. Open the app and flash the unzipped RetroPie image to your SD card.  With ApplePi use the "Pi-Ingredients: IMG Recipe" UI to find and load the unzipped RetroPie image (current file name and version are retropie-4.6-rpi2_rpi6.img).  Click "Restore Backup" to start the flashing process.
+                                    <br>
+                                    Congratulations -- your SD card has been flashed with RetroPie software and is ready to be placed in your Raspberry Pi!</p>
+                                    
+                                    <h3>Ready the Raspberry Pi</h3>
+                                    <p>Before we can fire up the Raspberry Pi and continue setup from the TV/display, let's insert the SD card and connect all the wires to the Raspberry Pi!
+                                        <br>
+                                        1. Remove the SD card from the reader and place it into its designated spot underneath the Raspberry Pi <br>
+                                        2. Insert the HDMI cord into the HDMI slot <br>
+                                        3. Insert the Micro USB side of the USB to Micro USB cord into the Pi's Micro USB slot <br>
+                                        4. Insert your USB controller into one of the Pi's USB slots <br>
+                                        5. If you have a wireless keyboard, now would be a good time to insert that into one of the Pi's USB slots. <br>
+                                        Now let's get this thing connected to the display!
+                                    </p>
+                                    <h3>TV/Display Setup</h3>
+                                    <p>With all wires connected to the Pi, it's showtime! <br> </p>
+                                      <li>Display:  connect the HDMI cord to an open HDMI slot on your TV or other display.</li> <br>
+                                       <li>Power:  connect the USB side of the USB to Micro USB cord to an open USB slot on your TV or other display.</li> <br>
+                                       <p>You should now see some command line / shell feedback output as the RetroPie software finishes install.
+                                       </p>
+                                    <h3>Controller Configuration</h3>
+                                    <p>RetroPie will detect the type of controller you're using: <br>
+                                        You will then be asked to press each relevant button for use in different system types (some system controllers had more buttons and joysticks than others).  Press the buttons as requested to complete controller setup. <br>
+                                    </p>
+                                    <h3>WiFi Setup and Moving ROMs</h3>
+                                    <p>The one wireless operation I will perform is sending ROMs from my desktop Mac to the Raspberry Pi via WiFi;  I could use an ethernet cable but that's one wire I don't want to bother with.  Enter into the WiFi setting and follow the instructions to select your WiFi network and enter your password: <br>
+                                        With WiFi configured, now you jump onto your desktop computer and connect to the Pi using SSH, SFTP, or a network mount.  I choose a network mount: <br>
+                                        Once connected, select the roms volume.  You'll see a listing of directories representing retro gaming consoles.  Once you find and download game ROMS onto your desktop, simply copy each ROM file into the console directory it belongs in: <br>
+                                        Adding games to a powered on Raspberry Pi requires a restart (remove the USB cord from the TV and plug it right back in).  Each time you start your Raspberry Pi, the RetroPie home screen will show an icon and game count for each system for which you have ROMs for! <br>
+                                        Select any game and you're ready to play!
+    
+                                    </p>	
+                                        
+    
+                              
+                                    
+                                    <h3>That's It!</h3>	
+                                    <p>Hopefully this process didn't take too long.  Creating a RetroPie retro gaming machine took 15 minutes the first try but only a few minutes each clean try after;  you'll spend more time looking for ROMs!</p>	
+                                        
+
+
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 29, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/java22.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Programming</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Java 20 ques.html" class="headline">
+                                <h5>Java String Interview Questions</h5>
+                            </a>
+                            <p>Java is one of the most popular programming languages. Java is simple, secure, and robust. When you are ready to face an interview for Java.....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 22, 2020 at 05:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/ssd.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="solid state devices.html" class="headline">
+                                <h5>Solid State Device Technology</h5>
+                            </a>
+                            <p>Solid state refers to a type of technology that uses semiconductor devices to replace mechanical (moving) parts. The term solid state....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 10, 2020 at 9:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

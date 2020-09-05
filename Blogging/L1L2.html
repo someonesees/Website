@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Explainer: L1 vs. L2 vs. L3 Cache.</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                            
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/11.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Electronics</a></div>
+                        <h3>Explainer: L1 vs. L2 vs. L3 Cache</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 05, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                          <p>Every single CPU found in any computer, from a cheap laptop to a million-dollar server, will have something called cache. More likely than not, it'll possess several levels of it, too. <br>
+                            <br>
+
+                            It must be important, otherwise why would it be there? But what does cache do, and why the need of different levels of the stuff? What on Earth does 12-way set associative even mean?</p>
+
+                          <h4>What exactly is cache?</h4>
+                          <p><strong>TL;DR:</strong> It's small, but very fast memory that sits right next to the CPU's logic units. <br>
+                            But of course, there's much more we can learn about cache... <br>
+                            <br>
+                            
+                            Let's begin with an imaginary, magical storage system: it's infinitely fast, can handle an infinite number of data transactions at once, and always keeps data safe and secure. Not that anything even remotely to this exists, but if it did, processor design would be much simpler. <br>
+                            <br>
+                            
+                            CPUs would only need to have logic units for adding, multiplying, etc. and a system to handle the data transfers. This is because our theoretical storage system can instantly send and receive all the numbers required; none of the logic units would be held up waiting for a data transaction.  <br>
+                            <br>
+                            
+                            But, as we all know, there isn't any magic storage technology. Instead, we have hard or solid state drives, and even the best of these aren't even remotely capable of handling all the data transfers required for a typical CPU.</p>  
+                          
+                          <p>The reason why is that modern CPUs are incredibly fast -- they take just one clock cycle to add two 64 bit integer values together, and for a CPU running at 4 GHz, this would be just 0.00000000025 seconds or a quarter of a nanosecond. <br>
+                            <br>
+
+                            Meanwhile, spinning hard drives take thousands of nanoseconds just to find data on the discs inside, let alone transfer it, and solid state drives still take tens or hundreds of nanoseconds. <br>
+                            <br>
+                            
+                            Such drives obviously can't be built into processors, so that means there will be a physical separation between the two. This just adds more time onto the moving of data, making things even worse.</p> 
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/L2.png">
+                                    
+                                </figure>
+                            </div>  
+                          <p>So what we need is another data storage system, that sits in between the processor and the main storage. It needs to be faster than a drive, be able to handle lots of data transfers simultaneously, and be a lot closer to the processor. <br>
+                            <br>
+
+                            Well, we already do have such a thing, and it's called RAM, and every computer system has some for this very purpose. <br>
+                            <br>
+                            
+                            Almost of all this kind of storage is DRAM (dynamic random access memory) and it's capable of passing data around much faster than any drive.</p>  
+
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/L1.png">
+                                    
+                                </figure>
+                            </div>  
+                            <p>However, while DRAM is super quick, it can't store anywhere near as much data. <br>
+                                <br>
+
+                                Some of the largest DDR4 memory chips made by Micron, one of the few manufacturers of DRAM, holds 32 Gbits or 4 GB of data; the largest hard drives hold 4,000 times more than this.<br>
+                                <br>
+                                
+                                So although we've improved the speed of our data network, additional systems -- hardware and software -- will be required in order to work out what data should be kept in the limited amount of DRAM, ready for the CPU.<br>
+                                <br>
+                                
+                                At least DRAM can manufactured to be in the chip package (known as embedded DRAM). CPUs are pretty small, though, so you can't stick that much into them.</p>
+                              
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/L3.png">
+                                        
+                                    </figure>
+                                </div> 
+                               <p>The vast majority of DRAM is located right next to the processor, plugged into the motherboard, and it's always the closest component to the CPU, in a computer system. And yet, it's still not fast enough... <br>
+                                <br>
+
+                                DRAM still takes around 100 nanoseconds to find data, but at least it can transfer billions of bits every second. Looks like we'll need another stage of memory, to go in-between the processor's units and the DRAM. <br>
+                                <br>
+                                
+                                Enter stage left: SRAM (static random access memory). Where DRAM uses microscopic capacitors to store data in the form of electrical charge, SRAM uses transistors to do the same thing and these can work almost as fast as the logic units in a processor (roughly 10 times faster than DRAM).</p> 
+                               
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/L4.png">
+                                        
+                                    </figure>
+                                </div> 
+
+                               <p>There is, of course, a drawback to SRAM and once again, it's about space. <br>
+                                <br>
+
+                                Transistor-based memory takes up a lot more space than DRAM: for the same size 4 GB DDR4 chip, you'd get less than 100 MB worth of SRAM. But since it's made through same process as creating a CPU, SRAM can be built right inside the processor, as close to the logic units as possible.</p> 
+                               
+                                <blockquote class="mb-30">
+                                    <h6>Transistor-based memory takes up a lot more space than DRAM: for the same size 4 GB DDR4 chip, you'd get less than 100 MB worth of SRAM.</h6>
+                                    
+                                </blockquote> 
+
+                                <p>With each extra stage, we've increased the speed of moving data about, to the cost of how much we can store. We could carry on adding in more sections, with each one being quicker but smaller. <br>
+                                    <br>
+
+                                    And so we arrive at a more technical definition of what cache is: It's multiple blocks of SRAM, all located inside the processor; they're used to ensure that the logic units are kept as busy as possible, by sending and storing data at super fast speeds. Happy with that? Good -- because it's going to get a lot more complicated from here on!</p>
+                                
+
+                                <h4>Cache: a multi-level parking lot</h4>
+                                <p>As we discussed, cache is needed because there isn't a magical storage system that can keep up with the data demands of the logic units in a processor. Modern CPUs and graphics processors contain a number of SRAM blocks, that are internally organized into a hierarchy -- a sequence of caches that are ordered as follows:</p>
+                                <div class="featured">
+                                    <figure>
+                                        <img src="img/blog-img/L5.png">
+                                        
+                                    </figure>
+                                </div> 
+                               
+                                <p>In the above image, the CPU is represented by the black dashed rectangle. The ALUs (arithmetic logic units) are at the far left; these are the structures that power the processor, handling the math the chip does. While its technically not cache, the nearest level of memory to the ALUs are the registers (they're grouped together into a register file). <br>
+                                    <br>
+
+                                    Each one of these holds a single number, such as a 64-bit integer; the value itself might be a piece of data about something, a code for a specific instruction, or the memory address of some other data.<br>
+                                    <br>
+                                    
+                                    The register file in a desktop CPU is quite small -- for example, in Intel's Core i9-9900K, there are two banks of them in each core, and the one for integers contains just 180 64-bit registers. The other register file, for vectors (small arrays of numbers), has 168 256-bit entries. So the total register file for each core is a little under 7 kB. By comparison, the register file in the Streaming Multiprocessors (the GPU's equivalent of a CPU's core) of an Nvidia GeForce RTX 2080 Ti is 256 kB in size. <br>
+                                    <br>
+                                    
+                                    Registers are SRAM, just like cache, but they're just as fast as the ALUs they serve, pushing data in and out in a single clock cycle. But they're not designed to hold very much data (just a single piece of it), which is why there's always some larger blocks of memory nearby: this is the Level 1 cache.</p>
+                                   
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/L6.png">
+                                            
+                                        </figure>
+                                    </div>
+
+                                    <p>The above image is a zoomed in shot of a single core from Intel's Skylake desktop processor design. <br>
+                                        <br>
+
+                                        The ALUs and the register files can be seen in the far left, highlighted in green. In the top-middle of the picture, in white, is the Level 1 Data cache. This doesn't hold much information, just 32 kB, but like registers, it's very close to the logic units and runs at the same speed as them. <br>
+                                        <br>
+                                        
+                                        The other white rectangle indicates the Level 1 Instruction cache, also 32 kB in size. As its name suggests, this stores various commands ready to be split up into smaller, so-called micro operations (usually labelled as μops), for the ALUs to perform. There's a cache for them, too, and you could class it as Level 0, as it's smaller (only holding 1,500 operations) and closer than the L1 caches.</p>
+                                       
+                                   <p>You might be wondering why these blocks of SRAM are so small; why aren't they a megabyte in size? Together, the data and instruction caches take up almost the same amount of space in the chip as the main logic units do, so making them larger would increase the overall size of the die. <br>
+                                    <br>
+
+                                    But the main reason why they just hold a few kB, is that the time needed to find and retrieve data increases as memory capacity gets bigger. L1 cache needs to be really quick, and so a compromise must be reached, between size and speed -- at best, it takes around 5 clock cycles (longer for floating point values) to get the data out of this cache, ready for use.</p>    
+                                   
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/L7.png">
+                                            
+                                        </figure>
+                                    </div>
+                                   
+                                   <p>But if this was the only cache inside a processor, then its performance would hit a sudden wall. This is why they all have another level of memory built into the cores: the Level 2 cache. This is a general block of storage, holding onto instructions and data. <br>
+                                    <br>
+
+                                    It's always quite a bit larger than Level 1: AMD Zen 2 processors pack up to 512 kB, so the lower level caches can be kept well supplied. This extra size comes at a cost, though, and it takes roughly twice as long to find and transfer the data from this cache, compared to Level 1.  <br>
+                                    <br>
+                                    
+                                    Going back in time, to the days of the original Intel Pentium, Level 2 cache was a separate chip, either on a small plug-in circuit board (like a RAM DIMM) or built into the main motherboard. It eventually worked its way onto the CPU package itself, until being finally integrated into the CPU die, in the likes of the Pentium III and AMD K6-III processors.  <br>
+                                    <br>
+                                    
+                                    This development was soon followed by another level of cache, there to support the other lower levels, and it came about due to the rise of multi-core chips.</p> 
+
+
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/L11.png">
+                                            
+                                        </figure>
+                                    </div>
+
+                                  <p>This image, of an Intel Kaby Lake chip, shows 4 cores in the left-middle (an integrated GPU takes up almost half of the die, on the right). Each core has its own 'private' set of Level 1 and 2 caches (white and yellow highlights), but they also come with a third set of SRAM blocks. <br>
+                                    <br>
+
+                                    Level 3 cache, even though it is directly around a single core, is fully shared with the others -- each one can freely access the contents of another's L3 cache. It's much larger (between 2 and 32 MB) but also a lot slower, averaging over 30 cycles, especially if a core needs to use data that's in a block of cache some distance away. <br>
+                                    <br>
+                                    
+                                    Below, we can see a single core in AMD's Zen 2 architecture: the 32 kB Level 1 data and instruction caches in white, the 512 KB Level 2 in yellow, and an enormous 4 MB block of L3 cache in red.</p>  
+                                  
+                                    <div class="featured">
+                                        <figure>
+                                            <img src="img/blog-img/L8.png">
+                                            
+                                        </figure>
+                                    </div>
+
+                                    <p>Wait a second. How can 32 kB take up more physical space than 512 kB? If Level 1 holds so little data, why is it proportionally so much bigger than L2 or L3 cache?</p>
+
+                                    <h4>More than just a number</h4>
+                                    <p>Cache boosts performance by speeding up data transfer to the logic units and keeping a copy of frequently used instructions and data nearby. The information stored in cache is split in two parts: the data itself and the location of where it was originally located in the system memory/storage -- this address is called a cache tag. <br>
+                                        <br>
+
+                                        When the CPU runs an operation that wants to read or write data from/to the memory, it starts by checking the tags in the Level 1 cache. If the required one is present (a cache hit), that data can then be accessed almost straight away. A cache miss occurs when the required tag is not in the lowest cache level. <br>
+                                        <br>
+                                        
+                                        So a new tag is created in the L1 cache, and the rest of the processor architecture takes over, hunting back through the other cache levels (all the way back to the main storage drive, if necessary) to find the data for that tag. But to make space in the L1 cache for this new tag, something else invariably has to be booted out into the L2. <br>
+                                        <br>
+                                        
+                                        This results in a near-constant shuffling about of data, all achieved in just a handful of clock cycles. The only way to achieve this is by having a complex structure around the SRAM, to handle the management of the data. Put another way: if a CPU core consisted of just one ALU, then the L1 cache would be much simpler, but since there are dozens of them (many of which will be juggling two threads of instructions), the cache requires multiple connections to keep everything on the move.</p>
+                                       
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/La.png">
+                                                
+                                            </figure>
+                                        </div>
+                                       
+                                       <p>You can use free programs, such as CPU-Z, to check out the cache information for the processor powering your own computer. But what does all of that information mean? An important element is the label set associative -- this is all about the rules enforced by how blocks of data from the system memory are copied into the cache. <br>
+                                        <br>
+
+                                        The above cache information is for an Intel Core i7-9700K. Its Level 1 caches are each split up into 64 little blocks, called sets, and each one of these is further divided into cache lines (64 bytes in size). Set associative means that a block of data from the system memory is mapped onto the cache lines in one particular set, rather than being free to map across anywhere. <br>
+                                        <br>
+                                        
+                                        The 8-way part tells us that one block can be associated with 8 cache lines in a set. The greater the level of associativity (i.e. more 'ways'), the better the chances of getting a cache hit when the CPU goes hunting for data, and a reduction in the penalties caused by cache misses. The downsides are that it adds more complexity, increased power consumption, and can also decrease performance because there are more cache lines to process for a block of data.</p> 
+
+                                               <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/L9.png">
+                                                
+                                            </figure>
+                                        </div>
+
+
+                                       <p>Another aspect to the complexity of cache revolves around how data is kept across the various levels. The rules are set in something called the inclusion policy. For example, Intel Core processors have fully inclusive L1+L3 cache. This means that the same data in Level 1, for example, can also be in Level 3. This might seem like it's wasting valuable cache space, but the advantage is that if the processor gets a miss, when searching for a tag in a lower level, it doesn't need to hunt through the higher level to find it. <br>
+                                        <br>
+
+                                        In the same processors, the L2 cache is non-inclusive: any data stored there isn't copied to any other level. This saves space, but does result the chip's memory system having to search through L3 (which is always much bigger) to find a missed tag. Victim caches are similar to this, but they're used to stored information that gets pushed out of a lower level -- for example, AMD's Zen 2 processors use L3 victim cache that just stores data from L2. <br>
+                                        <br>
+                                        
+                                        There are other policies for cache, such as when data gets written into cache and the main system memory. These are called write policies and most of today's CPUs use write-back caches; this mean that when data gets written into a cache level, there is a delay before the system memory gets updated with a copy of it. For the most part, this pause runs for as long as the data remains in the cache -- only once it's booted out, does the RAM get the information.</p> 
+
+
+                                        <div class="featured">
+                                            <figure>
+                                                <img src="img/blog-img/L10.png">
+                                                
+                                            </figure>
+                                        </div>
+                                       
+                                       <p>For processor designers, choosing the amount, type, and policy of cache is all about balancing the desire for greater processor capability against increased complexity and required die space. If it was possible to have 20 MB, 1000-way fully associative Level 1 caches without the chips becoming the size of Manhattan (and consuming the same kind of power), then we'd all have computers sporting such chips! <br>
+                                        <br>
+
+                                        The lowest level of caches in today's CPUs haven't changed all that much in the past decade. However, Level 3 cache has continued to grow in size. A decade ago, you could get 12 MB of it, if you were lucky enough to own a $999 Intel i7-980X. For half that amount today, you get 64 MB. <br>
+                                        <br>
+                                        
+                                        Cache, in a nutshell: absolutely needed, absolutely awesome pieces of technology. We've not looked at other caches types in CPUs and GPUs (such as translation lookup buffers or texture caches), but since they all follow a simple structure and pattern of levels as we've covered here, they perhaps won't sound so complicated.</p> 
+                                       
+                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 05, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p> We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

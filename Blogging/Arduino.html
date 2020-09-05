@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Arduino Empowers Every User To Meet The IoT Security Challenge</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                           
+                             
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/AAAAA.jfif);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Hardware</a></div>
+                        <h3>Arduino Empowers Every User To Meet The IoT Security Challenge</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 08, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>Arduino, the leading IoT product development platform, has announced it will make security best practices achievable by anyone by including them as standard in the popular, easy-to-use Arduino IoT Cloud solution. Specifically in the IoT space, operating without sophisticated security measures in place can put customers and their data at risk. Today, data, network, and device security remain the primary concern for 50% of organizations when adopting IoT. Arduino understands the risk of compromise and is constantly looking for ways to improve security in both its hardware and software, with a strong focus on “security by design”. Arduino IoT Cloud is a low-code platform that enables users to log, graph, and analyze their sensor data, trigger events, and automate their home or business.</p>
+                            <p>Many of today’s embedded devices still do not properly implement the full SSL/TLS stack. Optimized for constrained devices, ArduinoBearSSL aims at producing small code footprints and low RAM usage.It provides developers with a sturdy foundation to their codebase that is fully interoperable with existing SSL/TLS servers. Security and performance was a focus when fitting the standard Bear SSL into Arduino’s embedded IoT core. Arduino IoT enabled boards to include one or more (as in the case of the Portenta H7) hardware crypto chips dedicated to the fast computation of cryptography operations. RAM is therefore free of these demanding tasks, private keys are stored securely, and true random number generation (a basic operation to ensure secure communications) can be delivered effectively.Different communication techniques are put in motion behind the scenes to guarantee a point to point encrypted communication between the Arduino-powered IoT device and Arduino’s servers.
+                             Both techniques, asymmetric and symmetric encryption, facilitate a handshake between the client and the server, and issuing unique session keys. The process of device registration in the Arduino IoT Cloud has been simplified to help developers optimize their workflows. Arduino’s API exposes an endpoint a client can interact with, the client requests to register a new device on the Arduino IoT Cloud, to which the server (API) returns a UUID (Universally Unique IDentifier) that will be stored in the board’s crypto element. From that moment and on, developers can use that UUID in their code to identify their devices against the Arduino IoT Cloud. The device’s private key cannot be extracted by the secure element – a fundamental benefit of installing the IoT Cloud security model on official Arduino boards.</p>
+                            <p>Fabio Violante, CEO of Arduino said:</p>
+                            
+                            <blockquote class="mb-30">
+                                <h6>“Our priority has always been to build solutions that ensure maximum security for our users and developers and take every step to minimize risk. We are extremely proud of the development of a model that can make our solutions secure by design. As IoT devices continue to proliferate at pace, we will remain committed to finding even more ways to improve security for years to come.”</h6>
+                                
+                            </blockquote>
+                           
+                          <h4>Arduino Security Primer</h4> 
+                          <p>At Arduino, we are hard at work to keep improving the security of our hardware and software products, and we would like to run you through how our IoT Cloud service works.</p> 
+                          <p>The Arduino IoT Cloud‘s security is based on three key elements:</p>
+                          <p><li>The open-source library ArduinoBearSSL for implementing TLS protocol on Arduino boards;</li></p>
+                          <p><li>A hardware secure element (Microchip ATECCX08A) to guarantee authenticity and confidentiality during communication;</li></p>
+                          <p><li>A device certificate provisioning process to allow client authentication during MQTT sessions.</li></p>
+                          <h4>ArduinoBearSSL</h4>
+                          <p>In the past, it has been challenging to create a complete SSL/TLS library implementation on embedded (constrained) devices with very limited resources. <br>
+                            <br>
+
+                            An Arduino MKR WiFi 1010, for instance, only has 32KB of RAM while the standard SSL/TLS protocol implementations were designed for more powerful devices with ~256MB of RAM. <br>
+                            <br>
+                            As of today, a lot of embedded devices still do not properly implement the full SSL/TLS stack and fail to implement good security because they misuse or strip functionalities from the library, e.g. we found out that a lot of off-brand boards use code that does not actually validate the server’s certificate, making them an easy target for server impersonation and man-in-the-middle attacks. <br>
+                            <br>
+                            Security is paramount to us, and we do not want to make compromises in this regard when it comes to our offering in both hardware and software. We are therefore always looking at “safe by default” settings and implementations. <br>
+                            <br>
+                            Particularly in the IoT era, operating without specific security measures in place puts customers and their data at risk.<br>
+                            <br>
+                            This is why we wanted to make sure the security standards adopted nowadays in high-performance settings are ported to microcontrollers (MCUs) and embedded devices.<br>
+                            <br>
+                            Back in 2017, while looking at different SSL/TLS libraries supporting TLS 1.2 and modern cryptography (something that could work with very little RAM/ROM footprint, have no OS dependency, and be compatible with the embedded C world), we decided to give BearSSL a try.</p>
+                            <h4>BearSSL: What is it?</h4>
+                            <p>BearSSL provides an implementation of the SSL/TLS protocol (RFC 5246) written in C and developed by Thomas Pornin. <br>
+                                <br>
+
+                                Optimized for constrained devices, BearSSL aims at small code footprint and low RAM usage. As per its guiding rules, it tries to find a reasonable trade-off between several partly conflicting goals:</p>
+                               
+                            <p><li>Security: defaults should be robust and using patently insecure algorithms or protocols should be made difficult in the API, or simply not possible;</li></p>
+                            <p><li>Interoperability with existing SSL/TLS servers; </li></p>
+                            <p><li>Allowing lightweight algorithms for CPU-challenged platforms; </li></p>
+                            <p><li>Be extensible with strong and efficient implementations on big systems where code footprint is less important.</li></p>
+                            <h4>BearSSL and Arduino</h4> 
+                            <p>Our development team picked it as an excellent starting point for us to make BearSSL fit in our Arduino boards focusing on both security and performance. <br>
+                                <br>
+
+                                The firmware developers team worked hard on porting BearSSL to Arduino bundling it together as a very nice and open-source library: ArduinoBearSSL. <br>
+                                <br>
+                                Because the computational effort of performing a crypto algorithm is high, we decided to offload part of this task to hardware, using a secure element (we often call it a “crypto chip”). Its advantages are:</p>   
+                               
+                            <p><li>Making the computation of cryptography operations faster;</li></p>    
+                            <p><li>You are not forced to use all the available RAM of your device for these demanding tasks;</li></p>
+                            <p><li>Allows storing private keys securely;</li></p>
+                            <p><li>It provides a true random number generator (TRNG);</li></p>
+                            <h4>How does the TLS protocol work?</h4>
+                            <p>TLS uses both asymmetric and symmetric encryption. Asymmetric encryption is used during the TLS handshake between the client and the server to exchange the shared session key for communication encryption. The algorithms commonly used in this phase are based on Rivest-Shamir-Adleman (RSA) or Diffie-Hellman algorithms. </p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/bbb.png">
+                                   
+                                   
+                                </figure>
+                            </div> 
+
+                            <p>After the TLS handshake, the client and the server both have a session key for symmetric encryption (e.g. algorithms AES 128 or AES 256). <br>
+                                <br>
+
+                                The TLS protocol is an important part of our IoT Cloud security model because it guarantees an encrypted communication between the IoT devices and our servers.</p>
+                               
+                             <h4>The secure element</h4>
+                             <p>In order to save memory and improve security, our development team has chosen to introduce a hardware secure element to offload part of the cryptography algorithms computational load, as well as to generate, store, and manage certificates. For this reason, on the Arduino MKR family, Arduino Nano 33 IoT and Arduino Uno WiFi Rev2, you will find the secure element ATECC508A or ATECC608A manufactured by Microchip.</p>   
+                             <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/bbb1.png">
+                                   
+                                   
+                                </figure>
+                            </div> 
+                            <h4>How do we use the secure element?</h4>
+                            <p>A secure element is an advanced hardware component able to perform cryptographic functions, we have decided to implement it on our boards to guarantee two fundamental security properties in the IoT communication: </p>
+                            <p><li><strong>Authenticity:</strong>You can trust who you are communicating with;</li></p>
+                            <p><li><strong>Confidentiality:</strong>You can be sure the communication is private.</li></p>
+                            <p>Moreover, the secure element is used during the provisioning process to configure the Arduino board for Arduino IoT Cloud. In order to connect to the Arduino IoT Cloud MQTT broker, our boards don’t use a standard credentials authentication (username/password pair). We rather opted for implementing a higher-level authentication, known as client certificate authentication.</p>
+                            <h4>How does the Arduino provisioning work?</h4>
+                            <p>The whole process is possible thanks to an API, which exposes an endpoint a client can interact with. <br>
+                                <br>
+
+                                As you can see in the diagram below, first the Client requests to register a new device on Arduino IoT Cloud via the API, to which the server (API) returns a UUID (Universally Unique IDentifier). At this point, the user can upload the sketch Provisioning.ino to the target board. This code is responsible for multiple tasks:</p>
+                               
+                            <p><li>Generating a private key using the ATECCX08A, and store it in a secure slot that can be only read by the secure element;</li></p>
+                            <p><li>Generating a CSR (Certificate Signing Request) using the device UUID as Common Name (CN) and the generated private key to sign it;</li></p> 
+                            <p><li>Storing the certificate signed by Arduino acting as the authority.</li></p> 
+                            <p>After the CSR generation, the user sends it via the API to the server and the server returns a certificate signed by Arduino. This certificate is stored, in a compressed format, in a slot of the secure element (usually in slot 10) and it is used to authenticate the device to the Arduino IoT Cloud.</p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/bbb3.png">
+                                   
+                                   
+                                </figure>
+                            </div> 
+                            <p>Such a human-unfriendly process is hidden from our users thanks to the work our design team did to build a user-friendly plug-and-play “Getting Started” process in the browser, to help configure the IoT devices and Arduino IoT Cloud. Our users simply connect their Arduino boards and follow the steps. </p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/bb4.png">
+                                   
+                                   
+                                </figure>
+                            </div> 
+                            <p>In addition, Arduino offers two-factor authentication across all web services, so users can add an additional security layer to their accounts and IoT devices connected to Arduino IoT Cloud.</p>
+
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 08, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#"><img src="img/core-img/logo.png" alt=""></a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

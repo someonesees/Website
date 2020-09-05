@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.0/dist/splitting.css">
+    <script src="https://unpkg.com/splitting@1.0.0/dist/splitting.js"></script>
+    <script src="https://unpkg.com/scroll-out@2.2.3/dist/scroll-out.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  </head>
+
+  <body>
+    <div class="containers">
+      <div class="left-container">
+        <div class="logo"></div>
+        <div class="info">
+          <a href="#">Home</a>
+          <a href="#">Help</a>
+          <a href="">FAQ</a>
+        </div>
+      </div>
+
+      <div class="right-container">
+        <div class="first-block"></div>
+        
+
+        <div class="story">
+          <h1>About Us</h1>
+          <p>
+            
+          </p>
+          <p></p>
+        </div>
+      </div>
+      <div class="center-container"></div>
+    </div>
+
+
+ 
+<div class="ico animated">
+  
+  <div class="circle circle-top"></div>  
+  <div class="circle circle-main"></div>
+  <div class="circle circle-bottom"></div>  
+  
+  <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve" >
+  <defs>
+    <clipPath id="cut-off-arrow">
+      <circle cx="306" cy="306" r="287"/>
+    </clipPath>
+    
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+      <feBlend in="SourceGraphic" in2="goo" />
+    </filter>
+   
+  </defs>
+    <path  class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0
+                    l-86,86V136.1c0-8.9-7.3-16.2-16.2-16.2c-8.9,0-16.2,7.3-16.2,16.2v301.1l-86-86c-6.3-6.3-16.5-6.3-22.7,0
+                    c-6.3,6.3-6.3,16.5,0,22.7l112.7,112.7c0.3,0.3,0.4,0.7,0.7,1c0.5,0.5,1.2,0.5,1.7,0.9c1.7,1.4,3.6,2.3,5.6,2.9
+                    c0.8,0.2,1.5,0.4,2.3,0.4C308.8,492.6,313.8,491.3,317.5,487.6z"/>
+</svg>
+</div>
+<!------------------------------------------------->
+
+<style>
+   body {
+   height: 100%;
+   width: 100%;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#5961F9), color-stop(40%, #2AFADF), to(#F9FEA5));
+    background-image: linear-gradient(180deg, #5961F9 0%, #2AFADF 40%, #F9FEA5 100%);
+  background-repeat: no-repeat;
+} 
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1, p {
+  color: #204754;
+  font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 4rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+p:last-child {
+  margin-bottom: -6px;
+}
+
+.site-wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+section {
+  margin-bottom: 5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 0 1px rgba(32, 71, 84, 0.03), 0px 0px 0 3px rgba(32, 71, 84, 0.02);
+}
+section:last-child {
+  margin-bottom: 0;
+}
+
+[data-scroll] {
+  opacity: 2;
+  will-change: transform, scale, opacity;
+  -webkit-transform: translateY(6rem) scale(0.93);
+          transform: translateY(6rem) scale(0.93);
+  -webkit-transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+[data-scroll="in"] {
+  opacity: 2;
+  -webkit-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
+}
+
+.splitting .char {
+  color: transparent;
+}
+.splitting .char:after {
+  visibility: visible;
+  color: #204754;
+  opacity: 1;
+  -webkit-transform: translateY(30%);
+          transform: translateY(30%);
+  -webkit-transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition-delay: calc(.2s + (.04s * var(--char-index) ) );
+          transition-delay: calc(.2s + (.04s * var(--char-index) ) );
+}
+
+[data-scroll="in"] .char:after {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3.4rem;
+    line-height: 3.6rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+  }
+
+  .site-wrap {
+    padding: 6rem 1rem;
+  }
+
+  section {
+    margin-bottom: 6rem;
+    padding: 2.4rem;
+  }
+}
+</style>
+
+<div class="site-wrap">
+
+  <section data-scroll>
+    <h1 data-splitting>Our Mission</h1>
+    <p>To provide our customer best experience.</p>
+  </section>
+
+  <section data-scroll>
+    <h1 data-splitting></h1>
+    <p>Hello Guys! Hope you all are like this website.My name is Prashant Tiwari. And I developed this website. I am an Engineer (Electronics & Communication Engineering). All thought this website is that I was planning to make a website that is user friendly and which will provide sort of services as you have seen (haven't check yet click here.) 
+     So after that I made it and now I am a Freelancer and made my own website. Here we provide a maximum amout of services weather it is Android App Development or Web Development, Logo & Graphic Design as many more other services. 
+    </p>
+  </section>
+
+
+</div>
+
+
+
+    <script type="text/javascript">
+      TweenMax.from(".left-container", 2, {
+        width: "0",
+        ease: Expo.easeInOut
+      });
+      TweenMax.from(".right-container", 2, {
+        delay: 1.5,
+        width: "0",
+        opacity: "0",
+        ease: Expo.easeInOut
+      });
+      TweenMax.from(".center-container", 2, {
+        delay: 3,
+        width: "0",
+        x: -20,
+        ease: Expo.easeInOut
+      });
+      TweenMax.from(".logo", 2, {
+        delay: 1.5,
+        y: 20,
+        opacity: 0,
+        ease: Expo.easeInOut
+      });
+      TweenMax.from(".info", 2, {
+        delay: 1.5,
+        y: 50,
+        opacity: 0,
+        scale: 2.5,
+        ease: Expo.easeInOut
+      });
+      TweenMax.from(".story", 2, {
+        delay: 2.5,
+        y: 20,
+        opacity: 0,
+        ease: Expo.easeInOut
+      });
+      TweenMax.from(".menu", 2, {
+        delay: 3.5,
+        y: 20,
+        opacity: 0,
+        rotation: 90,
+        ease: Expo.easeInOut
+      });
+      TweenMax.staggerFrom(
+        ".social ul",
+        2,
+        {
+          delay: 3.8,
+          opacity: 0,
+          y: 20,
+          ease: Expo.easeInOut
+        },
+        0.1
+      );
+    </script>
+
+
+<script>
+  Splitting();
+
+ScrollOut({
+  threshold: .2,
+  once: true });
+</script>
+
+
+  </body>
+</html>

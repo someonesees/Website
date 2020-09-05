@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>
+        Getting Started With Git Hooks Using Ghooks</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/Git-Logo.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Programming</a></div>
+                        <h3>Getting Started With Git Hooks Using Ghooks</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 19, 2020 at 6:48 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>As a developer working on your own or with people, you must have used version control for your projects. It helps you keep track of the progress and changes in your applications and you can also return to previous versions. <br>
+                                <br>
+
+                                When you build projects on your own, it’s very easy to maintain compared to when you have many contributors. The maintenance becomes hard in terms of the style guide, applying tests, and many other rules you may want your application to follow. <br>
+                                <br>
+                                
+                                Moreover, there are also repetitive tasks you would be doing (linting and testing your applications) even when working on them on your own. This can be tiring, and sometimes you might just forget. <br>
+                                <br>
+                                
+                                Git Hooks helps to trigger commands (could be something repetitive you want to be automated) and ghooks makes working with Git Hooks easier as well as syncing with other contributors to your application. <br>
+                                <br>
+                                
+                                Have you ever tried intercepting a merge operation? Or a commit operation (for yourself or others)? Or a push operation? Or ensuring something happens automatically when you’re trying to git? <br>
+                                <br>
+                                
+                                When these operations occur, your application and git records are likely transformed into a new state. <br>
+                                <br>
+                                
+                                Git hooks provide a means to intercept these operations or automate some after-action. These interceptions do not necessarily stop the operation but ensure that some standards (as you have specified) are followed or some things are done afterward.</p>
+                             
+                                <h4>What are Git hooks</h4>
+								<p>Git hooks are scripts that are executed when a git operation is triggered. Some of them are before an operation, while others, after. Here’s an illustration:</p>
+
+								<div class="featured">
+									<figure>
+										<img src="img/blog-img/git1.png">
+										
+									</figure>
+								</div>
+								Illustrating what git hooks are and when they are called. <br>
+								<br>
+								<p>Git hooks are found in the hooks directory under .git. When a particular operation is run, git checks the related hook in this directory to know the script to execute. <br>
+									<br>
+
+									If you have a project where you use git, you can check the .git directory. You’ll find something similar to this:</p>
+
+									<div class="featured">
+									<figure>
+										<img src="img/blog-img/git3.png">
+										
+									</figure>
+								</div>
+								Screenshot of git pre-populated hooks folder <br>
+								<br>
+								<p>When you open each hook, you’ll find codes similar to bash scripts. However, any executable script (like Python or Node.js) should work. <br>
+									<br>
+
+									If you find the .sample extension on the files like above, know that it exists so that git does not run them. They are just sample scripts populated by git on initialization. <br>
+									<br>
+									
+									Let’s try one of them. Remove the .sample extension from pre-commit, clear the file and add the following Node.js script (Node.js must be installed):</p>
+									<br>
+									#!/usr/bin/env node <br>
+									console.log('hello') <br>
+									<br>
+									<p>#!/usr/bin/env node is referred to as a shebang which shows the path to the interpreter that would execute the script. <br>
+									<br>
+
+									To test this, make any change, and try to commit the change, you should see “hello” logged to the console (by Node.js). We’ll talk more on pre-commit`later, but for now, just understand that this hook is run before a commit is made.</p>
+
+									<h4>Types of Git Hooks</h4>
+									<h5>1. Client-side Hooks</h5>
+									<p>For the client-side, the hooks are executed on a local repository. For example, a pre-commit hook is run before a commit operation completes.</p>
+									<h5>2. Server-side Hooks</h5>
+									<p>These types of hooks are run on the server of the remote repository. For example, a post-receive hook is run after a push operation. <br>
+										<br>
+
+										If any of git pre-hooks (executed before an operation) is executed and returns a 0 exit code, the operation being run passes, else, the operation is aborted. The process is described in this image:</p>	
+
+										<div class="featured">
+											<figure>
+												<img src="img/blog-img/git2.png">
+												
+											</figure>
+										</div>
+										Illustrating how operations are aborted when git hooks throw errors <br>
+										<br>
+										<p>Note that, there can exist more than one hook for a type of operation. For instance, the hooks related to commit operations are commit-msg, pre-commit, and more. Therefore, you’d need to understand which is which. <br>
+											<br>
+
+											For the rest of this article, we’ll focus on client-side hooks to get a clearer picture of how they work and how to use them.</p>
+										
+										<h4>Examples of Git Hooks</h4>
+										<p>There are numerous types of hooks. We’ll look at a few of them.</p>
+										<h6>1. Pre-commit:</h6><p>This hook is executed before the commit editor is opened (or a commit object created). That is when you execute git commit, this hook is run before the editor opens. Similarly, when you execute git commit -m "commit message", the hook is run before -m commit message is applied.</p>
+										<h6>2. Post-commit:</h6><p> Is executed after the commit editor closes and the commit object is created.</p>
+										<h6>3. Pre-push: </h6><p>Is executed before a push operation completes, that is, before objects have been transferred to the remote repository.</p>
+										<h6>4. Pre-receive:</h6><p>Is executed before the remote repository receives a push operation.</p>
+
+										<h4>Use cases of Git hooks</h4>
+										<p> 1. Ensure that code follows linting configurations before committing. <br>
+											2. Test your code before committing. <br>
+											3. Test your code after merging. <br>
+											4. There’s more! These are just a few and I consider them popular. You can think of other things like sending mail notifications of the last commit, and more.</p>
+										
+										<h4>Scope of Client-side hooks</h4>
+										<p>These hooks are scoped to a local git repository. This means that when you push changes (after configuring .git/hooks) to the remote repository and you (or anyone else) clones the repository, the initial pre-populated scripts are present. <br>
+											<br>
+
+											This becomes difficult to ensure policies across many local repositories of a project. ghooks solves this problem by configuring package.json so that on installing the package, the hooks folder for your project is populated and you can trigger some commands that will apply to all repositories of a project.</p>	
+										
+										<h4>Customizing Git hooks</h4>
+										<p>ghooks makes customizing git hooks seamlessly easier for developers. It configures the git hooks under the hooks directory. With that, we can provide commands that will run at specific operations. <br>
+											<br>
+
+											With a little configuration, you can begin executing commands based on a git operation. Let’s see how with a few examples.</p>	
+										
+										<h4>Setting up ghooks</h4>
+										<h5>Firstly, install the library:</h5>
+											
+										   npm install ghooks --save-dev <br>
+										   <br>
+								<p>After installation, ghooks will configure the hooks in the hooks directory of git so that you can easily run your commands specified commands at specific action points of git operations.</p>
+								<h5>Secondly, Add ghooks to package.json</h5>
+								<p>Add ghooks to the config property in package.json like so:</p>
+							
+							
+                                 { <br>
+                                "config": { <br>
+                                  "ghooks": { <br>
+                                // githook: command <br>
+                                   } <br>
+                                   } <br>
+								} <br>
+								<br>
+								<p>That’s all there is to use ghooks. Let’s get started using it.</p>
+							
+							<h4>Setting up ghooks for mentioned the use cases</h4>
+							<h5>1. Ensure compliance with linting configurations before committing</h5>
+							<p>For this example, we’d assume we have eslint configured for our application like so:</p>
+
+                                { <br>
+                                "script": { <br>
+                              "lint": "eslint ." <br>
+                                  }, <br>
+                                 } 	<br>
+								 <br>
+							<p>With this hook, you can run the eslint command when a commit operation is about to be executed. That action would be configured like so:</p>
+
+
+                               { <br>
+                            "script": { <br>
+                         "lint": "eslint ." <br>
+                              }, <br>
+                            "config": { <br>
+                                 "ghooks": { <br>
+                         "pre-commit": "npm run lint" <br>
+                                } <br>
+                            } <br>
+							}	  <br>
+						<p>With the above setup, git will trigger npm lint when you’re about to commit staged changes. This way, you can immediately get an error for code that doesn’t comply with your eslint configurations.</p>
+						
+						<h5>2 .Execute tests before committing</h5>
+						<p>Normally after setting up test (say mocha), you’d have to run npm run test. Without git hooks, you may forget to run tests before committing. Tjat would be bad for your application. <br>
+							<br>
+
+							Similar to the above configuration for linting, we would have:</p>
+
+                             { <br>
+                             "script": { <br>
+                               "test": "mocha ." <br>
+                           }, <br>
+                            "config": { <br>
+                     "ghooks": { <br>
+                      "pre-commit": "npm run test" <br>
+                     } <br>
+              } <br>
+				 } <br>
+				 
+				 <h5>3. Test your code after merging</h5>
+				 <p>Just like our test script above, we can have:</p>
+
+                   { <br>
+                      "script": { <br>
+                      "test": "mocha ." <br>
+                     }, <br>
+                     "config": { <br>
+                        "ghooks": { <br>
+                         "post-merge": "npm run test" <br>
+                     } <br>
+                    } <br>
+                    } <br>
+					  <br>
+					<h4>Wrap up</h4>
+					<p>The use cases mentioned may look simple. These are very common cases. Different hooks can be used for different purposes. The customizability depends on how creative the developer can be. Check out this list of hooks to see when git triggers them so you can run your commands. <br>
+						<br>
+
+						Git hooks make life easier for developers. It creates an automated flow of development that can save developers of errors and ensure standards in an application. <br>
+						<br>
+						
+						If I, as a contributor were to make changes to your application, these customized hooks will ensure that all requirements are followed. <br>
+						<br>
+						
+						By using githooks, you can create applications where people can contribute without breaking your application. Ghooks even makes it very easy. <br>
+						<br>
+						
+						I hope this getting started guide, gets you started using git hooks and ghooks.</p>
+
+	   	
+
+
+
+                                
+                                
+                            
+
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 19, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

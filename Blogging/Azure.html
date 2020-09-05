@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Azure Storage Tutorial – Learn the Details</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                            
+                           
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/azure-cloud-itaf.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Cloud</a></div>
+                        <h3>Azure Storage Tutorial – Learn the Details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 22, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                           <p>Microsoft has created a unique benchmark in the world of cloud computing with Microsoft Azure. Many renowned enterprises all over the world use Microsoft Azure for its various IaaS solutions. Azure Storage is one of the proven and highly demanded solutions on Microsoft Azure for enterprises to avail cost-effective, secure, and resilient data storage. Therefore, many aspiring database administrators, engineers, and data specialists look towards an Azure Storage tutorial. <br>
+                            <br>
+
+                            The following discussion would serve as a tutorial on Azure Storage with in-depth insights on its types and architecture. Readers can use the information presented below to anticipate the effectiveness of Azure Storage as a modern cloud-based storage system.</p>
+                          
+                           <h4>What is Azure Storage?</h4>
+                           <p>The first concern in any Azure Storage tutorial directly refers to its definition. Azure Storage is the cloud storage solution of Microsoft for various new data storage scenarios in present times. As the volume of data in various repositories and warehouses increases every day, enterprises need better methods of storage. <br>
+                            <br>
+
+                            Now, it is obvious to wonder about the reasons to opt for storing in the cloud in the first place. First of all, you don’t need any physical space or hardware for storing your massive amount of data, thereby ensuring cost savings. Cloud storage allows users to scale the storage capacity up or down according to their requirements. <br>
+                            <br>
+                            Most important of all, cloud storage makes sure that your data is available to you at all times. The core storage services on Azure Storage offer different options such as disk storage for Azure virtual machines (VMs), messaging stores, NoSQL store, file system service, and a massively scalable object-store.</p> 
+                           
+                            <h4>Why is Azure Storage Important?</h4>
+                            <p>The types of storage services you can find in an Azure Storage tutorial can offer the following functionalities for users.</p>
+                            <li>Redundancy in Azure Storage helps in ensuring data safety in the event of unprecedented hardware failures. Users can also choose to replicate data throughout datacenters or geographical regions to ensure additional protection from natural disasters. The replication of data in this manner also provides higher data availability in the event of unexpected downtime.</li>
+                            <li>The services on Azure Storage offer the highest levels of security through encryption of all data written to Azure Storage accounts. Azure Storage also provides fine-grained control over access privileges to users.</li>
+                            <li>The design of Azure Storage specifically aims at providing the desired scalability for addressing data storage and performance requirements of modern applications.</li>
+                            <li>Azure Storage also ensures comprehensive management of hardware maintenance, critical issues, and other associated updates for users.</li>
+                            <li>The final aspect pertaining to the advantages of Azure Storage in an Azure Storage tutorial refers to accessibility.</li>
+
+                            <br>
+
+                            <p>Users can access data in Azure Storage from almost anywhere through HTTP or HTTPS. Microsoft also provides client libraries for Azure Storage in different languages such as Python, .NET, Java, Go, PHP, Node.js, Ruby, and others. In addition, you also get a mature REST API with Azure Storage. <br>
+                                <br>
+
+                                Another interesting factor of Azure Storage in terms of accessibility refers to the support for scripting in Azure CLI or Azure PowerShell. Most important of all, Azure Storage Explorer and the Azure portal provide flexible visual solutions for working with data.</p>
+                             
+                             <h4>Types of Azure Storage Services</h4>
+                             <p>Now, the attention in any tutorial on Azure Storage would divert towards the Azure storage types. You can find the types of Azure storage by reflecting on the data services available on the Azure Storage platform. Users can access the different types of Azure storage through their Azure Storage account. Here are the five types of Azure storage services.</p>
+                             <p>1. Azure Blobs <br>
+                                2. Azure Queues <br>
+                                3. Azure Disks <br>
+                                4. Azure Tables <br>
+                                5. Azure Files</p>  
+                              
+                                
+                               <p>Let us reflect on the details of these services to strengthen this Azure Storage tutorial</p>
+
+                               <h5>1. Azure Blob Storage</h5>
+                               <p>Azure blob storage is the object storage solution of Microsoft, especially aimed at the cloud. The design of blob storage is effectively tailored for the storage of massive volumes of unstructured data in the text and binary forms. An Azure blob storage tutorial would showcase the different use cases for this. It is suitable. Blob storage is suitable for streaming video and audio, storage of files for distributed access, and delivering images or documents directly to browsers. <br>
+                                <br>
+
+                                In addition, blob storage is also fit for the storage of data for backup and restore, archiving, and disaster recovery. Blob storage also helps in data storage for analysis through an Azure-hosted or on-premises service. Client applications or users can access blobs through URLs, Azure CLI, Azure Storage REST API, an Azure Storage client library, or Azure PowerShell.</p>
+                               
+                               <h5>2. Queue Storage</h5>
+                               <p>The Azure Queue service is also an important addition in Azure Storage tutorial among types of Azure storage. It can help in the storage and retrieval of messages. Queue messages could be up to 64 KB in terms of size, and a queue has the capacity for containing millions of messages. Queues are generally applicable for storing a list of messages for asynchronous processing.</p>
+                               <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/A1.png">
+                                    
+                             
+                                </figure>
+                            </div> 
+                            <h5>3. Disk Storage</h5>
+                            <p>Disk storage in Azure Storage is possible through an Azure managed disk. It is actually a virtual hard disk (VHD) that you can think of as a physical disk that has been virtualized. Azure managed disks are abstractions over page blobs, which are random IO storage objects in Azure. Managed disks are also abstractions over Azure storage accounts and blob containers. In the case of managed disks, users have to worry only about provisioning the disk while allowing Azure to manage the rest.</p>
+                            <h5>4. Table Storage</h5>
+                            <p>Table storage is also one of the prominent additions in the Azure Storage tutorial regarding the types of storage services. Azure Table storage is now available as a part of Azure Cosmos DB. The Azure Cosmos DB Table API offers automatic secondary indexes, throughput-optimized tables, and global distribution. Therefore, Azure Table storage also presents reliable claims as a better storage alternative on Azure.</p>
+                            <h5>5. Azure Files</h5>
+                            <p>The final and one of the notable entries in types of storage in an Azure Storage tutorial is Azure Files. Azure Files help in creating highly available network file shares accessible through the use of standard Server Message Block (SMB) protocol. As a result, it can ensure that multiple VMs could share the same files with reading as well as write access. <br>
+                                <br>
+
+                                In addition, Azure Files also allow users to read the files through the storage client libraries or REST interface. Azure Files are different from files on a corporate file share due to their accessibility. Users can access Azure Files from anywhere in the world with a URL pointing to the file that also has a shared access signature (SAS) token. SAS tokens offer specific access to a private asset for a particular amount of time.</p>
+                               <h4>The Architecture of Azure Storage</h4>
+                               <p>The final aspect of an Azure Storage tutorial would refer to its architecture. Till now, you noticed the functionalities and different services on Azure Storage. So, it is inevitable to wonder how Azure Storage is capable of achieving its functionalities. Therefore, readers need a brief overview of the architecture of Azure Storage to understand it better.</p>
+                               <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/A2.png">
+                                    
+                             
+                                </figure>
+                            </div> 
+                            <p>The foremost aspect of Azure Storage architecture is that data on Azure Storage is automatically triplicated by default. In general cases, Azure Storage creates three copies of data inside storage stamps along with another region with active geo-resiliency. So, the discussion on the architecture of Azure Storage starts with a reflection on Stamps.</p>
+
+
+                          
+                            <h5><li>Azure Storage Stamps</li></h5>
+                            <p>Azure classifies entities into Stamps with each stamp having its own fabric controller. A particular Storage Stamp is actually a cluster of N racks of storage nodes, with each rack built out as a distinct fault domain having redundant power and networking. Azure Storage Stamps serve as a unit of deployment and management in data centers and support the reduction of fault tolerance.</p>
+                            <h5><li>The next important aspect of an Azure Storage tutorial about its architecture is the Location Service. The Location Service in Azure ensures efficient and responsible management of storage stamps. In addition, it is also responsible for managing account namespaces across all stamps. The Location Service is also distributed across two geographical locations for ensuring disaster recovery for itself.</li></h5>
+                            <h5><li>Layers of Architecture in Azure Storage</li></h5>
+                            <p>Azure Storage relies on the architecture layers inside stamps for maintaining consistency, availability, and durability of data in a specific Azure Region. The Stream Layer or the Distributed File System (DFS) layer is the first layer of Azure Storage architecture. <br>
+                                <br>
+
+                                The layer involves the storage of bits on disk and is responsible for the management of the disk. The Partition Layer in the architecture serves as the core essence of Azure Storage. It is the place where a major share of decision making happens on Azure Storage. The final layer, i.e., the Front End Layer, is necessary for obtaining a rest protocol for all Azure Storage abstractions.</p>
+                              
+                              
+
+   
+     
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 22, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#"><img src="img/core-img/logo.png" alt=""></a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

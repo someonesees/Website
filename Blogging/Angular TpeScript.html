@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>How I Got Started With Angular And TypeScript.</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                                
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/angular.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Programming</a></div>
+                        <h3>How I Got Started With Angular And TypeScript.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 27, 2020 at 11:48 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>Learning Angular isn’t the easiest thing in the world. It takes a while to learn it. However, once I understood the basic architecture of Angular, creating apps with it became easier. In this article, I’ll show how I learned Angular and TypeScript without knowledge of either.</p>
+                            <h4>The Beginning</h4>
+                            <p>When I knew nothing, I started by writing practice apps with Angular. The fastest way to get started is using the Angular CLI. I created a basic app first by install the Angular CLI by running:</p>
+                             <br>
+                             npm install -g @angular/cli <br>
+                             <br>
+                             <p>Then I created my first Angular app project by running:</p>
+                             <br>
+                             ng new practice-app <br>
+                             <br>
+                             <p>In the Angular CLI, I chose to include routing. And choose to include CSS so reduce the amount of things I have to learn. Then we start our app by going to the practice-app  folder and then run ng serve  to start the development server that comes with Angular CLI.</p>
+                             <h4>Writing Some Basic Angular Code</h4>
+                             <br>
+                             <p>Now that I have started our Angular CLI development server, I will write some code.</p>
+                             <h5>Showing Some Data on the Screen</h5>
+                             <p>I first practiced how to display some dynamic data on the screen from components. First, I went to app.component.ts . I see that it has the following content generated by the Angular CLI:</p>
+                             <br>
+                        
+                            import { Component } from '@angular/core'; <br>
+                            <br>
+
+                                @Component({ <br>
+                              selector: 'app-root', <br>
+                             templateUrl: './app.component.html', <br>
+                              styleUrls: ['./app.component.css'] <br>
+                                 }) <br>
+                              export class AppComponent { <br>
+                              title = 'practice-app'; <br>
+                              } <br>
+                              <br>
+
+                               import { Component } from '@angular/core'; <br>
+                               <br>
+
+                               @Component({ <br>
+                               selector: 'app-root', <br>
+                              templateUrl: './app.component.html', <br>
+                              styleUrls: ['./app.component.css'] <br>
+                                    }) <br>
+                             export class AppComponent { <br>
+                             title = 'practice-app'; <br>
+                                } <br>
+                                <br>
+                                <p>I start by adding some fields to the AppComponent class, which changed the code to:</p>
+                                <br>
+                            
+
+                              import { Component } from '@angular/core'; <br>
+                              <br>
+
+                              @Component({ <br>
+                             selector: 'app-root', <br>
+                             templateUrl: './app.component.html', <br>
+                               styleUrls: ['./app.component.css'] <br>
+                                }) <br>
+                                export class AppComponent { <br>
+                              firstName = 'Prashant'; <br>
+                             lastName = 'Tiwari'; <br>
+                               } <br>
+                               <br>
+                               <p>Then I went to app.component.html, which has:</p>
+                               <br>
+                               <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/angjs1.png">
+                                
+                                </figure>
+                            </div>
+                            <p>generated by Angular CLI. I changed that to:</p>
+                            <br>
+                             
+                           <*p>{{firstName}} {{lastName}}<*/p> <br>
+                           <br>
+                           Note: Ignore * in above line. <br>
+                           <br>
+                           <p>Then I see ‘Prashant Tiwari’ on the screen. Next, I learn about adding the constructor method into the component class to initialize the component. I changed the code in app.component.ts to:</p>
+                           <br>
+                           
+
+                           import { Component } from '@angular/core'; <br>
+                           <br>
+
+                                          @Component({ <br>
+                             selector: 'app-root', <br>
+                         templateUrl: './app.component.html', <br>
+                            styleUrls: ['./app.component.css'] <br>
+                              }) <br>
+                              export class AppComponent { <br>
+                             firstName: string; <br>
+                             lastName: string; <br>
+                             <br>
+
+                              constructor() { <br>
+                          this.firstName = 'Prashant'; <br>
+                            this.lastName = 'Tiwari'; <br>
+                            } <br>
+                           } <br>
+                           <br>
+                           <p>As we can see, whatever property of this  can be shown in the corresponding HTML template if we put then between curly braces and without the this. So this.firstName  in the component code becomes {{firstName}}  in our HTML template. Likewise, we can display array items on the screen. The difference is that we have to use the *ngFor  directive in our template to loop through the items and display them. To display a list of objects, first we have to create an interface to indicate the structure of the array entry that we want to display. We run ng g interface Person  to create a Person  interface in the person.ts  file.</p>
+                           <p>In person.ts, we replace the existing code with:</p>
+                           
+                           export interface Person { <br>
+                               name: string; <br>
+                           } <br>
+                           <br>
+                           <p>Then we go back to app.component.ts and change the file to:</p>
+                           <br>
+                           
+import { Component } from '@angular/core'; <br>
+import { Person } from './person'; <br>
+<br>
+
+@Component({ <br>
+selector: 'app-root', <br>
+templateUrl: './app.component.html', <br>
+styleUrls: ['./app.component.css'] <br>
+})<br>
+export class AppComponent { <br>
+persons: Person[]; <br>
+<br>
+
+constructor() { <br>
+this.persons = [ <br>
+  { name: 'Shiv' }, <br>
+  { name: 'Avi' }, <br>
+  { name: 'Vips' }, <br>
+  <br>
+]<br>
+}<br>
+}<br>
+<br>
+                 <p>In the code above, we have the names  array, which is of type Person[] . It’s an array of Person  objects, where Person  is the interface that we just created. The Person  interface specified that our Person  object has the name property and it’s of type string. <br>
+                    <br>
+
+                    Then we go to app.component.html and change it to:</p>
+                    <br>
+                    <*p  *ngFor='let p of persons'>{{p.name}}<*/p> <br>
+                    <br>
+                    Note: Ignore * in above line. <br>
+                    <br>
+                    <p>Then we get:</p>
+                    <br>
+                    Shiv <br>
+                    Avi <br>
+                    Vips <br>
+                    <br>
+                    <p>displayed on the screen. In the code above, we have the following expression in our *ngFor directive:</p>
+                    <br>
+                    let p of persons <br>
+                    <br>
+                    <p>p has the entry from the this.persons  array in app.component.html  and {{p.name}}  returns the name  property of p  so that we can display the name from there.</p>
+                    <h4>Conditional Display with NgIf</h4>
+                    <p>Next, I learned how to conditionally display items with the *ngIf  directive. It takes an expression that returns a truthy or falsy value. I changed app.component.ts to:</p>
+                    <br>
+                    
+import { Component } from '@angular/core'; <br>
+import { Person } from './person'; <br>
+<br>
+
+@Component({ <br>
+selector: 'app-root', <br>
+templateUrl: './app.component.html', <br>
+styleUrls: ['./app.component.css'] <br>
+}) <br>
+export class AppComponent { <br>
+displayName: boolean = false; <br>
+} <br>
+<br>
+                <p>Then I changed app.component.html to:</p>
+                <br>
+                <*p *ngIf='displayName'>Shiv<*/p> <br>
+                <br>
+                <p>Now I see nothing on the screen. I realized that this.displayName  in app.component.ts  set to false hides the name if we write *ngIf='displayName' . Then I set this.displayName  to true in app.component.ts. Now I see the ‘Shiv’ displayed without changing app.component.html . This means that the content is displayed if displayName is true.</p>
+
+                <h4>Template Syntax</h4>
+                <p>After looking at the Angular documentation, the curly braces is for interpolating data from our component file in our template. Anything between the double curly braces are interpolated. We can put any valid HTML in our template, along with variables, some expressions, and directive in our template code. I put expression straight into our template as follows: <br>
+                    <br>
+
+                    app.component.html:</p>
+                    <br>
+                    {{1 + 1}} <br>
+                    <br>
+                    <p>Then I see 2 on the screen. It evaluated the 1 + 1 expression and returned the result. However, I after trying other things like assigning variables, operators, chaining expressions with ; or ,, increment and decrement operators, I see that they all give me errors. Bitwise operators also didn’t work for me. Also, I discovered that I can define reference variables in templates to access the element directly. <br>
+                        <br>
+
+                        I changed app.component.html to:</p>
+                        <br>
+                        <*label> <br>
+                            {{input.name}}: <br>
+                            <*input #input name='foo'> <br>
+                          </*label> <br>
+                          <br>
+                          Note: Ignore * in above line. <br>
+                          <br>
+                          <p>I see that foo:  is besides the input box. So now I know that #input  sets the name of my input element to input . Then I can access its DOM properties directly, as I did with input.name  to get the value of the name attribute that I’ve set.</p>
+                          <h4>Conclusion</h4>
+                          <p>I learned the most basic parts of Angular by trying various constructs myself. I created the app by running the Angular CLI. First I tried to display component field values on the screen with double curly braces in the template. Then I tried playing with component class fields and basic directives like *ngIf  to conditionally display content and *ngFor  to display an array of items. Finally, I set an HTML element to a variable and then accessed its attributes directly in the template.</p>
+
+
+                    
+
+
+
+                                
+                                    
+
+
+                          
+                           
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 27, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Top Stories</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/java22.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Programming</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Java 20 ques.html" class="headline">
+                                <h5>Java String Interview Questions</h5>
+                            </a>
+                            <p>Java is one of the most popular programming languages. Java is simple, secure, and robust. When you are ready to face an interview for Java.....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 06, 2020 at 05:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/ssd.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="solid state devices.html" class="headline">
+                                <h5>Solid State Device Technology</h5>
+                            </a>
+                            <p>Solid state refers to a type of technology that uses semiconductor devices to replace mechanical (moving) parts. The term solid state....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 10, 2020 at 9:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#"><img src="img/core-img/logo.png" alt=""></a> <br>
+                        <br>
+                        <p>
+                            We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

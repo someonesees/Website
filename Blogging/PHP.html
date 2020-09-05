@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Top 6 Features Of PHP 7.4 – Explained With Examples.</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                             
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/Php.webp);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Programming</a></div>
+                        <h3>Top 6 Features Of PHP 7.4 – Explained With Examples</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 22, 2020 at 01:48 pm</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <p>PHP 7.4, the latest version of the PHP 7 series; it was introduced on the 28th of November 2019. There is a bunch of exciting new features added. There are two primary focuses on this update: improved performances and bug fixes. The most important thing for us, as PHP developers, is to check out the latest features in PHP 7.4. There are cool 😎 ones – believe me.</p>
+                                    
+                            <h4>New Features Pack</h4>
+                            <p> 1. Arrow Functions (fn() syntax) <br>
+                                2. Typed Properties <br>
+                                3. Null coalescing assignment operator <br>
+                                4. Spread Operator in Array Expression <br>
+                                5. Numeric Literal Separator <br>
+                                6. Preloading</p>
+                            
+                            <h5>1. Arrow Functions</h5>
+                            <p>This is a feature that got accepted in April 2019 and loved by the PHP community. It only does one thing, and that is making the function syntax less verbose. Which type of developers doesn’t like concise programming? <br>
+                                <br>
+
+                                Arrow functions are extremely useful when writing callback functions (or closures, if you like). Before PHP 7.4, you had to use array_map as follows.</p>
+                                <br>
+                                
+                                   $names = array_map(function($user) { <br>
+                                   return $user -> name <br>
+                                   }, $users); <br>
+                                   <br>
+                                   <p>But, now…</p>
+                                   <br>
+                                   
+                                   $names = array_map(fn($user) => $user -> name, $users); <br>
+                                   <br>
+                                   <p>It’s just one line.</p>
+                                   <br>
+                                   
+
+                            fn($user) => $user -> name; <br>
+                            //                 ^^^^^^^^^^^^^^ <br>
+                           //                 This actually returns the value even there isn't a return statement <br>
+                           <br>
+                           <p>The form of the arrow functions is:</p>
+                           <br>
+                            
+                            fn(params) => expression <br>
+                            <br>
+                            <p>The expression is always a return statement even the return keyword isn’t there. <br>
+                                <br>
+
+                                When you use a variable defined in the parent scope in an arrow function, the variable will be implicitly captured by-value <br>
+                                <br>
+                                
+                                Nested arrow functions are also allowed.</p>
+                                <br>
+                                
+
+                                 $z = 1; <br>
+                                 $fn = fn($x) => fn($y) => $x * $y + $z; <br>
+                                 <br>
+                                 <p>$z in the parent scope, goes down the hierarchy to the most inner function. <br>
+                                <br> 
+                                Other facts: <br>
+                                <br>
+                                Type declaration or type hinting is allowed on arguments and return types.
+                            </p>
+                            <br>
+                            
+                               $fn = fn(int $x) : int => $x + 2; <br>
+                               <br>
+
+                                $fn(4); // 6 <br>
+                               $fn('4'); // 6 (due to implicit casting) <br>
+                               $fn([4,5]); // error <br>
+                               <br>
+                               <h5>2. Typed Properties (version 2.0)</h5>
+                               <p>Type hinting for functions and class methods have already been available since PHP 5. You have seen it right?</p>
+                               <br>
+
+                               function (int $age) { <br>
+                               //          ^^^ <br>
+                              } <br>
+                              <br>
+                              <p>Since PHP 7.4, you can declare types for class properties. Here’s an example.</p>
+                              <br>
+                              
+                              class MyMathClass { // <- don't get distracted <br>
+                              public int $id; <br>
+                              protected string $name; <br>
+                              private ?int $age; // nullable types <br>
+                              <br>
+
+                               public static int $someStaticProp; <br>
+                               <br>
+
+                               private MyScienceClass $science; <br>
+                             //      ^^^^^ <br>
+                            //      Using a class as the type   <br>    
+                            } <br>
+                            <br>
+                            <p>All the PHP data types are allowed except void and callable. <br>
+                                <br>
+
+                                One more thing to note is that there’s a new “Uninitialized state” (Source). If you run the following code,</p>
+                            
+                                class User { <br>
+                                    public int $id; <br>
+                                } <br>
+                                $user = new User; <br>
+                                var_dump($user -> id);	<br>
+                                <br>
+                                <p>…what will be the result? Null? No. You’ll get an error message.</p>
+                                <h5>&nbsp;&nbsp;&nbsp;&nbsp;Fatal error: Uncaught Error: Typed property Foo::$bar must not be accessed before initialization</h5>
+
+                                <p>This means that there’s a new “uninitialized” state for properties introduced. And, the unset() function will work differently for types and untyped properties.
+                                    <br>
+                                    <br>
+                                    Types props – unset() will set the prop to uninitialized (similar to undefined in Javascript). <br>
+                                     Untyped props – unset() will set prop to null. <br>
+                                </p>
+
+                                <h4>3. Null Coalescing Assignment Operator</h4>
+                                <p>Null Coalescing operator in PHP 7 made a huge difference in PHP development because we could write the following code.</p>
+                                <br>
+                                $data['name'] = isset($data['name']) ? $data['name'] : 'Guest'; <br>
+                                <br>
+                                <p>simply as this:</p>
+                                <br>
+                                  
+                               $data['name'] = $data['name'] ?? 'Guest'; <br>
+                               <br>
+                               <p>Now, things have become more interesting. It’s now just:</p>
+                               <br>
+                                   
+                                $data['name'] ??= 'Guest'; <br>
+                                <br>
+                                <p>All of the above codes do the same thing. Check if the $data['name'] is set. If yes, get it. If not, get “Guest” and assigns to $data['name']. As I mentioned, PHP 7.4 update makes the syntax less verbose. <br>
+                                    <br>
+
+                                    This can be useful when you have some long variables:</p>
+                                    <br>
+                                    
+                                   $data['top_group']['people'][1]['name'] = $data['top_group']['people'][1]['name'] ?? 'Guest'; <br>
+                                   // ^^^ Repitition <br>
+                                   <br>
+
+                                  // can be written as <br>
+                                  $data['top_group']['people'][1]['name'] ??= 'Guest'; <br>
+                                  <br>
+                                  <p>Simple, if the value of the left-hand side is null (or not set), the value of the right-hand side will be assigned to the left.</p>
+
+                                  <h5>4. Spread Operator in Array Expression</h5>
+                                  <p>Since PHP 5.6, the splat operator (... or 3 dots) has been used to unpack arrays (or any other Traversables) into arguments. <br>
+                                    <br>
+
+                                    We write:</p>
+                                    <br>
+                                    
+                                  function dumpNames(...$names) { <br>
+                                    var_dump($names); <br>
+                                   } <br>
+                                  dumpNames('James', 'Jonty', 'Jeremy'); <br>
+                                  <br>
+
+                                    // will dump <br>
+                                   // array (size=3) <br>
+                                  //     0 => string 'James' (length=5) <br>
+                                 //     1 => string 'Jonty' (length=5) <br>
+                                //     2 => string 'Jeremy' (length=6) <br>
+                                <br>
+                                <p>When you send multiple parameters into the function, PHP will combine them into one array and store in the given variable prefixed with .... <br>
+                                    <br>
+                                    <br>
+
+                                    In PHP 7.4, the spread operator can be used in Array Expressions. This process is kind of the opposite of the previous one.</p>
+                                    <br>
+                                    $parts = ['apple', 'pear']; <br>
+                                    $fruits = ['banana', 'orange', ...$parts, 'watermelon']; <br>
+                                    <br>
+                                    <p>Here, we give an array, and PHP will extract the elements of the array in the given place. <br>
+                                        <br>
+
+                                        The RFC encourages using the spread operator over array_merge for better performances and to support Traversable. <br>
+                                        <br>
+                                        
+                                        Unlike argument expansion, we can use the same expansion multiple times in the same array expression (which is logical right?).</p>
+                                        <br>
+                                        
+                                        $sisterNumbers = [1,2,3]; <br>
+                                        $brotherNumber = [9,11,13]; <br>
+                                        <br>
+
+                                        $dadNumbers = [...$sisterNumbers, ...$brotherNumber, 42, 34]; // 1,2,3,9,11,13,42,34 <br>
+                                        $motherNumbers [...$sisterNumbers, ...$sisterNumbers]; // 1,2,3,1,2,3 <br>
+                                        <br>
+                                        <p>Facts. <br>
+                                        <br>
+                                    <br>
+                                    This work for both array() and [] syntax. <br>
+                                    This will only work on arrays that have numerical keys. <br>
+                                    You can unpack an array returned by a function immediately. Ex: $x = [1,3, ...someFunction()] <br>
+                                    You cannot unpack an array by reference.</p>
+                                    <h4>5. Numeric Literal Separator</h4>
+                                    <p>What a cool idea! You can now, since PHP 7.4, add underscores in numeric variables.</p>
+                                    <br>
+                                    
+                                    // previously <br>
+                                    $price = 340523422.88; // hard to read <br>
+                                    <br>
+
+                                   // now <br>
+                                   $price = 340_523_422.88; // easy to read <br>
+                                   <br>
+                                   <p>PHP will ignore the _s and compile the PHP file. The only reason to add this feature is to allow developers to have more clean & comprehensible code. <br>
+                                    <br>
+
+                                    The Numeric Literal Separator can be used in any numeric type (integers, float, decimal, hexadecimal, and binary).</p>
+                                    <br>
+
+                                      2.554_083e-4; // float <br>
+                                      0x46FC_FA5D;   // hexadecimal <br>
+                                      0b0111_1101;   // binary <br>
+                                      <br>
+                                     <h4>6. Preloading</h4>
+                                     <p>Devised by Dmitry Stogov, Preloading was first controversial, and later much loved by the PHP community. However, again, it made some bad impressions due to the bugs it had in the first version. However, the latest PHP 7.4.2 comes with bug fixes. <br>
+                                        <br>
+
+                                        So, what’s preloading? Simply it’s PRE–LOADING. Dmitry says,</p> 
+                                        <h5>&nbsp;&nbsp;&nbsp;&nbsp;"On server startup – before any application code is run – we may load a certain set of PHP files into memory – and make their contents “permanently available” to all subsequent requests that will be served by that server. All the functions and classes defined in these files will be available to requests out of the box, exactly like internal entitie".</h5>
+                                        <p>Here’s the process. <br>
+                                        <br>
+                                        First, we write a PHP script and add it to opcache.preload directive in php.ini. <br>
+                                        This PHP file will be executed when you (re)start the server. <br>
+                                        It can be used to preload additional PHP files.  <br>
+                                        All preloading files will be saved in the memory.  <br>
+                                        Server will execute those files from memory.  <br>
+                                        Changes to those files are ignored by the server as it runs from the already loaded version of the script.  <br>
+                                        If needed to update, you have to restart the server. <br>
+                                        <br>
+                                        <br>
+                                        Brent from Stitcher.io has written a complete guide on implementing preloading. His benchmark (However, based on only a specific type of data) shows that preloading can improve performances up to 25%.
+                                    </p>
+                                <h4>Conclusion</h4>
+                                <p>In this article, we discussed the top 6 features of PHP 7.4. There are several other features in this update. The latest stable version is PHP 7.4.2 (As of 01/24/2020). If you are using PHP 7.4, it’s better to upgrade to PHP 7.4.2 for the sake of performance. <br>
+                                    <br>
+
+                                    If you are using an old version of PHP (7.x), you may consider upgrading. However, there are factors you should consider. First, if you are working with a team, you have to discuss it together if there’s a need for upgrading. True, PHP 7.4 is more performant than the previous version, but, “how much better” isn’t yet properly assessed.<br>
+                                    <br>
+                                    
+                                    If you have upgraded to PHP 7.4, you can take advantage of the new features mentioned in this article. However, make sure that everyone in your team (PHP devs) is comfortable with these concepts. See why Dan Abramov said Goodbye to Clean Code to learn why that’s important. <br>
+                                    <br>
+                                    
+                                    Finally, if you are still a PHP 5.x user, you should consider upgrading to PHP 7 soon, says Rasmus, the founder of PHP.</p>	 
+
+                                
+                                    
+
+
+                          
+                           
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 22, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/java22.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Programming</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Java 20 ques.html" class="headline">
+                                <h5>Java String Interview Questions</h5>
+                            </a>
+                            <p>Java is one of the most popular programming languages. Java is simple, secure, and robust. When you are ready to face an interview for Java.....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 06, 2020 at 05:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/ssd.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="solid state devices.html" class="headline">
+                                <h5>Solid State Device Technology</h5>
+                            </a>
+                            <p>Solid state refers to a type of technology that uses semiconductor devices to replace mechanical (moving) parts. The term solid state....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">July 10, 2020 at 9:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p> We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

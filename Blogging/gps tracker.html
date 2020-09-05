@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Building a GPS Tracker From Scratch</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="world-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html">VERTEX BLOG</a>
+                        <!-- Navbar Toggler -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Navbar -->
+                        <div class="collapse navbar-collapse" id="worldNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                         
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form  -->
+                            <div id="search-wrapper">
+                                <form action="#">
+                                    <input type="text" id="search" placeholder="Search something...">
+                                    <div id="close-icon"></div>
+                                    <input class="d-none" type="submit" value="">
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(img/blog-img/gps.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><a href="#">Hardware</a></div>
+                        <h3>Building a GPS Tracker From Scratch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- ============= Post Content Area ============= -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 09, 2020 at 12:48 am</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                           <h4>Story</h4>
+                           <p>I had an idea to combine the new Arduino Nano 33 BLE Sense with an SD card and GPS module for a side project that logs GPS and IMU data. <br>
+                            <br>
+
+                            I decided to purchase the Nano 33, the MKR Mem Shield, and the MKR GPS Shield and connect them all together. Unbeknownst to me at the time, these boards aren’t footprint-compatible, so I combined them with a breadboard 😐</p>
+                           
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/ARD1.png">
+                                   
+                                        
+                                   3 Arduino Boards.
+                                </figure>
+                            </div>   
+                            <p>It took a little while to get all the libraries installed and everything connected appropriately. The biggest challenge was the GPS module. It really helps to start debugging the GPS’ example code outside; where satellite signal is available 😉.</p>
+                            <h4>Prototype Code</h4>
+                            <p>The full Arduino sketch for the above connected system is here. But, might as well have a quick overview of the code. Throwing the imports and definitions below:</p>
+
+                            <p><strong>#include <*SparkFun_Ublox_Arduino_Library.h> <br>
+                                #include <*Arduino_LSM9DS1.h><br>
+                                #include <*Arduino_APDS9960.h><br>
+                                #include <*SPI.h><br>
+                                #include <*SD.h><br>
+                                    <br>
+                                
+                                // SD Vars<br>
+                                File dataFile;<br>
+                                int chipSelect = 4;<br>
+                                <br>
+                                
+                                // GPS Vars<br>
+                                SFE_UBLOX_GPS myGPS; // Connected via UART<br>
+                                long latitude = 0;<br>
+                                long longitude = 0;<br>
+                                long speed = 0;<br>
+                                byte satellites = 0;<br>
+                                int timeout = 50;<br>
+                                long lastGPSTime = 0;<br>
+                                <br>
+                                
+                                // IMU Vars<br>
+                                float ax, ay, az;<br>
+                                float gx, gy, gz;<br>
+                                
+                                // Misc<br>
+                                bool DEBUG = true;<br>
+                                int counter = 0;<br>
+                                
+                                #define LEDR       (22u)<br>
+                                #define LEDG        (23u)<br>
+                                #define LEDB       (24u)</strong></p>
+
+                            <br>
+                            remove * before using code.
+
+                            <p>Next, we need to do all the GPS and SD card setup. The tricky part here was making sure to remove the DATALOG.csv file every time we start up.</p>
+                           <p><strong>void setup()<br>
+                            {<br>
+                              // Setup User Terminal<br>
+                              Serial.begin(115200); // UART to PC/Mac<br>
+                              while(!Serial);<br>
+                              Serial1.begin(9600);  // UART to GPS<br>
+                              while(!Serial1);<br>
+                              <br>
+                            
+                              // Initialize digital pin LED_BUILTIN as an output.<br>
+                              pinMode(LED_BUILTIN, OUTPUT);<br>
+                              pinMode(LEDR, OUTPUT);<br>
+                              pinMode(LEDB, OUTPUT);<br>
+                              pinMode(LEDG, OUTPUT);<br>
+                              <br>
+                            
+                              digitalWrite(LEDR, HIGH); // LOW triggered LED....<br>
+                              digitalWrite(LEDG, HIGH);<br>
+
+                              digitalWrite(LEDB, HIGH);<br>
+                            
+                              // Setup GPS<br>
+                              if (!myGPS.begin(Serial1)) {<br>
+                                Serial.println(F("GPS not detected!"));<br>
+                                while (1);<br>
+                              }<br>
+                              Serial.println("GPS Started!"); <br>
+                              <br>
+                            
+                              // Setup SD Card<br>
+                              if (!SD.begin(chipSelect)) {<br>
+                                Serial.println("SD Card failed or not present!");<br>
+                                while (1);<br>
+                              }<br>
+                              <br>
+                              
+                              // Remove Existing DATALOG.CSV file<br>
+                              if(SD.exists("DATALOG.CSV")) {<br>
+                                SD.remove("DATALOG.CSV");<br>
+                                dataFile = SD.open("DATALOG.CSV", FILE_WRITE);<br>
+                                dataFile.close();<br>
+                              }<br>
+                              <br>
+                              
+                              delay(500); // Make sure existing DATALOG.CSV file is gone<br>
+                              <br>
+                              
+                              // Create new CSV file with appropriate headers<br>
+                              dataFile = SD.open("DATALOG.CSV", FILE_WRITE);<br>
+                              dataFile.println("Count,AccX,AccY,AccZ,GyrX,GyrY,GyrZ,Lat,Long,Speed");<br>
+                              <br>
+                              
+                              // Done with SD Card Init<br>
+                              Serial.println("SD Card Initialized!");<br>
+                            
+                              // Setup Gesture Sensor<br>
+                              if (!APDS.begin()) {<br>
+                                Serial.println("Error initializing gesture sensor!");<br>
+                              }<br>
+                              APDS.setGestureSensitivity(85);<br>
+                              Serial.println("Gesture sensor initialized!");<br>
+                              <br>
+                            
+                              // Setup IMU<br>
+                              if (!IMU.begin()) {<br>
+                                Serial.println("Failed to initialize IMU!");<br>
+                                while(1);<br>
+                              }<br>
+                              Serial.println("IMU initialized!");<br>
+                            }</strong></p>
+
+
+                            <p>Now we can log all of the data to the SD Card. Note that we could use the Gesture sensor to stop and start recording (in the main loop).</p>
+                          <p><strong>void loop()<br>
+                            {<br>
+                              if (millis() - lastGPSTime > 500) {<br>
+                                lastGPSTime = millis(); // Update the timer<br>
+                                <br>
+                                
+                                latitude = myGPS.getLatitude(timeout);<br>
+                                longitude = myGPS.getLongitude(timeout);<br>
+                                speed = myGPS.getGroundSpeed(timeout);<br>
+                                satellites = myGPS.getSIV(timeout);<br>
+                                <br>
+                                
+                                if(DEBUG) { <br>
+                                  Serial.print(F("Lat: "));<br>
+                                  Serial.print(latitude);<br>
+                                  Serial.print(F(" Long: "));<br>
+                                  Serial.print(longitude);<br>
+                                  Serial.print(F(" (degrees * 10^-7)"));<br>
+                                  Serial.print(F(" Speed: "));<br>
+                                  Serial.print(speed);<br>
+                                  Serial.print(F(" (mm/s)"));<br>
+                                  Serial.print(F(" satellites: "));<br>
+                                  Serial.println(satellites); <br>
+                                }<br>
+                              }<br>
+                              <br>
+                            
+                              if (IMU.accelerationAvailable()) {<br>
+                                IMU.readAcceleration(ax, ay, az);<br>
+                                if(DEBUG) {<br>
+                                  Serial.print(F("Accel x: "));<br>
+                                  Serial.print(ax);<br>
+                                  Serial.print(F(" y: "));<br>
+                                  Serial.print(ay);<br>
+                                  Serial.print(F(" z: "));<br>
+                                  Serial.println(az);<br>
+                                }<br>
+                              }<br>
+                              <br>
+                            
+                              if (IMU.gyroscopeAvailable()) { <br>
+                                IMU.readGyroscope(gx, gy, gz);<br>
+                                if(DEBUG) {<br>
+                                  Serial.print(F("Gyro x: "));<br>
+                                  Serial.print(gx);<br>
+                                  Serial.print(F(" y: "));<br>
+                                  Serial.print(gy);<br>
+                                  Serial.print(F(" z: "));<br>
+                                  Serial.println(gz);<br>
+                                }<br>
+                              }<br>
+                              <br>
+                            
+                              if (APDS.gestureAvailable()) {<br>
+                                // A gesture was detected, read and print to serial monitor<br>
+                                switch (APDS.readGesture()) {<br>
+                                  case GESTURE_UP:<br>
+                                    Serial.println("Detected UP gesture");<br>
+                                    break;<br>
+                                  case GESTURE_DOWN:<br>
+                                    Serial.println("Detected DOWN gesture");<br>
+                                    break;<br>
+                                  case GESTURE_LEFT:<br>
+                                    Serial.println("Detected LEFT gesture");<br>
+                                    break;<br>
+                                  case GESTURE_RIGHT:<br>
+                                    Serial.println("Detected RIGHT gesture");<br>
+                                    break;<br>
+                                  default:<br>
+                                    // ignore<br>
+                                    break;<br>
+                                }<br>
+                              }<br>
+                              <br>
+                            
+                              if (dataFile) {<br>
+                                counter += 1;<br>
+                                String dataString = "";<br>
+                                dataString += String(counter) + ",";<br>
+                                dataString += String(ax) + ",";<br>
+                                dataString += String(ay) + ",";<br>
+                                dataString += String(az) + ",";<br>
+                                dataString += String(gx) + ",";<br>
+                                dataString += String(gy) + ",";<br>
+                                dataString += String(gz) + ",";<br>
+                                dataString += String(latitude) + ",";<br>
+                                dataString += String(longitude) + ",";<br>
+                                dataString += String(speed);<br>
+                                dataFile.println(dataString);<br>
+                              }<br>
+                              <br>
+                              
+                              delay(150); // Don't pound too hard<br>
+                            }</strong></p>  
+
+                       <p>So this is all fine and good. Prototype concept has been vetted! Time to build a custom PCB with the same functionality.</p>
+                       <h4>PCB Design</h4>
+                       <p>PCB design was definitely an experience, with a decent learning curve. I used easyeda to build my custom PCB. My first step was obtaining the schematics from the Nano 33, the MKR Mem Shield and the MKR GPS Shield. These were easy enough to find in the tech links and via Github. As they are Eagle schematic files, I downloaded the Eagle trial version to analyze in depth. <br>
+                        <br>
+
+                        I basically copied the whole Nano 33 BLE schematic as is, including matching up the component names and numbers. I then added the GPS module (top center) and had to think about how to program via J-Link (top right):</p>    
+                        
+                        
+
+                        <div class="featured">
+                            <figure>
+                                <img src="img/blog-img/ARD2.png">
+                               
+                                    
+                               
+                            </figure>
+                        </div> 
+                        <p>Hoping for the best, I went ahead and sent off the design to PCBWay to be built and assembled. It was a decently smooth process, with some questions about a part name and orientation</p>
+                        <h4>Flashing the Arduino bootloader</h4>
+                        <p>I bought the J-Link EDU Mini cable to be able to program the custom board. I also installed all the J-Link drivers, etc. A similar tutorial can be found here. <br>
+                            <br>
+
+                            You can find the Arduino bootloader.bin binary file here:</p>
+                            <p><strong>/Users/<*username>/Library/Arduino15/packages/arduino/hardware/mbed/ <br>
+                                <br> 1.1.4/bootloaders/nano33ble/bootloader.bin</strong></p>
+
+                            <p>I ended up flashing the bootloader via nRF Connect. Fingers crossed everything would work🤞. <br>
+                                <br>
+
+                                And it did! An Arduino Nano would pop up and connect to my MacBook when I plugged in the USB cable. <br>
+                                <br>
+                                
+                                Turns out I had made a few mistakes in my reverse engineering, though.</p>
+                             <li>The Nano 33 schematic has a Do Not Populate (DNP) for a pull up resistor on the RESET pin. I should have added test points for this resistor as well. I ended up hand-soldering a 4.7K. This stopped my board from auto-resetting every second (could also adjust the UICR to disable the RESET pin).</li>
+                             <li>The schematic shows a 1M Ohm resistor connecting the USB shield to ground. But the Eagle file shows 330 Ohm — should be 330 Ohms. There is tons of debate and trade-offs here.</li> 
+                             <li>I messed up a wire with the gesture sensor, so that didn’t work. However it still measured RGB colors.</li> <br>
+                             <br>
+                             <p>I ended up fixing these issues. To make this device portable, I added a battery connection and LiPo charging, as well as load sharing. I also added a 5V and 3.3V power rail to power external devices.</p>
+                             <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/ARD3.png">
+                                   
+                                        
+                                   
+                                </figure>
+                            </div> 
+                            <p>Having learned from more research, I decided to add more decoupling capacitors and various connectors (including GPIO).</p>
+                            <div class="featured">
+                                <figure>
+                                    <img src="img/blog-img/ARD4.png">
+                                   
+                                        
+                                   
+                                </figure>
+                            </div> 
+
+                            <p></p>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Programming</a></li>
+                                <li><a href="#">Science</a></li>
+                                <li><a href="#">Electronics</a></li>
+                                <li><a href="#">Hardware</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">June 09, 2020</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Sidebar Area ========== -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area mb-100">
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">About</h5>
+                            <div class="widget-content">
+                                <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge. We specialises in Programming, Design & Mobile app Develpment. Here we share with you tips & articles, based on our experience.</p>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Also Read</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Git-Logo.png" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Githook.html" class="headline">
+                                            <h5 class="mb-0">Getting Started With Git Hooks Gentle Introduction Using Ghooks</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/cyber.jfif" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Cyber.html" class="headline">
+                                            <h5 class="mb-0">Cybersecurity- Understanding Threat Actors who could potentially harm</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/data science.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Data Science.html" class="headline">
+                                            <h5 class="mb-0">Data Science- A Fascinating Technology That Is Rapidly Evolving</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Ai.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Neural.html" class="headline">
+                                            <h5 class="mb-0">Neural Network- Foundation Of the Artificial Intelligence (AI)</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/Machine_learning.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="Machine.html" class="headline">
+                                            <h5 class="mb-0">Machine Learning- A Gentle Introduction To Computational Learning</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Today’s Pick</h5>
+                            <div class="widget-content">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post todays-pick">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/corona.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content px-0 pb-0">
+                                        <a href="Quarintine.html" class="headline">
+                                            <h5>17 Online Activities Apps & Initiatives to use during the Coronavirus Quarantine</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============== Related Post ============== -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/raspberry.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Hardware</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Resperrypie.html" class="headline">
+                                <h5>Create a RetroPie on Raspberry Pi</h5>
+                            </a>
+                            <p>Today we get to play amazing games on our super powered game consoles, PCs, VR headsets, and even mobile devices.While I enjoy playing new games these days...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 17, 2020 at 10:48 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="img/blog-img/computer vision.jpg" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Technology</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="Computer Vision.html" class="headline">
+                                <h5>Computer Vision</h5>
+                            </a>
+                            <p>Edge computing optimizes internet devices and web applications by bringing computing closer to the source of the data. This minimizes the need for long distance communications....</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">Prashant Tiwari</a> on <a href="#" class="post-date">August 12, 2020 at 3:18 pm</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="post-a-comment-area mt-70">
+                        <h5>Leave a Comment</h5>
+                        <!-- Contact Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="text" name="name" id="name" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="group">
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="group">
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Enter your comment</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn world-btn">Post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mt-70">
+                        <ol>
+                            <!-- Single Comment Area -->
+                          
+                            <!-- Single Comment Area -->
+                         
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <a href="#">VERTEX BLOG</a> <br>
+                        <br>
+                        <p>We Brings together a commmunity of Science & Technology to help you transfer our ideas into Knowledge.</p>
+                        <div class="copywrite-text mt-30">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All Rights Reserved <br>
+ Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Prashant Tiwari</a> 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <ul class="footer-menu d-flex justify-content-between">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer-single-widget">
+                        <h5>Subscribe</h5>
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
+                            <button type="button"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>
